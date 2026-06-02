@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premier Logistics — Plataforma de Gestão Integrada</title>
+  <title>Premier Logistics â€” Plataforma de GestÃ£o Integrada</title>
   <script>
     (function() {
       let savedTheme = 'light';
@@ -71,6 +71,10 @@
       --color-rh-light: #F0F9FF;
       --color-gestao: #0066FF; /* Electric Blue */
       --color-gestao-light: #E6F0FF;
+      --color-qualidade: #10B981; /* Emerald Green */
+      --color-qualidade-light: #ECFDF5;
+      --color-tecnologia: #06B6D4; /* Cyan */
+      --color-tecnologia-light: #ECFEFF;
 
       /* UI Constants */
       --sidebar-width: 280px;
@@ -177,10 +181,11 @@
       background: linear-gradient(135deg, #0A1628 0%, #060B13 100%);
       padding: 2rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       position: relative;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     /* Grid overlay for aesthetic */
@@ -212,22 +217,20 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       color: var(--text-white);
       z-index: 10;
+      margin: auto;
     }
 
     .login-logo-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .login-logo-img {
-      max-height: 70px;
+      max-height: 130px;
       object-fit: contain;
-      margin-bottom: 0.5rem;
-      background: white;
-      border-radius: 8px;
-      padding: 6px 12px;
+      margin-bottom: 0;
     }
 
     .login-logo-fallback {
@@ -246,17 +249,19 @@
     .login-subtitle {
       font-size: 0.85rem;
       color: var(--text-sidebar-muted);
-      margin-top: 0.25rem;
+      margin-top: 0;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
 
     .login-title-h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 0.86rem;
+      font-weight: 700;
       margin-bottom: 1.5rem;
+      margin-top: 0.5rem;
       text-align: center;
-      letter-spacing: -0.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     .form-group {
@@ -431,12 +436,9 @@
     }
 
     .sidebar-logo-img {
-      max-height: 38px;
-      max-width: 160px;
+      max-height: 48px;
+      max-width: 180px;
       object-fit: contain;
-      background: white;
-      border-radius: 6px;
-      padding: 3px 8px;
     }
 
     .sidebar-logo-fallback {
@@ -773,7 +775,7 @@
       font-weight: 600;
     }
 
-    /* Conteúdo Principal */
+    /* ConteÃºdo Principal */
     .content-area {
       flex: 1;
       padding: 1rem 1.75rem;
@@ -796,20 +798,20 @@
     }
 
     /* ==========================================
-       DASHBOARD — GESTOR
+       DASHBOARD â€” GESTOR
        ========================================== */
     .dashboard-kpis {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.25rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.25rem;
     }
 
     .kpi-card {
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 1.25rem 1.35rem;
+      padding: 1rem 1.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -817,7 +819,7 @@
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
       position: relative;
       overflow: hidden;
-      min-height: 135px;
+      min-height: 120px;
     }
 
     .kpi-card::before {
@@ -845,7 +847,7 @@
     }
 
     .kpi-label {
-      font-size: 0.7rem;
+      font-size: 0.63rem;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -860,7 +862,7 @@
     }
 
     .kpi-value {
-      font-size: 1.8rem;
+      font-size: 1.62rem;
       font-weight: 800;
       letter-spacing: -1.2px;
       color: var(--text-main);
@@ -868,7 +870,7 @@
     }
 
     .kpi-subtext {
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       color: var(--text-muted);
       font-weight: 500;
       margin-top: 0.4rem;
@@ -878,9 +880,9 @@
     }
 
     .kpi-icon-container {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -897,8 +899,8 @@
     .kpi-card.kpi-delayed .kpi-icon-container { background-color: var(--danger-light); color: var(--danger); }
 
     .kpi-icon {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
 
     /* Split Dashboard Layout */
@@ -1021,11 +1023,11 @@
 
     .alert-box {
       border-radius: var(--radius-md);
-      padding: 1rem;
-      font-size: 0.85rem;
+      padding: 0.65rem 0.8rem;
+      font-size: 0.76rem;
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: 0.6rem;
       border-left: 4px solid var(--danger);
       background-color: var(--danger-light);
       color: #991B1B;
@@ -1039,11 +1041,11 @@
     }
 
     .alert-icon {
-      width: 18px;
-      height: 18px;
+      width: 15px;
+      height: 15px;
       flex-shrink: 0;
       color: var(--danger);
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     .alert-details {
@@ -1052,18 +1054,18 @@
 
     .alert-title {
       font-weight: 700;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.15rem;
     }
 
     .alert-desc {
       opacity: 0.9;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     /* Tasks General Table */
     .table-container {
       width: 100%;
-      overflow-x: auto;
+      overflow-x: hidden;
       margin-top: 1rem;
     }
 
@@ -1071,24 +1073,28 @@
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
+      table-layout: fixed;
     }
 
     .data-table th {
       background-color: var(--bg-primary);
-      padding: 0.85rem 1rem;
+      padding: 0.75rem 0.6rem;
       font-weight: 700;
       color: var(--text-muted);
       border-bottom: 1px solid var(--border-color);
       text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.5px;
     }
 
     .data-table td {
-      padding: 1rem;
+      padding: 0.9rem 0.6rem;
       border-bottom: 1px solid var(--border-color);
       vertical-align: middle;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
     }
 
     .data-table tbody tr:hover {
@@ -1159,7 +1165,7 @@
     }
 
     /* ==========================================
-       DASHBOARD — COLABORADOR
+       DASHBOARD â€” COLABORADOR
        ========================================== */
     .dashboard-colab-layout {
       display: grid;
@@ -2069,7 +2075,7 @@
     }
 
     /* ==========================================
-       CONFIGURAÇÕES MODULE
+       CONFIGURAÃ‡Ã•ES MODULE
        ========================================== */
     .settings-grid {
       display: grid;
@@ -2248,7 +2254,7 @@
     /* Responsive adjustments */
     @media (max-width: 1279px) {
       body::before {
-        content: 'Este sistema é otimizado para telas desktop (mínimo de 1280px).';
+        content: 'Este sistema Ã© otimizado para telas desktop (mÃ­nimo de 1280px).';
         position: fixed;
         inset: 0;
         background: #0A1628;
@@ -2265,7 +2271,7 @@
     }
 
     /* ============================================================
-       DASHBOARD REDESIGN — CLASSES PREMIUM
+       DASHBOARD REDESIGN â€” CLASSES PREMIUM
     ============================================================ */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(12px); }
@@ -2544,7 +2550,7 @@
     <div class="login-card">
       <div class="login-logo-container">
         <!-- Logo da empresa Premier Logistics -->
-        <img src="premier_logistics_perfil_email.png" alt="Premier Logistics Logo" class="login-logo-img" onerror="this.style.display='none'; document.getElementById('login-fallback').style.display='flex';">
+        <img src="logo-nova.png.png" alt="Premier Logistics Logo" class="login-logo-img" onerror="this.style.display='none'; document.getElementById('login-fallback').style.display='flex';">
         <div id="login-fallback" class="login-logo-fallback" style="display: none;">
           <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -2553,7 +2559,7 @@
           </svg>
           <span>Premier <span class="logo-highlight">Logistics</span></span>
         </div>
-        <div class="login-subtitle">Gestão Integrada Premier</div>
+        <div class="login-subtitle">GestÃ£o Integrada Premier</div>
       </div>
 
       <h2 class="login-title-h2">Acesse a sua conta</h2>
@@ -2565,7 +2571,7 @@
 
       <form id="login-form" onsubmit="event.preventDefault(); handleLogin();">
         <div class="form-group">
-          <label class="form-label" for="login-email">Endereço de e-mail</label>
+          <label class="form-label" for="login-email">EndereÃ§o de e-mail</label>
           <div class="form-input-container">
             <i data-lucide="mail" class="form-icon"></i>
             <input type="email" id="login-email" class="form-input" placeholder="exemplo@premier.com" required>
@@ -2576,7 +2582,7 @@
           <label class="form-label" for="login-password">Senha de acesso</label>
           <div class="form-input-container">
             <i data-lucide="lock" class="form-icon"></i>
-            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+            <input type="password" id="login-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
           </div>
         </div>
 
@@ -2598,50 +2604,67 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label" for="reg-equipe">Sua Equipe</label>
+          <label class="form-label" for="reg-setor">Setor</label>
           <div class="form-input-container">
-            <i data-lucide="users" class="form-icon"></i>
-            <select id="reg-equipe" class="form-input" required style="appearance: none; padding-right: 2rem;">
-              <option value="" disabled selected>Selecione...</option>
-              <option value="Gestão">Diretoria / Gestão</option>
-              <option value="Logística / Operações">Logística / Operações</option>
-              <option value="Faturamento">Faturamento</option>
-              <option value="Comercial / Vendas">Comercial / Vendas</option>
-              <option value="RH / Administrativo">RH / Administrativo</option>
+            <i data-lucide="building-2" class="form-icon"></i>
+            <select id="reg-setor" class="form-input" required style="appearance: none; padding-right: 2rem;" onchange="updateRegisterSubSectors()">
+              <option value="" disabled selected>Selecione o setor...</option>
+              <option value="Financeiro">Financeiro</option>
+              <option value="Operacional">Operacional</option>
+              <option value="R&S">R&S</option>
+              <option value="DP">DP</option>
+              <option value="Qualidade">Qualidade</option>
+              <option value="Tecnologia">Tecnologia</option>
             </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-subsetor">Subsetor</label>
+          <div class="form-input-container">
+            <i data-lucide="layers" class="form-icon"></i>
+            <select id="reg-subsetor" class="form-input" style="appearance: none; padding-right: 2rem;">
+              <option value="" disabled selected>Selecione o subsetor...</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-funcao">FunÃ§Ã£o / Cargo</label>
+          <div class="form-input-container">
+            <i data-lucide="briefcase" class="form-icon"></i>
+            <input type="text" id="reg-funcao" class="form-input" placeholder="Ex: Analista Financeiro" required>
           </div>
         </div>
         <div class="form-group">
           <label class="form-label" for="reg-password">Senha</label>
           <div class="form-input-container">
             <i data-lucide="lock" class="form-icon"></i>
-            <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required>
+            <input type="password" id="reg-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
           </div>
         </div>
         <button type="submit" class="btn-login" style="background: var(--success); border-color: var(--success-border); color: #fff;">Criar Conta e Entrar</button>
       </form>
 
       <div id="box-to-register" class="login-register-box" style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">Não possui uma conta?</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">NÃ£o possui uma conta?</p>
         <button type="button" class="btn-action-primary" onclick="toggleRegisterForm(true)" style="width: 100%; justify-content: center; background: transparent; color: var(--primary); border: 1px solid var(--primary);">Criar um Novo Login</button>
       </div>
 
       <div id="box-to-login" class="login-register-box hidden" style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">Já possui uma conta?</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">JÃ¡ possui uma conta?</p>
         <button type="button" class="btn-action-primary" onclick="toggleRegisterForm(false)" style="width: 100%; justify-content: center; background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);">Voltar para o Login</button>
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       LAYOUT PRINCIPAL PÓS-LOGIN
+       LAYOUT PRINCIPAL PÃ“S-LOGIN
        ========================================== -->
   <section id="app-section" class="app-wrapper hidden">
     <!-- Sidebar esquerda fixa -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-brand">
-          <img src="premier_logistics_perfil_email.png" alt="Premier Logistics" class="sidebar-logo-img" onerror="this.style.display='none'; document.getElementById('sidebar-fallback').style.display='flex';">
+          <img src="logo-nova.png.png" alt="Premier Logistics" class="sidebar-logo-img" onerror="this.style.display='none'; document.getElementById('sidebar-fallback').style.display='flex';">
           <div id="sidebar-fallback" class="sidebar-logo-fallback" style="display: none;">
             <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -2657,7 +2680,7 @@
         <div class="profile-avatar-circle flex-center" id="sidebar-avatar-initials">CM</div>
         <div class="profile-info">
           <h4 class="profile-name" id="sidebar-user-name">Carlos Mendes</h4>
-          <p class="profile-role" id="sidebar-user-role">Diretor de Operações</p>
+          <p class="profile-role" id="sidebar-user-role">Diretor de OperaÃ§Ãµes</p>
         </div>
       </div>
 
@@ -2675,6 +2698,12 @@
             <span>Minhas Tarefas</span>
           </button>
         </li>
+        <li class="menu-item hidden" id="sidebar-team-tasks-item">
+          <button class="menu-link" onclick="switchView('team-tasks')">
+            <i data-lucide="list-todo" class="menu-link-icon"></i>
+            <span>Tarefas das Equipes</span>
+          </button>
+        </li>
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('roadmaps')" id="sidebar-roadmap-link">
             <i data-lucide="clipboard-check" class="menu-link-icon"></i>
@@ -2688,24 +2717,30 @@
           </button>
         </li>
         <li class="menu-item">
+          <button class="menu-link" onclick="switchView('members')">
+            <i data-lucide="users" class="menu-link-icon"></i>
+            <span>Membros do Setor</span>
+          </button>
+        </li>
+        <li class="menu-item">
           <button class="menu-link" onclick="switchView('calendar')">
             <i data-lucide="calendar" class="menu-link-icon"></i>
-            <span>Calendário</span>
+            <span>CalendÃ¡rio</span>
           </button>
         </li>
         
-        <li class="menu-section-title" style="margin-top: 1.5rem;">Configurações & Alertas</li>
+        <li class="menu-section-title" style="margin-top: 1.5rem;">ConfiguraÃ§Ãµes & Alertas</li>
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('notifications')">
             <i data-lucide="bell" class="menu-link-icon"></i>
-            <span>Notificações</span>
+            <span>NotificaÃ§Ãµes</span>
             <span class="menu-badge hidden" id="sidebar-notif-badge">3</span>
           </button>
         </li>
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('settings')">
             <i data-lucide="settings" class="menu-link-icon"></i>
-            <span>Configurações</span>
+            <span>ConfiguraÃ§Ãµes</span>
           </button>
         </li>
       </ul>
@@ -2713,18 +2748,18 @@
       <div class="sidebar-footer">
         <button class="btn-logout" onclick="handleLogout()">
           <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
-          <span>Sair da Sessão</span>
+          <span>Sair da SessÃ£o</span>
         </button>
       </div>
     </aside>
 
-    <!-- Área de layout principal -->
+    <!-- Ãrea de layout principal -->
     <main class="main-layout">
       <!-- Header Superior -->
       <header class="top-header">
         <div class="header-title-area">
           <h1 class="header-title-text" id="header-title">Dashboard Geral</h1>
-          <p class="header-subtitle-text" id="header-subtitle">Bem-vindo à plataforma de monitoramento de operações.</p>
+          <p class="header-subtitle-text" id="header-subtitle">Bem-vindo Ã  plataforma de monitoramento de operaÃ§Ãµes.</p>
         </div>
 
         <div class="header-actions-area">
@@ -2734,19 +2769,19 @@
             <input type="text" class="header-search-input" id="global-search" placeholder="Buscar tarefas ou projetos..." oninput="handleGlobalSearch(this.value)">
           </div>
 
-          <!-- Botão Toggle de Tema -->
+          <!-- BotÃ£o Toggle de Tema -->
           <button class="header-theme-btn flex-center" onclick="toggleTheme()" title="Alternar tema">
             <i data-lucide="sun" id="theme-icon-sun" style="width: 18px; height: 18px;"></i>
             <i data-lucide="moon" id="theme-icon-moon" class="hidden" style="width: 18px; height: 18px;"></i>
           </button>
 
-          <!-- Badges de notificação rápidos -->
+          <!-- Badges de notificaÃ§Ã£o rÃ¡pidos -->
           <button class="header-notif-btn flex-center" onclick="switchView('notifications')">
             <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
             <span class="header-notif-badge hidden" id="header-notif-badge">3</span>
           </button>
 
-          <!-- Usuário logado -->
+          <!-- UsuÃ¡rio logado -->
           <div class="header-avatar-widget" onclick="switchView('settings')">
             <div class="header-avatar-circle" id="header-avatar-initials">CM</div>
             <span class="header-avatar-name" id="header-user-name">Carlos Mendes</span>
@@ -2754,21 +2789,21 @@
         </div>
       </header>
 
-      <!-- Seção Dinâmica de Conteúdo -->
+      <!-- SeÃ§Ã£o DinÃ¢mica de ConteÃºdo -->
       <section class="content-area">
         
         <!-- ==========================================
              VIEW: DASHBOARD (GESTOR)
              ========================================== */ -->
         <div id="view-dashboard" class="view-panel">
-          <!-- KPIs de Visão Geral -->
+          <!-- KPIs de VisÃ£o Geral -->
           <div class="dashboard-kpis" id="dashboard-kpis-container">
             <!-- Cards gerados em JS -->
           </div>
 
-          <div class="dashboard-grid" id="gestor-dashboard-layout">
-            <!-- Left Side: Tasks Table -->
-            <div class="dashboard-panel" style="display: flex; flex-direction: column; height: 100%; min-height: 0; overflow: hidden;">
+          <div class="dashboard-grid" id="gestor-dashboard-layout" style="display: flex !important; flex-direction: column !important; gap: 1.25rem; flex: 1; min-height: 0; overflow: hidden;">
+            <!-- Top Side: General Tasks Table (Full Width) -->
+            <div class="dashboard-panel" style="display: flex; flex-direction: column; flex: 1.3; min-height: 0; overflow: hidden;">
               <div class="panel-header" style="flex-shrink: 0; margin-bottom: 0.5rem;">
                 <h3 class="panel-title">
                   <i data-lucide="list-todo" class="logo-icon-svg" style="color: var(--primary);"></i>
@@ -2782,12 +2817,12 @@
                 <table class="data-table" id="dashboard-tasks-table">
                   <thead>
                     <tr>
-                      <th>Tarefa</th>
-                      <th>Equipe</th>
-                      <th>Responsável</th>
-                      <th>Status</th>
-                      <th>Prazo</th>
-                      <th>Prioridade</th>
+                      <th style="width: 32%;">Tarefa</th>
+                      <th style="width: 15%;">Equipe</th>
+                      <th style="width: 18%;">ResponsÃ¡vel</th>
+                      <th style="width: 12%;">Status</th>
+                      <th style="width: 13%;">Prazo</th>
+                      <th style="width: 10%;">Prioridade</th>
                     </tr>
                   </thead>
                   <tbody id="dashboard-tasks-tbody">
@@ -2797,8 +2832,9 @@
               </div>
             </div>
 
-            <!-- Right Side: Progress & Alerts -->
-            <div style="display: flex; flex-direction: column; gap: 1.25rem; height: 100%; min-height: 0; overflow: hidden;">
+            <!-- Bottom Side: Progress & Alerts (Side-by-Side) -->
+            <div style="display: flex; flex-direction: row; gap: 1.25rem; flex: 1; min-height: 0; overflow: hidden;">
+              <!-- Left: Progress -->
               <div class="dashboard-panel" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
                 <div class="panel-header" style="flex-shrink: 0; margin-bottom: 0.5rem;">
                   <h3 class="panel-title">Progresso por Equipe</h3>
@@ -2808,6 +2844,7 @@
                 </div>
               </div>
 
+              <!-- Right: Alerts -->
               <div class="dashboard-panel" style="flex: 1; display: flex; flex-direction: column; overflow: hidden; min-height: 0;">
                 <div class="panel-header" style="flex-shrink: 0; margin-bottom: 0.5rem;">
                   <h3 class="panel-title">Alertas Importantes</h3>
@@ -2834,16 +2871,18 @@
             <div class="filters-group-left">
               <select class="filter-select" id="filter-team" onchange="handleTaskFilterChange()">
                 <option value="All">Todas as Equipes</option>
-                <option value="Faturamento">Faturamento</option>
-                <option value="Logística / Operações">Logística / Operações</option>
-                <option value="Comercial / Vendas">Comercial / Vendas</option>
-                <option value="RH / Administrativo">RH / Administrativo</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Operacional">Operacional</option>
+                <option value="R&S">R&S</option>
+                <option value="DP">DP</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="Tecnologia">Tecnologia</option>
               </select>
 
               <select class="filter-select" id="filter-priority" onchange="handleTaskFilterChange()">
                 <option value="All">Todas as Prioridades</option>
                 <option value="Alta">Alta</option>
-                <option value="Média">Média</option>
+                <option value="MÃ©dia">MÃ©dia</option>
                 <option value="Baixa">Baixa</option>
               </select>
             </div>
@@ -2880,24 +2919,24 @@
               <div class="cards-container" id="container-in_progress"></div>
             </div>
 
-            <!-- REVISÃO -->
+            <!-- REVISÃƒO -->
             <div class="kanban-column" id="col-review" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" ondrop="handleDrop(event, 'review')">
               <div class="column-header">
                 <span class="column-title">
                   <i data-lucide="eye" style="width: 16px; height: 16px; color: var(--primary);"></i>
-                  Revisão
+                  RevisÃ£o
                 </span>
                 <span class="column-counter" id="counter-review">0</span>
               </div>
               <div class="cards-container" id="container-review"></div>
             </div>
 
-            <!-- CONCLUÍDO -->
+            <!-- CONCLUÃDO -->
             <div class="kanban-column" id="col-done" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" ondrop="handleDrop(event, 'done')">
               <div class="column-header">
                 <span class="column-title">
                   <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--success);"></i>
-                  Concluído
+                  ConcluÃ­do
                 </span>
                 <span class="column-counter" id="counter-done">0</span>
               </div>
@@ -2921,7 +2960,7 @@
         <div id="view-projects" class="view-panel hidden">
           <div class="filter-bar">
             <div class="filters-group-left">
-              <h3 style="font-weight: 700;">Iniciativas e Projetos Estratégicos</h3>
+              <h3 style="font-weight: 700;">Iniciativas e Projetos EstratÃ©gicos</h3>
             </div>
             <button class="btn-action-primary" onclick="openNewProjectModal()">
               <i data-lucide="folder-plus" style="width: 16px; height: 16px;"></i>
@@ -2935,7 +2974,25 @@
         </div>
 
         <!-- ==========================================
-             VIEW: CALENDÁRIO
+             VIEW: MEMBROS DO SETOR
+             ========================================== */ -->
+        <div id="view-members" class="view-panel hidden">
+          <div class="filter-bar">
+            <div class="filters-group-left">
+              <h3 style="font-weight: 700;">Membros do Departamento</h3>
+            </div>
+            <div id="members-filter-container">
+              <!-- Loaded dynamically in JS for Gestor -->
+            </div>
+          </div>
+
+          <div class="members-grid" id="members-grid-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
+            <!-- Loaded dynamically in JS -->
+          </div>
+        </div>
+
+        <!-- ==========================================
+             VIEW: CALENDÃRIO
              ========================================== */ -->
         <div id="view-calendar" class="view-panel hidden">
           <div class="calendar-wrapper">
@@ -2969,7 +3026,7 @@
         </div>
 
         <!-- ==========================================
-             VIEW: NOTIFICAÇÕES
+             VIEW: NOTIFICAÃ‡Ã•ES
              ========================================== */ -->
         <div id="view-notifications" class="view-panel hidden">
           <div class="notif-wrapper">
@@ -2984,7 +3041,7 @@
         </div>
 
         <!-- ==========================================
-             VIEW: CONFIGURAÇÕES
+             VIEW: CONFIGURAÃ‡Ã•ES
              ========================================== */ -->
         <div id="view-settings" class="view-panel hidden">
           <div class="settings-grid">
@@ -2992,7 +3049,7 @@
               <div class="settings-avatar-big flex-center" id="settings-avatar-initials">CM</div>
               <div>
                 <h3 style="font-weight: 700;" id="settings-user-name">Carlos Mendes</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;" id="settings-user-role">Diretor de Operações</p>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;" id="settings-user-role">Diretor de OperaÃ§Ãµes</p>
               </div>
               <div style="background-color: var(--bg-primary); padding: 0.4rem 0.85rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border-color);" id="settings-user-badge">
                 GESTOR
@@ -3000,7 +3057,7 @@
             </div>
 
             <div class="dashboard-panel" style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <h3 style="font-weight: 700; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Preferências da Plataforma</h3>
+              <h3 style="font-weight: 700; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">PreferÃªncias da Plataforma</h3>
               
               <div class="detail-item">
                 <span class="detail-label">Tema da Interface</span>
@@ -3016,13 +3073,13 @@
 
               <div class="detail-item">
                 <span class="detail-label">Equipe Principal</span>
-                <span class="detail-value" style="font-size: 1rem; margin-top: 0.2rem;" id="settings-user-team">Gestão</span>
+                <span class="detail-value" style="font-size: 1rem; margin-top: 0.2rem;" id="settings-user-team">GestÃ£o</span>
               </div>
 
               <div class="detail-item">
-                <span class="detail-label">Configurações Gerais</span>
+                <span class="detail-label">ConfiguraÃ§Ãµes Gerais</span>
                 <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.25rem;">
-                  Como este é um ambiente demonstrativo rodando inteiramente em cache no navegador, as alterações em tarefas, projetos e roteiros serão salvas na memória local durante a sua navegação ativa.
+                  Como este Ã© um ambiente demonstrativo rodando inteiramente em cache no navegador, as alteraÃ§Ãµes em tarefas, projetos e roteiros serÃ£o salvas na memÃ³ria local durante a sua navegaÃ§Ã£o ativa.
                 </p>
               </div>
             </div>
@@ -3046,7 +3103,7 @@
     </div>
     <div class="drawer-body">
       <div class="detail-item">
-        <span class="drawer-section-title">Descrição Geral</span>
+        <span class="drawer-section-title">DescriÃ§Ã£o Geral</span>
         <p id="drawer-project-desc" style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
           Detalhes completos do escopo e metas do projeto...
         </p>
@@ -3054,15 +3111,15 @@
 
       <div class="drawer-details-grid">
         <div class="detail-item">
-          <span class="detail-label">Equipe Responsável</span>
-          <span class="detail-value" id="drawer-project-team">Logística</span>
+          <span class="detail-label">Equipe ResponsÃ¡vel</span>
+          <span class="detail-value" id="drawer-project-team">LogÃ­stica</span>
         </div>
         <div class="detail-item">
           <span class="detail-label">Status Atual</span>
           <span class="detail-value" id="drawer-project-status">Em Planejamento</span>
         </div>
         <div class="detail-item">
-          <span class="detail-label">Data de Início</span>
+          <span class="detail-label">Data de InÃ­cio</span>
           <span class="detail-value" id="drawer-project-start">10/05/2026</span>
         </div>
         <div class="detail-item">
@@ -3085,13 +3142,19 @@
         <span class="drawer-section-title">Tarefas Vinculadas</span>
         <div class="drawer-task-list" id="drawer-project-tasks-list">
           <!-- Loaded dynamically based on the project selection -->
-        </div>
+      </div>
+
+      <div style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+        <button class="btn-logout" id="btn-delete-project" onclick="deleteCurrentProject()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.75rem; border-radius: var(--radius-md); background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: #FCA5A5; font-weight: 600; font-size: 0.85rem; transition: var(--transition-normal);">
+          <i data-lucide="trash-2" style="width: 16px; height: 16px;"></i>
+          <span>Excluir Projeto</span>
+        </button>
       </div>
     </div>
   </aside>
 
   <!-- ==========================================
-       MODAL DE CRIAÇÃO DE NOVA TAREFA
+       MODAL DE CRIAÃ‡ÃƒO DE NOVA TAREFA
        ========================================== -->
   <div class="modal-overlay" id="task-modal">
     <div class="modal-card">
@@ -3104,28 +3167,37 @@
       <form onsubmit="event.preventDefault(); submitNewTask();">
         <div class="modal-body">
           <div class="modal-form-group">
-            <label class="modal-form-label" for="task-title">Título da Tarefa</label>
-            <input type="text" id="task-title" class="modal-form-input" placeholder="Ex: Conferência final de CTe" required>
+            <label class="modal-form-label" for="task-title">TÃ­tulo da Tarefa</label>
+            <input type="text" id="task-title" class="modal-form-input" placeholder="Ex: ConferÃªncia final de CTe" required>
           </div>
 
           <div class="modal-form-group">
-            <label class="modal-form-label" for="task-desc">Descrição / Detalhes</label>
-            <textarea id="task-desc" class="modal-form-textarea" placeholder="Descreva os passos necessários para a conclusão desta tarefa..."></textarea>
+            <label class="modal-form-label" for="task-desc">DescriÃ§Ã£o / Detalhes</label>
+            <textarea id="task-desc" class="modal-form-textarea" placeholder="Descreva os passos necessÃ¡rios para a conclusÃ£o desta tarefa..."></textarea>
           </div>
 
-          <div class="modal-grid-2">
+          <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-team">Equipe Responsável</label>
-              <select id="task-team" class="modal-form-select" onchange="populateAssigneesForSelectedTeam()" required>
-                <option value="Faturamento">Faturamento</option>
-                <option value="Logística / Operações">Logística / Operações</option>
-                <option value="Comercial / Vendas">Comercial / Vendas</option>
-                <option value="RH / Administrativo">RH / Administrativo</option>
+              <label class="modal-form-label" for="task-team">Equipe ResponsÃ¡vel</label>
+              <select id="task-team" class="modal-form-select" onchange="updateSubSectorsSelect('task'); populateAssigneesForSelectedTeam();" required>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Operacional">Operacional</option>
+                <option value="R&S">R&S</option>
+                <option value="DP">DP</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="Tecnologia">Tecnologia</option>
               </select>
             </div>
 
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-assignee">Responsável direto</label>
+              <label class="modal-form-label" for="task-subsector">Sub-setor / Carteira</label>
+              <select id="task-subsector" class="modal-form-select" required>
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="task-assignee">ResponsÃ¡vel direto</label>
               <select id="task-assignee" class="modal-form-select" required>
                 <!-- Populated dynamically based on team -->
               </select>
@@ -3134,7 +3206,7 @@
 
           <div class="modal-grid-2">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-deadline">Prazo de Conclusão</label>
+              <label class="modal-form-label" for="task-deadline">Prazo de ConclusÃ£o</label>
               <input type="date" id="task-deadline" class="modal-form-input" required>
             </div>
 
@@ -3142,7 +3214,7 @@
               <label class="modal-form-label" for="task-priority">Prioridade</label>
               <select id="task-priority" class="modal-form-select" required>
                 <option value="Alta">Alta</option>
-                <option value="Média">Média</option>
+                <option value="MÃ©dia">MÃ©dia</option>
                 <option value="Baixa">Baixa</option>
               </select>
             </div>
@@ -3165,12 +3237,12 @@
   </div>
 
   <!-- ==========================================
-       MODAL DE CRIAÇÃO DE NOVO PROJETO
+       MODAL DE CRIAÃ‡ÃƒO DE NOVO PROJETO
        ========================================== -->
   <div class="modal-overlay" id="project-modal">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 class="modal-title">Novo Projeto Estratégico</h3>
+        <h3 class="modal-title">Novo Projeto EstratÃ©gico</h3>
         <button class="btn-close-modal flex-center" onclick="closeNewProjectModal()">
           <i data-lucide="x" style="width: 16px; height: 16px;"></i>
         </button>
@@ -3179,23 +3251,32 @@
         <div class="modal-body">
           <div class="modal-form-group">
             <label class="modal-form-label" for="project-title">Nome da Iniciativa</label>
-            <input type="text" id="project-title" class="modal-form-input" placeholder="Ex: Expansão Logística Nordeste" required>
+            <input type="text" id="project-title" class="modal-form-input" placeholder="Ex: ExpansÃ£o LogÃ­stica Nordeste" required>
           </div>
 
           <div class="modal-form-group">
-            <label class="modal-form-label" for="project-desc">Descrição / Escopo do Projeto</label>
+            <label class="modal-form-label" for="project-desc">DescriÃ§Ã£o / Escopo do Projeto</label>
             <textarea id="project-desc" class="modal-form-textarea" placeholder="Descreva os objetivos fundamentais deste projeto..."></textarea>
           </div>
 
-          <div class="modal-grid-2">
+          <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="project-team">Equipe Responsável</label>
-              <select id="project-team" class="modal-form-select" required>
-                <option value="Faturamento">Faturamento</option>
-                <option value="Logística / Operações">Logística / Operações</option>
-                <option value="Comercial / Vendas">Comercial / Vendas</option>
-                <option value="RH / Administrativo">RH / Administrativo</option>
-                <option value="Gestão">Gestão</option>
+              <label class="modal-form-label" for="project-team">Equipe ResponsÃ¡vel</label>
+              <select id="project-team" class="modal-form-select" onchange="updateSubSectorsSelect('project')" required>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Operacional">Operacional</option>
+                <option value="R&S">R&S</option>
+                <option value="DP">DP</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="Tecnologia">Tecnologia</option>
+                <option value="GestÃ£o">GestÃ£o</option>
+              </select>
+            </div>
+
+            <div class="modal-form-group">
+              <label class="modal-form-label" for="project-subsector">Sub-setor / Carteira</label>
+              <select id="project-subsector" class="modal-form-select" required>
+                <!-- Populated dynamically -->
               </select>
             </div>
 
@@ -3203,15 +3284,15 @@
               <label class="modal-form-label" for="project-status">Status Inicial</label>
               <select id="project-status" class="modal-form-select" required>
                 <option value="Em Planejamento">Em Planejamento</option>
-                <option value="Em Execução">Em Execução</option>
-                <option value="Concluído">Concluído</option>
+                <option value="Em ExecuÃ§Ã£o">Em ExecuÃ§Ã£o</option>
+                <option value="ConcluÃ­do">ConcluÃ­do</option>
               </select>
             </div>
           </div>
 
           <div class="modal-grid-2">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="project-start">Data de Início</label>
+              <label class="modal-form-label" for="project-start">Data de InÃ­cio</label>
               <input type="date" id="project-start" class="modal-form-input" required>
             </div>
 
@@ -3230,11 +3311,11 @@
   </div>
 
   <!-- ==========================================
-       LÓGICA JAVASCRIPT & ESTADO GLOBAL
+       LÃ“GICA JAVASCRIPT & ESTADO GLOBAL
        ========================================== -->
   <script>
     /* ==========================================
-       0. SEGURANÇA E COMPATIBILIDADE (LOCALSTORAGE & LUCIDE)
+       0. SEGURANÃ‡A E COMPATIBILIDADE (LOCALSTORAGE & LUCIDE)
        ========================================== */
     const safeStorage = {
       _data: {},
@@ -3277,14 +3358,10 @@
     }
 
     /* ==========================================
-       1. USUÁRIOS PRÉ-DEFINIDOS (SIMULAÇÃO DB)
+       1. USUÃRIOS PRÃ‰-DEFINIDOS (SIMULAÃ‡ÃƒO DB)
        ========================================== */
     const defaultUsuarios = [
-      { nome: "Carlos Mendes", email: "carlos@premier.com", senha: "gestor123", equipe: "Gestão", cargo: "Diretor de Operações", perfil: "gestor" },
-      { nome: "Ana Lima", email: "ana@premier.com", senha: "fat123", equipe: "Faturamento", cargo: "Analista de Faturamento", perfil: "colaborador" },
-      { nome: "Pedro Souza", email: "pedro@premier.com", senha: "log123", equipe: "Logística / Operações", cargo: "Coordenador Logístico", perfil: "colaborador" },
-      { nome: "Julia Castro", email: "julia@premier.com", senha: "com123", equipe: "Comercial / Vendas", cargo: "Consultora Comercial", perfil: "colaborador" },
-      { nome: "Marcos Ferreira", email: "marcos@premier.com", senha: "rh123", equipe: "RH / Administrativo", cargo: "Analista de RH", perfil: "colaborador" }
+      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Diretor de OperaÃ§Ãµes", perfil: "gestor" }
     ];
 
     let cachedUsuarios = [];
@@ -3297,118 +3374,101 @@
       console.warn("Failed to load users from cache:", e);
     }
 
-    const usuarios = cachedUsuarios.length > 0 ? cachedUsuarios : [...defaultUsuarios];
+    const usuarios = [...defaultUsuarios];
+    if (cachedUsuarios.length > 0) {
+      cachedUsuarios.forEach(cu => {
+        if (cu && cu.email && !usuarios.some(du => du.email.toLowerCase() === cu.email.toLowerCase())) {
+          usuarios.push(cu);
+        }
+      });
+    }
+
+    // Persist list immediately to ensure it's healthy
+    try {
+      safeStorage.setItem('premier_usuarios', JSON.stringify(usuarios));
+    } catch (e) {
+      console.warn("Failed to persist combined users list:", e);
+    }
 
     /* ==========================================
        2. MOCK DATA ROBUSTA (DADOS INICIAIS)
        ========================================== */
-    const initialTasks = [
-      // Faturamento (6 tarefas)
-      { id: 'task-1', title: 'Coleta de notas fiscais pendentes', description: 'Coletar e centralizar todas as notas fiscais das filiais para fechamento mensal.', team: 'Faturamento', assignee: 'Ana Lima', status: 'todo', deadline: '2026-06-03', priority: 'Alta', project: 'proj-fat-1' },
-      { id: 'task-2', title: 'Conferência de dados fiscais', description: 'Validar dados tributários e alíquotas das transportadoras parceiras.', team: 'Faturamento', assignee: 'Ana Lima', status: 'in_progress', deadline: '2026-06-05', priority: 'Média', project: 'proj-fat-2' },
-      { id: 'task-3', title: 'Lançamento no ERP Totvs', description: 'Registrar notas fiscais de operações interestaduais no sistema ERP.', team: 'Faturamento', assignee: 'Ana Lima', status: 'review', deadline: '2026-06-08', priority: 'Alta', project: 'proj-fat-1' },
-      { id: 'task-4', title: 'Conciliação bancária quinzenal', description: 'Cruzar extratos bancários com contas a receber do mês corrente.', team: 'Faturamento', assignee: 'Ana Lima', status: 'done', deadline: '2026-05-28', priority: 'Baixa', project: 'proj-fat-2' },
-      { id: 'task-5', title: 'Geração de boletos e cobranças', description: 'Processar boletos faturados para a carteira de grandes clientes.', team: 'Faturamento', assignee: 'Ana Lima', status: 'todo', deadline: '2026-06-12', priority: 'Alta', project: 'proj-fat-1' },
-      { id: 'task-6', title: 'Auditoria de Notas Faturadas', description: 'Verificar possíveis duplicidades em notas fiscais emitidas no trimestre.', team: 'Faturamento', assignee: 'Ana Lima', status: 'todo', deadline: '2026-06-15', priority: 'Média', project: 'proj-fat-2' },
+    const initialTasks = [];
 
-      // Logística / Operações (6 tarefas)
-      { id: 'task-7', title: 'Planejamento de rotas da semana', description: 'Elaborar plano de rotas para a frota pesada atendendo o Sudeste.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'in_progress', deadline: '2026-05-25', priority: 'Alta', project: 'proj-log-1' }, // Atrasada de propósito!
-      { id: 'task-8', title: 'Confirmação de cargas e transportadoras', description: 'Fechar lotação de carretas com os parceiros homologados.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'done', deadline: '2026-05-27', priority: 'Média', project: 'proj-log-2' },
-      { id: 'task-9', title: 'Emissão de CTe e documentação', description: 'Emitir Conhecimentos de Transporte Eletrônicos (CTe) e MDFes para cargas em rota.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'in_progress', deadline: '2026-06-02', priority: 'Alta', project: 'proj-log-1' },
-      { id: 'task-10', title: 'Monitoramento de entregas em trânsito', description: 'Rastrear via satélite as carretas com destino ao porto de Santos.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'todo', deadline: '2026-06-05', priority: 'Média', project: 'proj-log-1' },
-      { id: 'task-11', title: 'Registro de ocorrências de avaria', description: 'Analisar relatório de devoluções e emitir notificações de avaria.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'review', deadline: '2026-05-30', priority: 'Baixa', project: 'proj-log-2' },
-      { id: 'task-12', title: 'Manutenção Preventiva - Frota SP', description: 'Agendar revisão obrigatória para as 5 carretas Scania da matriz.', team: 'Logística / Operações', assignee: 'Pedro Souza', status: 'todo', deadline: '2026-06-10', priority: 'Alta', project: 'proj-log-2' },
-
-      // Comercial / Vendas (6 tarefas)
-      { id: 'task-13', title: 'Prospecção de novos clientes industriais', description: 'Entrar em contato com 15 indústrias químicas no interior de SP.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'in_progress', deadline: '2026-06-02', priority: 'Média', project: 'proj-com-1' },
-      { id: 'task-14', title: 'Follow-up de propostas enviadas', description: 'Entrar em contato com o grupo Pão de Açúcar referente à proposta de distribuição.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'todo', deadline: '2026-06-01', priority: 'Alta', project: 'proj-com-2' },
-      { id: 'task-15', title: 'Reuniões e visitas comerciais', description: 'Reunião presencial com gerente de logística da Ambev para alinhamento.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'done', deadline: '2026-05-29', priority: 'Alta', project: 'proj-com-1' },
-      { id: 'task-16', title: 'Atualização de pipeline no CRM', description: 'Organizar funil de vendas e status dos contatos na plataforma CRM.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'todo', deadline: '2026-06-03', priority: 'Baixa', project: 'proj-com-2' },
-      { id: 'task-17', title: 'Preparação de Proposta - Unilever', description: 'Elaborar cotação de frete fracionado para operações Nordeste.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'review', deadline: '2026-06-04', priority: 'Alta', project: 'proj-com-1' },
-      { id: 'task-18', title: 'Pesquisa de Mercado - Frete Fracionado', description: 'Analisar tarifas da concorrência nas rotas SP-RJ.', team: 'Comercial / Vendas', assignee: 'Julia Castro', status: 'todo', deadline: '2026-06-08', priority: 'Média', project: 'proj-com-2' },
-
-      // RH / Administrativo (6 tarefas)
-      { id: 'task-19', title: 'Controle de ponto e frequência', description: 'Tratar inconsistências de ponto eletrônico dos motoristas do mês corrente.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'in_progress', deadline: '2026-05-31', priority: 'Média', project: 'proj-rh-1' },
-      { id: 'task-20', title: 'Processamento de férias operacionais', description: 'Emitir avisos e recibos de férias para a equipe de carregamento.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'done', deadline: '2026-05-25', priority: 'Baixa', project: 'proj-rh-2' },
-      { id: 'task-21', title: 'Fechamento da folha de pagamento', description: 'Consolidar proventos, descontos e horas extras para envio ao banco.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'todo', deadline: '2026-06-25', priority: 'Alta', project: 'proj-rh-1' },
-      { id: 'task-22', title: 'Envio de contracheques digitais', description: 'Disparar holerites eletrônicos via portal do colaborador.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'todo', deadline: '2026-06-28', priority: 'Média', project: 'proj-rh-1' },
-      { id: 'task-23', title: 'Recrutamento de Motoristas Cat E', description: 'Triagem de currículos e agendamento de testes práticos de direção.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'in_progress', deadline: '2026-06-07', priority: 'Alta', project: 'proj-rh-2' },
-      { id: 'task-24', title: 'Integração de Colaboradores (Onboarding)', description: 'Realizar treinamento institucional e entrega de EPIs para recém-contratados.', team: 'RH / Administrativo', assignee: 'Marcos Ferreira', status: 'todo', deadline: '2026-06-12', priority: 'Média', project: 'proj-rh-2' }
-    ];
-
-    const initialProjects = [
-      { id: 'proj-fat-1', name: 'Automação Fiscal ERP', team: 'Faturamento', progress: 45, startDate: '2026-05-01', deadline: '2026-06-30', status: 'Em Execução', description: 'Projeto para integrar o sistema de faturamento de transportes diretamente no ERP corporativo.' },
-      { id: 'proj-fat-2', name: 'Redução de Inadimplência', team: 'Faturamento', progress: 75, startDate: '2026-04-10', deadline: '2026-06-15', status: 'Em Execução', description: 'Iniciativa para revisão de réguas de cobrança e novos métodos de pagamento digital.' },
-      { id: 'proj-log-1', name: 'Roteirizador Inteligente AI', team: 'Logística / Operações', progress: 30, startDate: '2026-05-15', deadline: '2026-07-30', status: 'Em Execução', description: 'Implementação de novo software de roteirização automatizado com algoritmo genético.' },
-      { id: 'proj-log-2', name: 'Renovação Parcial da Frota', team: 'Logística / Operações', progress: 90, startDate: '2026-02-01', deadline: '2026-06-05', status: 'Em Execução', description: 'Processo de aquisição de 10 cavalos mecânicos novos e desativação de frotas antigas.' },
-      { id: 'proj-com-1', name: 'Expansão Canal E-Commerce', team: 'Comercial / Vendas', progress: 60, startDate: '2026-03-01', deadline: '2026-06-20', status: 'Em Execução', description: 'Parcerias com grandes marketplaces para oferecer soluções logísticas exclusivas.' },
-      { id: 'proj-com-2', name: 'CRM de Vendas Integrado', team: 'Comercial / Vendas', progress: 15, startDate: '2026-05-20', deadline: '2026-08-30', status: 'Em Planejamento', description: 'Migração de planilhas comerciais para uma solução CRM integrada.' },
-      { id: 'proj-rh-1', name: 'Portal do Colaborador 2.0', team: 'RH / Administrativo', progress: 50, startDate: '2026-04-01', deadline: '2026-06-25', status: 'Em Execução', description: 'Desenvolvimento de intranet moderna para solicitação de férias e benefícios.' },
-      { id: 'proj-rh-2', name: 'Capacitação Motoristas Premier', team: 'RH / Administrativo', progress: 80, startDate: '2026-03-10', deadline: '2026-06-10', status: 'Em Execução', description: 'Programa obrigatório de treinamento em direção defensiva e segurança.' }
-    ];
+    const initialProjects = [];
 
     const initialRoadmaps = {
-      'Faturamento': [
-        { id: 'fat-r1', step: 1, title: 'Coleta de notas fiscais pendentes', deadline: 'Dia 1 ao dia 3', status: 'Concluído', assignee: 'Ana Lima', fluxo: 'Faturamento de Serviços' },
-        { id: 'fat-r2', step: 2, title: 'Conferência de dados fiscais', deadline: 'Dia 3 ao dia 5', status: 'Em Andamento', assignee: 'Ana Lima', fluxo: 'Faturamento de Serviços' },
-        { id: 'fat-r3', step: 3, title: 'Lançamento no sistema ERP', deadline: 'Dia 5 ao dia 8', status: 'Pendente', assignee: 'Ana Lima', fluxo: 'Faturamento de Serviços' },
-        { id: 'fat-r4', step: 4, title: 'Conciliação bancária', deadline: 'Dia 8 ao dia 10', status: 'Pendente', assignee: 'Ana Lima', fluxo: 'Faturamento de Serviços' },
-        { id: 'fat-r5', step: 5, title: 'Geração de boletos e cobranças', deadline: 'Dia 10 ao dia 12', status: 'Pendente', assignee: 'Ana Lima', fluxo: 'Fechamento e Relatórios' },
-        { id: 'fat-r6', step: 6, title: 'Envio de relatório financeiro ao gestor', deadline: 'Dia 13', status: 'Pendente', assignee: 'Ana Lima', fluxo: 'Fechamento e Relatórios' },
-        { id: 'fat-r7', step: 7, title: 'Fechamento mensal', deadline: 'Dia 15', status: 'Pendente', assignee: 'Ana Lima', fluxo: 'Fechamento e Relatórios' }
-      ],
-      'Logística / Operações': [
-        { id: 'log-r1', step: 1, title: 'Planejamento de rotas da semana', deadline: 'Segunda-feira', status: 'Concluído', assignee: 'Pedro Souza', fluxo: 'Expedição e Entrega' },
-        { id: 'log-r2', step: 2, title: 'Confirmação de cargas e transportadoras', deadline: 'Segunda/Terça', status: 'Concluído', assignee: 'Pedro Souza', fluxo: 'Expedição e Entrega' },
-        { id: 'log-r3', step: 3, title: 'Emissão de CTe e documentação', deadline: 'Terça-feira', status: 'Em Andamento', assignee: 'Pedro Souza', fluxo: 'Expedição e Entrega' },
-        { id: 'log-r4', step: 4, title: 'Monitoramento de entregas em trânsito', deadline: 'Quarta a Sexta', status: 'Pendente', assignee: 'Pedro Souza', fluxo: 'Expedição e Entrega' },
-        { id: 'log-r5', step: 5, title: 'Registro de ocorrências e devoluções', deadline: 'Diário', status: 'Pendente', assignee: 'Pedro Souza', fluxo: 'Gestão da Frota' },
-        { id: 'log-r6', step: 6, title: 'Fechamento de relatório de operações', deadline: 'Sexta-feira', status: 'Pendente', assignee: 'Pedro Souza', fluxo: 'Gestão da Frota' },
-        { id: 'log-r7', step: 7, title: 'Reunião de alinhamento operacional', deadline: 'Sexta 16h', status: 'Pendente', assignee: 'Pedro Souza', fluxo: 'Gestão da Frota' }
-      ],
-      'Comercial / Vendas': [
-        { id: 'com-r1', step: 1, title: 'Prospecção de novos clientes', deadline: 'Segunda/Terça', status: 'Concluído', assignee: 'Julia Castro', fluxo: 'Prospecção e Vendas' },
-        { id: 'com-r2', step: 2, title: 'Follow-up de propostas enviadas', deadline: 'Diário', status: 'Concluído', assignee: 'Julia Castro', fluxo: 'Prospecção e Vendas' },
-        { id: 'com-r3', step: 3, title: 'Reuniões e visitas comerciais', deadline: 'Terça a Quinta', status: 'Concluído', assignee: 'Julia Castro', fluxo: 'Prospecção e Vendas' },
-        { id: 'com-r4', step: 4, title: 'Atualização do CRM', deadline: 'Diário', status: 'Concluído', assignee: 'Julia Castro', fluxo: 'Prospecção e Vendas' },
-        { id: 'com-r5', step: 5, title: 'Análise de pipeline de vendas', deadline: 'Quarta-feira', status: 'Concluído', assignee: 'Julia Castro', fluxo: 'Controle de Pipeline' },
-        { id: 'com-r6', step: 6, title: 'Envio de propostas novas', deadline: 'Conforme demanda', status: 'Em Andamento', assignee: 'Julia Castro', fluxo: 'Controle de Pipeline' },
-        { id: 'com-r7', step: 7, title: 'Relatório semanal de vendas ao gestor', deadline: 'Sexta-feira', status: 'Pendente', assignee: 'Julia Castro', fluxo: 'Controle de Pipeline' }
-      ],
-      'RH / Administrativo': [
-        { id: 'rh-r1', step: 1, title: 'Controle de ponto e frequência', deadline: 'Diário', status: 'Concluído', assignee: 'Marcos Ferreira', fluxo: 'Departamento Pessoal' },
-        { id: 'rh-r2', step: 2, title: 'Processamento de férias e afastamentos', deadline: 'Conforme demanda', status: 'Concluído', assignee: 'Marcos Ferreira', fluxo: 'Departamento Pessoal' },
-        { id: 'rh-r3', step: 3, title: 'Fechamento da folha de pagamento', deadline: 'Dia 20 ao dia 25', status: 'Concluído', assignee: 'Marcos Ferreira', fluxo: 'Departamento Pessoal' },
-        { id: 'rh-r4', step: 4, title: 'Envio de contracheques', deadline: 'Dia 28', status: 'Concluído', assignee: 'Marcos Ferreira', fluxo: 'Departamento Pessoal' },
-        { id: 'rh-r5', step: 5, title: 'Recrutamento e seleção (vagas abertas)', deadline: 'Contínuo', status: 'Em Andamento', assignee: 'Marcos Ferreira', fluxo: 'Recrutamento e Clima' },
-        { id: 'rh-r6', step: 6, title: 'Treinamentos e onboarding', deadline: 'Conforme demanda', status: 'Pendente', assignee: 'Marcos Ferreira', fluxo: 'Recrutamento e Clima' },
-        { id: 'rh-r7', step: 7, title: 'Relatório de clima organizacional', deadline: 'Último dia do mês', status: 'Pendente', assignee: 'Marcos Ferreira', fluxo: 'Recrutamento e Clima' }
-      ]
+      'Financeiro': [],
+      'Operacional': [],
+      'R&S': [],
+      'DP': [],
+      'Qualidade': [],
+      'Tecnologia': []
     };
 
-    const initialNotifications = [
-      { id: 'notif-1', text: 'Tarefa "Planejamento de rotas da semana" (Logística) está atrasada!', type: 'danger', date: '2026-05-30', read: false },
-      { id: 'notif-2', text: 'Roteiro de Logística: Etapa "Emissão de CTe e documentação" expira hoje.', type: 'warning', date: '2026-05-30', read: false },
-      { id: 'notif-3', text: 'Você tem uma nova tarefa pendente atribuída: "Coleta de notas fiscais".', type: 'info', date: '2026-05-29', read: false },
-      { id: 'notif-4', text: 'O projeto "ISO 9001 Recertificação" foi concluído com sucesso.', type: 'success', date: '2026-05-28', read: true }
-    ];
+    const initialNotifications = [];
 
     /* ==========================================
-       3. ESTADO GLOBAL DA APLICAÇÃO (MUTÁVEL)
+       3. ESTADO GLOBAL DA APLICAÃ‡ÃƒO (MUTÃVEL)
        ========================================== */
+
+    // VersÃ£o dos dados â€” altere sempre que quiser forÃ§ar um reset do cache
+    const DATA_VERSION = '2026-06-02-v3';
+    const storedVersion = safeStorage.getItem('premier_data_version');
+    if (storedVersion !== DATA_VERSION) {
+      // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes)
+      safeStorage.removeItem('premier_tasks');
+      safeStorage.removeItem('premier_projects');
+      safeStorage.removeItem('premier_roadmaps');
+      safeStorage.removeItem('premier_notifications');
+      safeStorage.removeItem('premier_usuarios');
+      safeStorage.setItem('premier_data_version', DATA_VERSION);
+      console.info('Cache de dados limpo â€” nova versÃ£o:', DATA_VERSION);
+    }
+
+    // Helper to persist state
+    function saveStateToStorage() {
+      try {
+        safeStorage.setItem('premier_tasks', JSON.stringify(state.tasks));
+        safeStorage.setItem('premier_projects', JSON.stringify(state.projects));
+        safeStorage.setItem('premier_roadmaps', JSON.stringify(state.roadmaps));
+        safeStorage.setItem('premier_notifications', JSON.stringify(state.notifications));
+      } catch (e) {
+        console.warn("Failed to save state to localStorage:", e);
+      }
+    }
+
+    let cachedTasks = null;
+    let cachedProjects = null;
+    let cachedRoadmaps = null;
+    let cachedNotifications = null;
+    try {
+      const t = safeStorage.getItem('premier_tasks');
+      if (t) cachedTasks = JSON.parse(t);
+      const p = safeStorage.getItem('premier_projects');
+      if (p) cachedProjects = JSON.parse(p);
+      const r = safeStorage.getItem('premier_roadmaps');
+      if (r) cachedRoadmaps = JSON.parse(r);
+      const n = safeStorage.getItem('premier_notifications');
+      if (n) cachedNotifications = JSON.parse(n);
+    } catch (e) {
+      console.warn("Failed to load state from cache:", e);
+    }
+
     const state = {
       currentUser: null,
-      tasks: [...initialTasks],
-      projects: [...initialProjects],
-      roadmaps: JSON.parse(JSON.stringify(initialRoadmaps)), // Deep copy
-      notifications: [...initialNotifications],
+      tasks: cachedTasks || [...initialTasks],
+      projects: cachedProjects || [...initialProjects],
+      roadmaps: cachedRoadmaps || JSON.parse(JSON.stringify(initialRoadmaps)), // Deep copy
+      notifications: cachedNotifications || [...initialNotifications],
       filters: {
         team: 'All',
         priority: 'All',
         status: 'All',
-        search: ''
+        search: '',
+        membersTeam: 'GestÃ£o'
       },
-      calendarDate: new Date("2026-05-30"), // Calibrado para o mock de 2026
+      calendarDate: new Date("2026-06-02"),
       currentSelectedProject: null,
       currentSelectedDay: null
     };
@@ -3421,10 +3481,10 @@
       const savedTheme = safeStorage.getItem('premier_theme') || 'light';
       setTheme(savedTheme);
 
-      // Iniciar ícones lucide
+      // Iniciar Ã­cones lucide
       safeCreateIcons();
       
-      // Checar se já temos sessão salva no localStorage (para melhor UX de refresh)
+      // Checar se jÃ¡ temos sessÃ£o salva no localStorage (para melhor UX de refresh)
       try {
         const cachedUser = safeStorage.getItem('premier_user');
         if (cachedUser) {
@@ -3432,14 +3492,14 @@
           initApp();
         }
       } catch (err) {
-        console.error("Erro ao carregar sessão cacheada:", err);
+        console.error("Erro ao carregar sessÃ£o cacheada:", err);
       }
     });
 
     function initApp() {
-      // Validar segurança do usuário antes de iniciar app para evitar crash fatal
+      // Validar seguranÃ§a do usuÃ¡rio antes de iniciar app para evitar crash fatal
       if (!state.currentUser || !state.currentUser.nome || !state.currentUser.perfil || !state.currentUser.equipe) {
-        console.warn("Usuário inválido ou não autenticado. Redirecionando para login.");
+        console.warn("UsuÃ¡rio invÃ¡lido ou nÃ£o autenticado. Redirecionando para login.");
         handleLogout();
         return;
       }
@@ -3448,14 +3508,14 @@
       document.getElementById('login-section').classList.add('hidden');
       document.getElementById('app-section').classList.remove('hidden');
 
-      // Configurar dados do usuário logado nos widgets de perfil
+      // Configurar dados do usuÃ¡rio logado nos widgets de perfil
       updateUserProfileUI();
       
-      // Aplicar filtros e resetar visualizações
+      // Aplicar filtros e resetar visualizaÃ§Ãµes
       state.filters.team = state.currentUser.perfil === 'gestor' ? 'All' : state.currentUser.equipe;
       document.getElementById('filter-team').value = state.filters.team;
       if (state.currentUser.perfil !== 'gestor') {
-        document.getElementById('filter-team').disabled = true; // Colaborador travado na própria equipe
+        document.getElementById('filter-team').disabled = true; // Colaborador travado na prÃ³pria equipe
       } else {
         document.getElementById('filter-team').disabled = false;
       }
@@ -3469,7 +3529,15 @@
         roadmapText.textContent = "Fluxo de Trabalho";
       }
 
-      // Abrir o Dashboard por padrão
+      // Mostrar/esconder aba de tarefas das equipes para o gestor
+      const teamTasksItem = document.getElementById('sidebar-team-tasks-item');
+      if (state.currentUser.perfil === 'gestor') {
+        if (teamTasksItem) teamTasksItem.classList.remove('hidden');
+      } else {
+        if (teamTasksItem) teamTasksItem.classList.add('hidden');
+      }
+
+      // Abrir o Dashboard por padrÃ£o
       switchView('dashboard');
       updateNotificationsBadge();
     }
@@ -3504,7 +3572,7 @@
     }
 
     /* ==========================================
-       5. CONTROLE DE NAVEGAÇÃO DE VIEWS
+       5. CONTROLE DE NAVEGAÃ‡ÃƒO DE VIEWS
        ========================================== */
     function switchView(viewName) {
       // Esconder todas as views
@@ -3512,7 +3580,8 @@
       panels.forEach(p => p.classList.add('hidden'));
 
       // Mostrar a view solicitada
-      const targetPanel = document.getElementById(`view-${viewName}`);
+      const actualViewName = viewName === 'team-tasks' ? 'tasks' : viewName;
+      const targetPanel = document.getElementById(`view-${actualViewName}`);
       if (targetPanel) {
         targetPanel.classList.remove('hidden');
       }
@@ -3527,7 +3596,7 @@
         }
       });
 
-      // Atualizar título do Header
+      // Atualizar tÃ­tulo do Header
       const headerTitle = document.getElementById('header-title');
       const headerSubtitle = document.getElementById('header-subtitle');
       
@@ -3538,37 +3607,53 @@
           renderDashboard();
           break;
         case 'tasks':
-          headerTitle.textContent = "Quadro Kanban de Tarefas";
-          headerSubtitle.textContent = "Acompanhe e movimente as tarefas ativas das equipes.";
+          state.currentTaskViewMode = 'mine';
+          const filterTeamSelect = document.getElementById('filter-team');
+          if (filterTeamSelect) filterTeamSelect.style.display = 'none';
+          headerTitle.textContent = "Minhas Tarefas";
+          headerSubtitle.textContent = "Suas tarefas individuais em andamento.";
+          renderKanban();
+          break;
+        case 'team-tasks':
+          state.currentTaskViewMode = 'all';
+          const filterTeamSelectAll = document.getElementById('filter-team');
+          if (filterTeamSelectAll) filterTeamSelectAll.style.display = 'block';
+          headerTitle.textContent = "Tarefas das Equipes";
+          headerSubtitle.textContent = "Acompanhe e movimente as tarefas ativas de todos os setores.";
           renderKanban();
           break;
         case 'roadmaps':
           headerTitle.textContent = "Fluxo de trabalho";
-          headerSubtitle.textContent = "Checklists e fluxos obrigatórios por equipe.";
+          headerSubtitle.textContent = "Checklists e fluxos obrigatÃ³rios por equipe.";
           renderRoadmaps();
           break;
         case 'projects':
           headerTitle.textContent = "Projetos Corporativos";
-          headerSubtitle.textContent = "Visualização e controle de iniciativas de médio/longo prazo.";
+          headerSubtitle.textContent = "VisualizaÃ§Ã£o e controle de iniciativas de mÃ©dio/longo prazo.";
           renderProjects();
           break;
+        case 'members':
+          headerTitle.textContent = state.currentUser.perfil === 'gestor' ? "Membros e Equipes" : "Membros do Setor";
+          headerSubtitle.textContent = "VisualizaÃ§Ã£o de colaboradores e seus projetos ativos neste departamento.";
+          renderMembers();
+          break;
         case 'calendar':
-          headerTitle.textContent = "Calendário Integrado";
+          headerTitle.textContent = "CalendÃ¡rio Integrado";
           headerSubtitle.textContent = "Prazos de entrega de tarefas e marcos operacionais organizados.";
           renderCalendar();
           break;
         case 'notifications':
-          headerTitle.textContent = "Central de Notificações";
-          headerSubtitle.textContent = "Alertas críticos, atribuições e ocorrências diárias.";
+          headerTitle.textContent = "Central de NotificaÃ§Ãµes";
+          headerSubtitle.textContent = "Alertas crÃ­ticos, atribuiÃ§Ãµes e ocorrÃªncias diÃ¡rias.";
           renderNotifications();
           break;
         case 'settings':
           headerTitle.textContent = "Ajustes e Perfil";
-          headerSubtitle.textContent = "Customize suas preferências visuais e operacionais na plataforma.";
+          headerSubtitle.textContent = "Customize suas preferÃªncias visuais e operacionais na plataforma.";
           break;
       }
 
-      // Reiniciar ícones renderizados dinamicamente
+      // Reiniciar Ã­cones renderizados dinamicamente
       safeCreateIcons();
     }
 
@@ -3619,7 +3704,7 @@
           </div>
           <div class="kpi-card kpi-done">
             <div class="kpi-header">
-              <span class="kpi-label">Entregues / Concluídas</span>
+              <span class="kpi-label">Entregues / ConcluÃ­das</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="check-circle-2" class="kpi-icon"></i>
               </div>
@@ -3634,7 +3719,7 @@
           </div>
           <div class="kpi-card kpi-progress">
             <div class="kpi-header">
-              <span class="kpi-label">Em Execução Ativa</span>
+              <span class="kpi-label">Em ExecuÃ§Ã£o Ativa</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="activity" class="kpi-icon"></i>
               </div>
@@ -3658,7 +3743,7 @@
               <span class="kpi-value" style="color:var(--danger);">${delayed}</span>
             </div>
             <div class="kpi-subtext">
-              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--danger);"></i> ${delayed > 0 ? 'Atenção imediata!' : 'Status sob controle'}
+              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--danger);"></i> ${delayed > 0 ? 'AtenÃ§Ã£o imediata!' : 'Status sob controle'}
             </div>
             <div class="kpi-prog-strip"><div class="kpi-prog-fill-strip" style="width:${delayedPct}%;background:var(--danger);"></div></div>
           </div>
@@ -3682,7 +3767,7 @@
           } else if (daysLeft === 0) {
             deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> Hoje</span>`;
           } else if (daysLeft === 1) {
-            deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> Amanhã</span>`;
+            deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> AmanhÃ£</span>`;
           } else {
             deadlineBadge = `<span style="color:var(--primary); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="calendar" style="width:11px; height:11px;"></i> em ${daysLeft}d</span>`;
           }
@@ -3693,25 +3778,32 @@
           const priorityColor = p => {
             const lp = p.toLowerCase();
             if (lp.includes('alt')) return 'var(--danger)';
-            if (lp.includes('méd')) return 'var(--warning)';
+            if (lp.includes('mÃ©d')) return 'var(--warning)';
             return 'var(--success)';
           };
+
+          const shortTeam = t.team === 'LogÃ­stica / OperaÃ§Ãµes' ? 'LogÃ­stica/Op.' :
+                            t.team === 'RH / Administrativo' ? 'RH/Adm.' :
+                            t.team === 'Comercial / Vendas' ? 'Comercial/Vendas' : t.team;
 
           tbody.innerHTML += `
             <tr style="transition:var(--transition-normal);">
               <td>
                 <div style="display:flex; flex-direction:column; gap:0.15rem;">
                   <span class="row-task-title" style="font-size:0.85rem; font-weight:700; color:var(--text-main);">${t.title}</span>
-                  <span style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem;">
-                    <i data-lucide="folder" style="width:11px; height:11px; opacity:0.6;"></i>
-                    ${project ? project.name : 'Operação de Rotina'}
-                  </span>
+                  <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;">
+                    <span style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem;">
+                      <i data-lucide="folder" style="width:11px; height:11px; opacity:0.6;"></i>
+                      ${project ? project.name : 'OperaÃ§Ã£o de Rotina'}
+                    </span>
+                    ${t.subSector ? `<span style="font-size:0.65rem; background:var(--bg-primary); border:1px solid var(--border-color); color:var(--text-muted); padding:0.02rem 0.3rem; border-radius:4px; font-weight:600; display:inline-block; line-height:1.25;">${t.subSector}</span>` : ''}
+                  </div>
                 </div>
               </td>
               <td>
                 <div style="display:flex; align-items:center; gap:0.4rem;">
                   <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${getTeamSlug(t.team)}); display:inline-block; flex-shrink:0;"></span>
-                  <span style="font-size:0.8rem; font-weight:600; color:var(--text-main);">${t.team}</span>
+                  <span style="font-size:0.8rem; font-weight:600; color:var(--text-main);">${shortTeam}</span>
                 </div>
               </td>
               <td>
@@ -3734,7 +3826,7 @@
         // Barras de progresso por equipe
         const progressList = document.getElementById('dashboard-team-progress');
         progressList.innerHTML = '';
-        ['Faturamento', 'Logística / Operações', 'Comercial / Vendas', 'RH / Administrativo'].forEach(team => {
+        ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia'].forEach(team => {
           const teamTasks = state.tasks.filter(t => t.team === team);
           const completed = teamTasks.filter(t => t.status === 'done').length;
           const pct = teamTasks.length > 0 ? Math.round((completed / teamTasks.length) * 100) : 0;
@@ -3761,7 +3853,7 @@
           alertsContainer.innerHTML = `
             <div style="text-align:center;padding:1.5rem;color:var(--text-muted);font-size:0.82rem;">
               <i data-lucide="check-circle-2" style="width:28px;height:28px;color:var(--success);margin-bottom:0.35rem;"></i>
-              <p>Nenhuma tarefa atrasada. Ótimo!</p>
+              <p>Nenhuma tarefa atrasada. Ã“timo!</p>
             </div>`;
         } else {
           delayedTasks.slice(0, 2).forEach(t => {
@@ -3790,17 +3882,17 @@
         const myHighPri   = myPending.filter(t => t.priority === 'Alta').length;
         const myPendingSorted = [...myPending].sort((a,b) => new Date(a.deadline) - new Date(b.deadline));
         const nextTask    = myPendingSorted[0] || null;
-        const nextDeadline = nextTask ? formatDate(nextTask.deadline) : '—';
+        const nextDeadline = nextTask ? formatDate(nextTask.deadline) : 'â€”';
         const daysToNext  = nextTask ? Math.round((new Date(nextTask.deadline) - new Date(todayStr)) / 86400000) : 99;
 
         // Roteiro
         const teamRoadmap       = state.roadmaps[myTeam] || [];
         const roadmapTotal      = teamRoadmap.length;
-        const roadmapDone       = teamRoadmap.filter(r => r.status === 'Concluído').length;
+        const roadmapDone       = teamRoadmap.filter(r => r.status === 'ConcluÃ­do').length;
         const roadmapActive     = teamRoadmap.filter(r => r.status === 'Em Andamento').length;
         const roadmapPending    = teamRoadmap.filter(r => r.status === 'Pendente').length;
         const roadmapDisplayPct = roadmapTotal > 0 ? Math.round((roadmapDone / roadmapTotal) * 100) : 0;
-        // r=64 → circumference ≈ 402.12; r=54 → 339.3
+        // r=64 â†’ circumference â‰ˆ 402.12; r=54 â†’ 339.3
         const arcCircumference  = 339.3;
         const arcOffset         = Math.max(0, arcCircumference - (roadmapDisplayPct / 100 * arcCircumference));
 
@@ -3825,9 +3917,9 @@
             </div>
           </div>
 
-          <div class="kpi-card kpi-done" title="Tarefas concluídas">
+          <div class="kpi-card kpi-done" title="Tarefas concluÃ­das">
             <div class="kpi-header">
-              <span class="kpi-label">Concluídas</span>
+              <span class="kpi-label">ConcluÃ­das</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="check-check" class="kpi-icon"></i>
               </div>
@@ -3843,9 +3935,9 @@
             </div>
           </div>
 
-          <div class="kpi-card kpi-delayed" title="Próximo prazo de entrega">
+          <div class="kpi-card kpi-delayed" title="PrÃ³ximo prazo de entrega">
             <div class="kpi-header">
-              <span class="kpi-label">Próximo Prazo</span>
+              <span class="kpi-label">PrÃ³ximo Prazo</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="alarm-clock" class="kpi-icon"></i>
               </div>
@@ -3854,11 +3946,12 @@
               <span class="kpi-value" style="font-size:1.45rem;letter-spacing:-0.5px;">${nextDeadline}</span>
             </div>
             <div class="kpi-subtext" style="color:${daysToNext <= 1 ? 'var(--danger)' : 'var(--text-muted)'};">
-              <i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${daysToNext <= 0 ? 'Atrasado' : daysToNext === 1 ? 'Amanhã' : `em ${daysToNext} dias`}
+              <i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${daysToNext <= 0 ? 'Atrasado' : daysToNext === 1 ? 'AmanhÃ£' : `em ${daysToNext} dias`}
             </div>
             <div class="kpi-prog-strip">
               <div class="kpi-prog-fill-strip" style="width:${Math.min(100, Math.max(10, 100 - daysToNext * 10))}%;background:${daysToNext <= 2 ? 'var(--danger)' : 'var(--warning)'};"></div>
             </div>
+          </div>
           </div>
 
           <div class="kpi-card" title="Progresso do roteiro mensal">
@@ -3872,22 +3965,19 @@
               <span class="kpi-value" style="color:var(--primary);">${roadmapDisplayPct}%</span>
             </div>
             <div class="kpi-subtext">
-              <i data-lucide="info" style="width: 12px; height: 12px; color: var(--primary);"></i> ${roadmapDone} feitas · ${roadmapActive} ativas
+              <i data-lucide="info" style="width: 12px; height: 12px; color: var(--primary);"></i> ${roadmapDone} feitas Â· ${roadmapActive} ativas
             </div>
-            <div class="kpi-prog-strip">
-              <div class="kpi-prog-fill-strip" style="width:${roadmapDisplayPct}%;background:var(--primary);"></div>
-            </div>
+            <div class="kpi-prog-strip"><div class="kpi-prog-fill-strip" style="width:${roadmapDisplayPct}%;background:var(--primary);"></div></div>
           </div>
         `;
 
-        // ---- Main 2-column layout (Enxuto) ----
+        // ---- Layout colaborador: apenas fila de tarefas (largura total) ----
         colabLayout.innerHTML = `
-          <!-- LEFT: Task queue (Simplificada) -->
-          <div class="dashboard-panel" style="display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;border-top: 3px solid var(--primary);">
+          <div class="dashboard-panel" style="display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden;border-top: 3px solid var(--primary);grid-column:1/-1;">
             <div class="panel-header" style="flex-shrink:0;margin-bottom:0;padding-bottom:0.75rem;border-bottom:1px solid var(--border-color);">
               <h3 class="panel-title" style="font-size:0.95rem;">
                 <i data-lucide="list-todo" class="logo-icon-svg" style="color:var(--primary);width:18px;height:18px;"></i>
-                Fila de Tarefas Ativas — ${myTeam}
+                Fila de Tarefas Ativas â€” ${myTeam}
               </h3>
               <button class="panel-action-btn" onclick="switchView('tasks')" style="font-size:0.75rem;padding:0.35rem 0.8rem;">
                 Abrir Kanban
@@ -3896,61 +3986,6 @@
 
             <div id="colab-task-list" style="flex:1;overflow-y:auto;min-height:0;padding:1rem 0.5rem;display:flex;flex-direction:column;gap:0.5rem;">
               <!-- populated by filterColabTasks -->
-            </div>
-          </div>
-
-          <!-- RIGHT: Roteiro (Enxuto) -->
-          <div class="dashboard-panel" style="height:100%;min-height:0;overflow:hidden;display:flex;flex-direction:column;border-top: 3px solid var(--warning);">
-            <div class="panel-header" style="flex-shrink:0;margin-bottom:0;padding-bottom:0.75rem;border-bottom:1px solid var(--border-color);justify-content:center;">
-              <h3 class="panel-title" style="font-size:0.95rem;">Roteiro Mensal</h3>
-            </div>
-
-            <div style="flex:1;overflow-y:auto;min-height:0;padding:1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;">
-              <!-- Donut chart -->
-              <div class="donut-wrap-new" style="width:180px;height:180px;">
-                <svg class="donut-svg-new" viewBox="0 0 140 140" style="width:180px;height:180px;">
-                  <defs>
-                    <linearGradient id="dg-${slug}" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%"   stop-color="var(--color-${slug})"/>
-                      <stop offset="100%" stop-color="#00C8FF"/>
-                    </linearGradient>
-                  </defs>
-                  <circle cx="70" cy="70" r="54" fill="none" stroke="var(--border-color)" stroke-width="12"></circle>
-                  <circle cx="70" cy="70" r="54" fill="none"
-                    stroke="url(#dg-${slug})"
-                    stroke-width="12"
-                    stroke-linecap="round"
-                    stroke-dasharray="${arcCircumference}"
-                    stroke-dashoffset="${arcOffset}"
-                    style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);">
-                  </circle>
-                </svg>
-                <div class="donut-center-new">
-                  <span class="donut-pct-new" style="font-size:2rem;">${roadmapDisplayPct}%</span>
-                  <span class="donut-lbl-new" style="font-size:0.65rem;">Concluído</span>
-                </div>
-              </div>
-
-              <!-- Legend -->
-              <div class="donut-legend-new" style="gap:1.5rem;margin-top:0.5rem;">
-                <div class="dl-item-new" style="font-size:0.8rem;">
-                  <div class="dl-dot-new" style="background:var(--success);width:9px;height:9px;"></div>
-                  <span style="color:var(--text-muted);">Feitas:</span>
-                  <strong style="font-size:0.9rem;">${roadmapDone}</strong>
-                </div>
-                <div class="dl-item-new" style="font-size:0.8rem;">
-                  <div class="dl-dot-new" style="background:var(--warning);width:9px;height:9px;"></div>
-                  <span style="color:var(--text-muted);">Ativas:</span>
-                  <strong style="font-size:0.9rem;">${roadmapActive}</strong>
-                </div>
-              </div>
-
-              <!-- CTA -->
-              <button class="btn-action-primary" onclick="switchView('roadmaps')"
-                style="width:100%;max-width:250px;justify-content:center;font-size:0.85rem;padding:0.75rem;margin-top:auto;gap:0.5rem;">
-                <i data-lucide="clipboard-list" style="width:16px;height:16px;"></i>
-                Acessar Roteiro Completo
-              </button>
             </div>
           </div>
         `;
@@ -3965,7 +4000,7 @@
     /* ------ Fila de Tarefas (Enxuta) ------ */
     function filterColabTasks(filter) {
       const myTeam   = state.currentUser.equipe;
-      // Mostrar apenas pendentes e em andamento para leitura rápida
+      // Mostrar apenas pendentes e em andamento para leitura rÃ¡pida
       const pendingTasks = state.tasks.filter(t => t.team === myTeam && t.status !== 'done');
       const sorted = pendingTasks.sort((a,b) => new Date(a.deadline) - new Date(b.deadline));
       const todayStr = new Date().toISOString().split('T')[0];
@@ -3983,7 +4018,7 @@
         return;
       }
 
-      const priColor = p => p === 'Alta' ? 'var(--danger)' : (p === 'Média' ? 'var(--warning)' : 'var(--success)');
+      const priColor = p => p === 'Alta' ? 'var(--danger)' : (p === 'MÃ©dia' ? 'var(--warning)' : 'var(--success)');
 
       // Header descritivo das colunas
       const headerHtml = `
@@ -3992,7 +4027,7 @@
             <span>Tarefa</span>
           </div>
           <div style="flex:3;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;">
-            <span style="width:110px;text-align:left;">Responsável</span>
+            <span style="width:110px;text-align:left;">ResponsÃ¡vel</span>
             <span style="width:80px;text-align:center;">Status</span>
             <span style="width:80px;text-align:right;">Prazo</span>
           </div>
@@ -4007,7 +4042,7 @@
         let timeCss  = 'color:var(--text-muted)';
         if (isDelayed)     { timeText = 'Atrasado'; timeCss = 'color:var(--danger);font-weight:700;'; }
         else if (daysLeft === 0){ timeText = 'Hoje';     timeCss = 'color:var(--warning);font-weight:700;'; }
-        else if (daysLeft === 1){ timeText = 'Amanhã';   timeCss = 'color:var(--warning);'; }
+        else if (daysLeft === 1){ timeText = 'AmanhÃ£';   timeCss = 'color:var(--warning);'; }
 
         const statusColor = s => s === 'done' ? 'var(--success)' : (s === 'todo' ? 'var(--primary)' : 'var(--warning)');
 
@@ -4054,18 +4089,20 @@
 
       // Aplicar filtros
       const filtered = state.tasks.filter(t => {
-        const matchesTeam = state.filters.team === 'All' || t.team === state.filters.team;
+        const isMine = state.currentTaskViewMode === 'mine';
+        const matchesUser = !isMine || t.assignee === state.currentUser.nome;
+        const matchesTeam = isMine || state.filters.team === 'All' || t.team === state.filters.team;
         const matchesPriority = state.filters.priority === 'All' || t.priority === state.filters.priority;
         const matchesSearch = t.title.toLowerCase().includes(state.filters.search.toLowerCase()) ||
                               t.description.toLowerCase().includes(state.filters.search.toLowerCase());
-        return matchesTeam && matchesPriority && matchesSearch;
+        return matchesUser && matchesTeam && matchesPriority && matchesSearch;
       });
 
       const todayStr = new Date().toISOString().split('T')[0];
       const priorityColor = p => {
         const lp = p.toLowerCase();
         if (lp.includes('alt')) return 'var(--danger)';
-        if (lp.includes('méd')) return 'var(--warning)';
+        if (lp.includes('mÃ©d')) return 'var(--warning)';
         return 'var(--success)';
       };
 
@@ -4084,8 +4121,10 @@
               <span style="font-size:0.75rem; font-weight:700; color:${priorityColor(task.priority)};">${task.priority}</span>
             </div>
             <h4 class="card-title">${task.title}</h4>
-            <p class="card-description">${task.description || 'Sem descrição.'}</p>
+            <p class="card-description">${task.description || 'Sem descriÃ§Ã£o.'}</p>
             
+            ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; width: max-content; font-weight: 600; margin-bottom: 0.5rem;">${task.subSector}</div>` : ''}
+
             <div class="card-meta">
               <div class="card-due-date ${isDelayed ? 'delayed-text' : ''}">
                 <i data-lucide="calendar" class="due-date-icon"></i>
@@ -4094,10 +4133,10 @@
               <div class="mini-avatar" title="${task.assignee}">${getInitials(task.assignee)}</div>
             </div>
 
-            <!-- Setas rápidas para mobilidade/acessibilidade nos computadores -->
+            <!-- Setas rÃ¡pidas para mobilidade/acessibilidade nos computadores -->
             <div class="card-actions-quick">
               ${task.status !== 'todo' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'prev')" title="Mover para coluna anterior"><i data-lucide="chevron-left" style="width:12px; height:12px;"></i></button>` : ''}
-              ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para próxima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
+              ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para prÃ³xima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
             </div>
           </div>
         `;
@@ -4124,7 +4163,7 @@
       renderKanban();
     }
 
-    // Lógica Drag and Drop HTML5
+    // LÃ³gica Drag and Drop HTML5
     let draggedTaskId = null;
 
     function handleDragStart(event, taskId) {
@@ -4168,25 +4207,26 @@
     function updateTaskStatus(taskId, targetStatus) {
       const task = state.tasks.find(t => t.id === taskId);
       if (task) {
-        // Restrição de segurança RBAC para Colaborador (apenas tarefas da sua equipe)
+        // RestriÃ§Ã£o de seguranÃ§a RBAC para Colaborador (apenas tarefas da sua equipe)
         if (state.currentUser.perfil !== 'gestor' && task.team !== state.currentUser.equipe) {
-          alert("Você só tem permissão para alterar tarefas da sua própria equipe.");
+          alert("VocÃª sÃ³ tem permissÃ£o para alterar tarefas da sua prÃ³pria equipe.");
           return;
         }
 
         task.status = targetStatus;
         
-        // Se foi movido para 'done', gerar notificação simulada de sucesso
+        // Se foi movido para 'done', gerar notificaÃ§Ã£o simulada de sucesso
         if (targetStatus === 'done') {
-          addNotification(`Tarefa concluída por ${state.currentUser.nome}: "${task.title}"`, 'success');
+          addNotification(`Tarefa concluÃ­da por ${state.currentUser.nome}: "${task.title}"`, 'success');
         }
 
+        saveStateToStorage();
         renderKanban();
         updateNotificationsBadge();
       }
     }
 
-    // Acessibilidade rápida: mover via clique em setas
+    // Acessibilidade rÃ¡pida: mover via clique em setas
     function moveTaskQuick(taskId, direction) {
       const task = state.tasks.find(t => t.id === taskId);
       if (!task) return;
@@ -4218,14 +4258,14 @@
       // Se for gestor, mostrar roteiros de todas as equipes
       // Se for colaborador, mostrar apenas a sua
       const activeTeams = u.perfil === 'gestor' 
-        ? ['Faturamento', 'Logística / Operações', 'Comercial / Vendas', 'RH / Administrativo']
+        ? ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia']
         : [u.equipe];
 
       state.selectedRoadmapFluxo = state.selectedRoadmapFluxo || {};
 
       activeTeams.forEach(teamName => {
         const roadmapSteps = state.roadmaps[teamName] || [];
-        const completedTotal = roadmapSteps.filter(s => s.status === 'Concluído').length;
+        const completedTotal = roadmapSteps.filter(s => s.status === 'ConcluÃ­do').length;
         const totalCount = roadmapSteps.length;
         const pctTotal = totalCount > 0 ? Math.round((completedTotal / totalCount) * 100) : 0;
         const slug = getTeamSlug(teamName);
@@ -4264,7 +4304,7 @@
                 <div style="font-size:0.8rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
                   <i data-lucide="plus-circle" style="width:14px; height:14px;"></i> Criar Novo Fluxo de Trabalho
                 </div>
-                <input type="text" id="new-fluxo-name-${teamName}" placeholder="Nome do fluxo de trabalho (Ex: Fechamento Contábil)..." style="padding:0.5rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-primary); color:var(--text-main); outline:none;">
+                <input type="text" id="new-fluxo-name-${teamName}" placeholder="Nome do fluxo de trabalho (Ex: Fechamento ContÃ¡bil)..." style="padding:0.5rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-primary); color:var(--text-main); outline:none;">
                 <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
                   <button class="panel-action-btn" onclick="cancelCreateFluxoForm()" style="font-size:0.7rem; padding:0.25rem 0.5rem; background:var(--border-color); color:var(--text-main);">Cancelar</button>
                   <button class="btn-action-primary" onclick="submitCreateFluxoForm('${teamName}')" style="font-size:0.7rem; padding:0.25rem 0.5rem;">Criar Fluxo</button>
@@ -4275,11 +4315,11 @@
             <!-- Render Grouped Workflows (Fluxos) -->
             ${uniqueFluxos.length === 0 ? `
               <div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size:0.85rem;">
-                Nenhum fluxo de trabalho cadastrado. Clique em "Criar Novo Fluxo" para começar.
+                Nenhum fluxo de trabalho cadastrado. Clique em "Criar Novo Fluxo" para comeÃ§ar.
               </div>
             ` : uniqueFluxos.map(fluxoName => {
               const fluxoSteps = roadmapSteps.filter(s => s.fluxo === fluxoName);
-              const completedFluxo = fluxoSteps.filter(s => s.status === 'Concluído').length;
+              const completedFluxo = fluxoSteps.filter(s => s.status === 'ConcluÃ­do').length;
               const pctFluxo = fluxoSteps.length > 0 ? Math.round((completedFluxo / fluxoSteps.length) * 100) : 0;
 
               return `
@@ -4293,7 +4333,7 @@
                     </div>
                     
                     <div style="display:flex; align-items:center; gap:0.75rem;">
-                      <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); background:var(--bg-primary); padding:0.15rem 0.5rem; border-radius:10px; border:1px solid var(--border-color);">${pctFluxo}% concluído</span>
+                      <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); background:var(--bg-primary); padding:0.15rem 0.5rem; border-radius:10px; border:1px solid var(--border-color);">${pctFluxo}% concluÃ­do</span>
                       ${isMyTeam ? `
                         <button class="panel-action-btn" onclick="showAddStepForm('${teamName}', '${fluxoName}')" style="font-size: 0.7rem; padding: 0.25rem 0.5rem; display:flex; align-items:center; gap:0.25rem;">
                           <i data-lucide="plus" style="width:12px; height:12px;"></i> Add Etapa
@@ -4313,10 +4353,10 @@
                       <div style="font-size:0.75rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.25rem;">
                         <i data-lucide="plus" style="width:12px; height:12px;"></i> Nova Etapa em "${fluxoName}"
                       </div>
-                      <input type="text" id="new-step-title-${teamName}-${fluxoName}" placeholder="Nome da etapa (Ex: Lançar notas)..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-secondary); color:var(--text-main); outline:none;">
+                      <input type="text" id="new-step-title-${teamName}-${fluxoName}" placeholder="Nome da etapa (Ex: LanÃ§ar notas)..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-secondary); color:var(--text-main); outline:none;">
                       <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
                         <input type="text" id="new-step-deadline-${teamName}-${fluxoName}" placeholder="Prazo (Ex: Dia 5 ao dia 8)" style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;">
-                        <input type="text" id="new-step-assignee-${teamName}-${fluxoName}" placeholder="Responsável..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" value="${u.nome}">
+                        <input type="text" id="new-step-assignee-${teamName}-${fluxoName}" placeholder="ResponsÃ¡vel..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" value="${u.nome}">
                       </div>
                       <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
                         <button class="panel-action-btn" onclick="cancelAddStepForm()" style="font-size:0.7rem; padding:0.25rem 0.5rem; background:var(--border-color); color:var(--text-main);">Cancelar</button>
@@ -4350,14 +4390,14 @@
                               </span>
                               <span class="roadmap-step-assignee" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
                                 <i data-lucide="user" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
-                                <strong>Responsável:</strong> ${step.assignee}
+                                <strong>ResponsÃ¡vel:</strong> ${step.assignee}
                               </span>
                             </div>
                             <div style="display:flex; align-items:center; gap:0.5rem;">
                               <select class="step-status-selector select-${step.status.toLowerCase().replace(' ', '')}" ${selectDisabled} onchange="handleStepStatusChange('${teamName}', ${step.step}, this.value)">
                                 <option value="Pendente" ${step.status === 'Pendente' ? 'selected' : ''}>Pendente</option>
                                 <option value="Em Andamento" ${step.status === 'Em Andamento' ? 'selected' : ''}>Em Andamento</option>
-                                <option value="Concluído" ${step.status === 'Concluído' ? 'selected' : ''}>Concluído</option>
+                                <option value="ConcluÃ­do" ${step.status === 'ConcluÃ­do' ? 'selected' : ''}>ConcluÃ­do</option>
                               </select>
                               ${isMyTeam ? `
                                 <button onclick="deleteRoadmapStep('${teamName}', ${step.step})" style="background:transparent; border:none; color:var(--danger); cursor:pointer; padding:0.25rem; display:flex; align-items:center; justify-content:center; border-radius:var(--radius-sm); transition:var(--transition-normal); opacity:0.75;" onmouseover="this.style.opacity='1';this.style.background='rgba(239,68,68,0.1)';" onmouseout="this.style.opacity='0.75';this.style.background='transparent';" title="Excluir etapa">
@@ -4479,7 +4519,7 @@
       renderRoadmaps();
       
       if (removedStep) {
-        addNotification(`Etapa "${removedStep.title}" foi excluída do fluxo ${teamName}.`, 'warning');
+        addNotification(`Etapa "${removedStep.title}" foi excluÃ­da do fluxo ${teamName}.`, 'warning');
       }
     }
 
@@ -4489,14 +4529,129 @@
       if (step) {
         step.status = newStatus;
         
-        // Se a etapa foi concluída, adicionar notificação
-        if (newStatus === 'Concluído') {
-          addNotification(`Etapa ${stepNum} do roteiro de ${teamName} foi Concluída: "${step.title}"`, 'success');
+        // Se a etapa foi concluÃ­da, adicionar notificaÃ§Ã£o
+        if (newStatus === 'ConcluÃ­do') {
+          addNotification(`Etapa ${stepNum} do roteiro de ${teamName} foi ConcluÃ­da: "${step.title}"`, 'success');
         }
 
+        saveStateToStorage();
         renderRoadmaps();
         updateNotificationsBadge();
       }
+    }
+
+    /* ==========================================
+       8.5. RENDERING: MEMBROS DO SETOR
+       ========================================== */
+    function renderMembers() {
+      const grid = document.getElementById('members-grid-container');
+      const filterContainer = document.getElementById('members-filter-container');
+      grid.innerHTML = '';
+      filterContainer.innerHTML = '';
+
+      let selectedTeam = state.currentUser.equipe;
+
+      if (state.currentUser.perfil === 'gestor') {
+        if (!state.filters.membersTeam) {
+          state.filters.membersTeam = 'All';
+        }
+        selectedTeam = state.filters.membersTeam;
+
+        filterContainer.innerHTML = `
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span style="font-size:0.85rem; font-weight:600; color:var(--text-muted);">Filtrar por Setor:</span>
+            <select id="members-team-select" class="filter-select" onchange="state.filters.membersTeam = this.value; renderMembers();" style="font-size:0.8rem; padding:0.4rem 0.8rem; border-radius:var(--radius-md); background:var(--bg-primary); border:1px solid var(--border-color); color:var(--text-main);">
+              <option value="All" ${selectedTeam === 'All' ? 'selected' : ''}>Todos os Setores</option>
+              <option value="GestÃ£o" ${selectedTeam === 'GestÃ£o' ? 'selected' : ''}>Diretoria / GestÃ£o</option>
+              <option value="Financeiro" ${selectedTeam === 'Financeiro' ? 'selected' : ''}>Financeiro</option>
+              <option value="Operacional" ${selectedTeam === 'Operacional' ? 'selected' : ''}>Operacional</option>
+              <option value="R&S" ${selectedTeam === 'R&S' ? 'selected' : ''}>R&S</option>
+              <option value="DP" ${selectedTeam === 'DP' ? 'selected' : ''}>DP</option>
+              <option value="Qualidade" ${selectedTeam === 'Qualidade' ? 'selected' : ''}>Qualidade</option>
+              <option value="Tecnologia" ${selectedTeam === 'Tecnologia' ? 'selected' : ''}>Tecnologia</option>
+            </select>
+          </div>
+        `;
+      }
+
+      // Filter users who belong to the selectedTeam
+      const deptMembers = selectedTeam === 'All'
+        ? usuarios
+        : usuarios.filter(u => u.equipe === selectedTeam);
+
+      if (deptMembers.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1/-1; text-align:center; padding:3rem; color:var(--text-muted);">
+            <i data-lucide="users" style="width:48px; height:48px; opacity:0.3; margin-bottom:1rem; display:inline-block;"></i>
+            <p>Nenhum membro cadastrado neste departamento.</p>
+          </div>
+        `;
+        safeCreateIcons();
+        return;
+      }
+
+      deptMembers.forEach(member => {
+        const initials = getInitials(member.nome);
+        const slug = getTeamSlug(member.equipe);
+        const memberDept = selectedTeam === 'All' ? member.equipe : selectedTeam;
+
+        // Get projects in this department where this member has tasks
+        const memberTasks = state.tasks.filter(t => t.assignee === member.nome && t.team === memberDept);
+        const memberProjIds = [...new Set(memberTasks.map(t => t.project).filter(Boolean))];
+        const memberProjects = state.projects.filter(p => memberProjIds.includes(p.id) && p.team === memberDept);
+
+        // Task stats
+        const pendingCount = memberTasks.filter(t => t.status !== 'done').length;
+        const completedCount = memberTasks.filter(t => t.status === 'done').length;
+
+        let projectsHtml = '';
+        if (memberProjects.length > 0) {
+          memberProjects.forEach(proj => {
+            projectsHtml += `
+              <div style="display:flex; align-items:center; justify-content:space-between; background:var(--bg-primary); padding:0.5rem 0.75rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); margin-bottom:0.4rem;">
+                <span style="font-size:0.8rem; font-weight:600; color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:180px;" title="${proj.name}">${proj.name}</span>
+                <span style="font-size:0.75rem; font-weight:700; color:var(--primary);">${proj.progress}%</span>
+              </div>
+            `;
+          });
+        } else {
+          projectsHtml = `<p style="font-size:0.78rem; color:var(--text-muted); font-style:italic;">Nenhum projeto ativo neste setor.</p>`;
+        }
+
+        grid.innerHTML += `
+          <div class="member-card" style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.5rem; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:1.25rem; transition:var(--transition-normal);">
+            <div style="display:flex; align-items:center; gap:1rem;">
+              <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--color-${slug}) 0%, var(--bg-sidebar-active) 100%); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; box-shadow:0 4px 10px rgba(0, 0, 0, 0.1); flex-shrink:0;">
+                ${initials}
+              </div>
+              <div style="overflow:hidden;">
+                <h4 style="font-size:0.95rem; font-weight:700; color:var(--text-main); margin-bottom:0.15rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${member.nome}">${member.nome}</h4>
+                <p style="font-size:0.78rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:0.3px;">${member.cargo}</p>
+              </div>
+            </div>
+
+            <div style="border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color); padding:0.75rem 0; display:flex; justify-content:space-between; gap:1rem; font-size:0.8rem; overflow:hidden;">
+              <div style="overflow:hidden;">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.5px;">E-mail</span>
+                <span style="font-weight:600; color:var(--text-main); word-break:break-all; font-size:0.78rem;" title="${member.email}">${member.email}</span>
+              </div>
+              <div style="text-align:right; flex-shrink:0;">
+                <span style="color:var(--text-muted); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.5px;">Tarefas</span>
+                <span style="font-weight:600; color:var(--text-main);">${pendingCount} pend. / ${completedCount} concl.</span>
+              </div>
+            </div>
+
+            <div>
+              <span style="color:var(--text-muted); display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.5rem; font-weight:700;">Projetos no Setor</span>
+              <div style="max-height:150px; overflow-y:auto; padding-right:0.25rem;">
+                ${projectsHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      safeCreateIcons();
     }
 
     /* ==========================================
@@ -4520,11 +4675,12 @@
                 <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${slug}); display:inline-block; flex-shrink:0;"></span>
                 <span style="font-size:0.75rem; font-weight:700; color:var(--text-main); text-transform:uppercase; letter-spacing:0.3px;">${proj.team}</span>
               </div>
-              <span style="font-size:0.75rem; font-weight:700; color:${proj.status === 'Concluído' ? 'var(--success)' : proj.status === 'Atrasado' ? 'var(--danger)' : 'var(--warning)'};">${proj.status}</span>
+              <span style="font-size:0.75rem; font-weight:700; color:${proj.status === 'ConcluÃ­do' ? 'var(--success)' : proj.status === 'Atrasado' ? 'var(--danger)' : 'var(--warning)'};">${proj.status}</span>
             </div>
             
             <h4 class="project-card-title">${proj.name}</h4>
-            <p class="project-card-desc">${proj.description || 'Sem descrição.'}</p>
+            ${proj.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; width: max-content; font-weight: 600; margin-bottom: 0.5rem;">${proj.subSector}</div>` : ''}
+            <p class="project-card-desc">${proj.description || 'Sem descriÃ§Ã£o.'}</p>
             
             <div class="project-progress-container">
               <div class="project-progress-text">
@@ -4557,7 +4713,7 @@
       // Definir textos no drawer
       document.getElementById('drawer-project-title').textContent = proj.name;
       document.getElementById('drawer-project-desc').textContent = proj.description || 'Sem escopo cadastrado.';
-      document.getElementById('drawer-project-team').textContent = proj.team;
+      document.getElementById('drawer-project-team').textContent = proj.subSector ? `${proj.team} (${proj.subSector})` : proj.team;
       document.getElementById('drawer-project-status').textContent = proj.status;
       document.getElementById('drawer-project-start').textContent = formatDate(proj.startDate);
       document.getElementById('drawer-project-deadline').textContent = formatDate(proj.deadline);
@@ -4602,7 +4758,7 @@
     }
 
     /* ==========================================
-       10. RENDERING: CALENDÁRIO MENSAL DINÂMICO
+       10. RENDERING: CALENDÃRIO MENSAL DINÃ‚MICO
        ========================================== */
     function renderCalendar() {
       const grid = document.getElementById('calendar-grid-cells');
@@ -4613,27 +4769,27 @@
       const year = d.getFullYear();
       const month = d.getMonth();
 
-      // Nomes dos meses em português
-      const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+      // Nomes dos meses em portuguÃªs
+      const monthNames = ["Janeiro", "Fevereiro", "MarÃ§o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
       monthYearLabel.textContent = `${monthNames[month]} de ${year}`;
 
-      // Gerar os cabeçalhos de dia de semana
-      const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+      // Gerar os cabeÃ§alhos de dia de semana
+      const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "SÃ¡b"];
       weekdays.forEach(day => {
         grid.innerHTML += `<div class="calendar-weekday-header">${day}</div>`;
       });
 
-      // Primeiro dia do mês correspondente
+      // Primeiro dia do mÃªs correspondente
       const firstDay = new Date(year, month, 1);
       const startingDayOfWeek = firstDay.getDay();
 
-      // Total de dias no mês
+      // Total de dias no mÃªs
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       
-      // Total de dias no mês anterior (para células vazias)
+      // Total de dias no mÃªs anterior (para cÃ©lulas vazias)
       const prevMonthDays = new Date(year, month, 0).getDate();
 
-      // Renderizar dias do mês anterior
+      // Renderizar dias do mÃªs anterior
       for (let i = startingDayOfWeek - 1; i >= 0; i--) {
         const dayVal = prevMonthDays - i;
         grid.innerHTML += `
@@ -4643,7 +4799,7 @@
         `;
       }
 
-      // Renderizar dias do mês atual
+      // Renderizar dias do mÃªs atual
       const today = new Date();
       const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
 
@@ -4668,7 +4824,7 @@
         grid.innerHTML += cellHtml;
       }
 
-      // Preencher o final da grade se necessário (mês seguinte)
+      // Preencher o final da grade se necessÃ¡rio (mÃªs seguinte)
       const totalCellsUsed = startingDayOfWeek + daysInMonth;
       const remainingCells = 42 - totalCellsUsed; // Grade 6 semanas fixa
       for (let i = 1; i <= remainingCells; i++) {
@@ -4679,7 +4835,7 @@
         `;
       }
 
-      // Ocultar painel de detalhe inferior por padrão até clique
+      // Ocultar painel de detalhe inferior por padrÃ£o atÃ© clique
       document.getElementById('calendar-day-details').classList.add('hidden');
     }
 
@@ -4689,7 +4845,7 @@
     }
 
     function resetCalendarMonth() {
-      state.calendarDate = new Date("2026-05-30"); // Voltar ao padrão da simulação
+      state.calendarDate = new Date("2026-05-30"); // Voltar ao padrÃ£o da simulaÃ§Ã£o
       renderCalendar();
     }
 
@@ -4701,7 +4857,7 @@
       const detailsList = document.getElementById('calendar-details-tasks-list');
       const detailsTitle = document.getElementById('calendar-details-date');
 
-      detailsTitle.textContent = `Prazos de Entrega — ${formatDate(dateStr)}`;
+      detailsTitle.textContent = `Prazos de Entrega â€” ${formatDate(dateStr)}`;
       detailsList.innerHTML = '';
 
       if (dayTasks.length === 0) {
@@ -4712,7 +4868,7 @@
             <div class="drawer-task-item" style="margin-bottom:0.5rem; background-color: var(--bg-secondary);">
               <div class="drawer-task-info">
                 <span class="drawer-task-title">${task.title}</span>
-                <span class="drawer-task-meta">Equipe: <strong>${task.team}</strong> | Responsável: <strong>${task.assignee}</strong></span>
+                <span class="drawer-task-meta">Equipe: <strong>${task.team}</strong> | ResponsÃ¡vel: <strong>${task.assignee}</strong></span>
               </div>
               <span class="badge status-badge status-badge-${task.status}">${formatStatus(task.status)}</span>
             </div>
@@ -4725,7 +4881,7 @@
     }
 
     /* ==========================================
-       11. RENDERING: NOTIFICAÇÕES & ALERTAS
+       11. RENDERING: NOTIFICAÃ‡Ã•ES & ALERTAS
        ========================================== */
     function renderNotifications() {
       const container = document.getElementById('notifications-list-container');
@@ -4735,13 +4891,13 @@
         container.innerHTML = `
           <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
             <i data-lucide="bell-off" style="width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.5;"></i>
-            <p>Sua caixa de notificações está totalmente vazia.</p>
+            <p>Sua caixa de notificaÃ§Ãµes estÃ¡ totalmente vazia.</p>
           </div>
         `;
         return;
       }
 
-      // Ordenar por lidas vs não lidas, e data
+      // Ordenar por lidas vs nÃ£o lidas, e data
       const sorted = [...state.notifications].sort((a,b) => b.read - a.read);
 
       sorted.forEach(notif => {
@@ -4788,6 +4944,7 @@
       };
       state.notifications.unshift(newNotif);
       updateNotificationsBadge();
+      saveStateToStorage();
     }
 
     function markNotificationAsRead(id) {
@@ -4796,6 +4953,7 @@
         notif.read = true;
         renderNotifications();
         updateNotificationsBadge();
+        saveStateToStorage();
       }
     }
 
@@ -4803,6 +4961,7 @@
       state.notifications.forEach(n => n.read = true);
       renderNotifications();
       updateNotificationsBadge();
+      saveStateToStorage();
     }
 
     function updateNotificationsBadge() {
@@ -4812,38 +4971,71 @@
       const headerBadge = document.getElementById('header-notif-badge');
 
       if (unreadCount > 0) {
-        sidebarBadge.textContent = unreadCount;
-        sidebarBadge.classList.remove('hidden');
-
-        headerBadge.textContent = unreadCount;
-        headerBadge.classList.remove('hidden');
+        if (sidebarBadge) {
+          sidebarBadge.textContent = unreadCount;
+          sidebarBadge.classList.remove('hidden');
+        }
+        if (headerBadge) {
+          headerBadge.textContent = unreadCount;
+          headerBadge.classList.remove('hidden');
+        }
       } else {
-        sidebarBadge.classList.add('hidden');
-        headerBadge.classList.add('hidden');
+        if (sidebarBadge) sidebarBadge.classList.add('hidden');
+        if (headerBadge) headerBadge.classList.add('hidden');
       }
+    }
+          /* ==========================================
+       11. MAPAS E CARTEIRAS DE SUB-SETORES
+       ========================================== */
+    const subSectorsMap = {
+      'Financeiro': ['BenefÃ­cios', 'Faturamento', 'Contas a Pagar/Receber'],
+      'Operacional': ['Planejamento de Rotas', 'Monitoramento', 'GestÃ£o de Frota'],
+      'R&S': ['Recrutamento', 'SeleÃ§Ã£o', 'Onboarding'],
+      'DP': ['Ponto', 'Atestado', 'RescisÃ£o', 'Folha'],
+      'Qualidade': ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
+      'Tecnologia': ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados'],
+      'GestÃ£o': ['Geral']
+    };
+
+    function updateSubSectorsSelect(modalType) {
+      const teamSelectId = modalType === 'task' ? 'task-team' : 'project-team';
+      const subSelectId = modalType === 'task' ? 'task-subsector' : 'project-subsector';
+      
+      const team = document.getElementById(teamSelectId).value;
+      const subSelect = document.getElementById(subSelectId);
+      if (!subSelect) return;
+
+      subSelect.innerHTML = '';
+      const list = subSectorsMap[team] || ['Geral'];
+      list.forEach(item => {
+        subSelect.innerHTML += `<option value="${item}">${item}</option>`;
+      });
     }
 
     /* ==========================================
-       12. MODAIS: CRIAÇÃO DE NOVA TAREFA
+       12. MODAIS: CRIAÃ‡ÃƒO DE NOVA TAREFA
        ========================================== */
     function openNewTaskModal() {
       // Limpar campos
       document.getElementById('task-title').value = '';
       document.getElementById('task-desc').value = '';
       document.getElementById('task-deadline').value = '';
-      document.getElementById('task-priority').value = 'Média';
+      document.getElementById('task-priority').value = 'MÃ©dia';
       
-      // Controlar permissão de seleção de equipe
+      // Controlar permissÃ£o de seleÃ§Ã£o de equipe
       const teamSelect = document.getElementById('task-team');
       if (state.currentUser.perfil === 'gestor') {
-        teamSelect.value = 'Faturamento';
+        teamSelect.value = 'Financeiro';
         teamSelect.disabled = false;
       } else {
         teamSelect.value = state.currentUser.equipe;
-        teamSelect.disabled = true; // Colaborador não troca sua própria equipe
+        teamSelect.disabled = true; // Colaborador nÃ£o troca sua prÃ³pria equipe
       }
 
-      // Popular responsáveis
+      // Popular sub-setores
+      updateSubSectorsSelect('task');
+
+      // Popular responsÃ¡veis
       populateAssigneesForSelectedTeam();
 
       // Popular lista de projetos no select
@@ -4869,10 +5061,10 @@
       const assigneeSelect = document.getElementById('task-assignee');
       assigneeSelect.innerHTML = '';
 
-      // Filtrar usuários que pertencem à equipe selecionada
+      // Filtrar usuÃ¡rios que pertencem Ã  equipe selecionada
       const teamMembers = usuarios.filter(u => u.equipe === team);
       
-      // Se não houver membros explícitos, colocar gestor ou geral
+      // Se nÃ£o houver membros explÃ­citos, colocar gestor ou geral
       if (teamMembers.length === 0) {
         assigneeSelect.innerHTML += `<option value="Equipe Geral">Equipe Geral</option>`;
       } else {
@@ -4886,6 +5078,7 @@
       const title = document.getElementById('task-title').value;
       const desc = document.getElementById('task-desc').value;
       const team = document.getElementById('task-team').value;
+      const subSector = document.getElementById('task-subsector').value;
       const assignee = document.getElementById('task-assignee').value;
       const deadline = document.getElementById('task-deadline').value;
       const priority = document.getElementById('task-priority').value;
@@ -4896,6 +5089,7 @@
         title: title,
         description: desc,
         team: team,
+        subSector: subSector,
         assignee: assignee,
         status: 'todo',
         deadline: deadline,
@@ -4905,12 +5099,12 @@
 
       state.tasks.push(newTask);
       
-      // Criar notificação correspondente
+      // Criar notificaÃ§Ã£o correspondente
       addNotification(`Nova tarefa cadastrada para a equipe ${team}: "${title}"`, 'info');
 
       closeNewTaskModal();
       
-      // Se o usuário estiver visualizando tarefas ou dashboard, recarregar a tela atual
+      // Se o usuÃ¡rio estiver visualizando tarefas ou dashboard, recarregar a tela atual
       const currentActiveMenuLink = document.querySelector('.sidebar-menu .menu-link.active');
       const clickAttr = currentActiveMenuLink ? currentActiveMenuLink.getAttribute('onclick') : '';
       
@@ -4919,7 +5113,7 @@
     }
 
     /* ==========================================
-       13. MODAIS: CRIAÇÃO DE NOVO PROJETO
+       13. MODAIS: CRIAÃ‡ÃƒO DE NOVO PROJETO
        ========================================== */
     function openNewProjectModal() {
       document.getElementById('project-title').value = '';
@@ -4929,12 +5123,15 @@
       
       const teamSelect = document.getElementById('project-team');
       if (state.currentUser.perfil === 'gestor') {
-        teamSelect.value = 'Faturamento';
+        teamSelect.value = 'Financeiro';
         teamSelect.disabled = false;
       } else {
         teamSelect.value = state.currentUser.equipe;
         teamSelect.disabled = true;
       }
+
+      // Popular sub-setores
+      updateSubSectorsSelect('project');
 
       document.getElementById('project-modal').classList.add('active');
     }
@@ -4947,6 +5144,7 @@
       const name = document.getElementById('project-title').value;
       const desc = document.getElementById('project-desc').value;
       const team = document.getElementById('project-team').value;
+      const subSector = document.getElementById('project-subsector').value;
       const status = document.getElementById('project-status').value;
       const start = document.getElementById('project-start').value;
       const deadline = document.getElementById('project-deadline').value;
@@ -4955,6 +5153,7 @@
         id: `proj-${Date.now()}`,
         name: name,
         team: team,
+        subSector: subSector,
         progress: 0,
         startDate: start,
         deadline: deadline,
@@ -4963,14 +5162,40 @@
       };
 
       state.projects.push(newProj);
-      addNotification(`Novo projeto estratégico cadastrado: "${name}" (${team})`, 'info');
+      addNotification(`Novo projeto estratÃ©gico cadastrado: "${name}" (${team})`, 'info');
 
+      saveStateToStorage();
       closeNewProjectModal();
       renderProjects();
     }
 
+    function deleteCurrentProject() {
+      const proj = state.currentSelectedProject;
+      if (!proj) return;
+
+      if (confirm(`Tem certeza que deseja excluir o projeto "${proj.name}"? As tarefas vinculadas a ele continuarÃ£o existindo, mas sem associaÃ§Ã£o a este projeto.`)) {
+        // Remove project from state
+        state.projects = state.projects.filter(p => p.id !== proj.id);
+
+        // Update task project references to null
+        state.tasks.forEach(t => {
+          if (t.project === proj.id) {
+            t.project = null;
+          }
+        });
+
+        // Add notification
+        addNotification(`O projeto "${proj.name}" foi excluÃ­do com sucesso.`, 'warning');
+
+        // Save and refresh
+        saveStateToStorage();
+        closeProjectDrawer();
+        renderProjects();
+      }
+    }
+
     /* ==========================================
-       14. SISTEMA DE LOGIN & AUTENTICAÇÃO
+       14. SISTEMA DE LOGIN & AUTENTICAÃ‡ÃƒO
        ========================================== */
     function toggleRegisterForm(isRegistering) {
       const loginForm = document.getElementById('login-form');
@@ -4997,30 +5222,63 @@
       }
     }
 
+    // Mapa de subsetores para o formulÃ¡rio de registro
+    const registerSubSectorsMap = {
+      'Financeiro':  ['BenefÃ­cios', 'Faturamento', 'Contas a Pagar/Receber'],
+      'Operacional': ['OperaÃ§Ãµes', 'LogÃ­stica', 'Frota'],
+      'R&S':         ['Recrutamento', 'SeleÃ§Ã£o', 'IntegraÃ§Ã£o'],
+      'DP':          ['Ponto', 'Atestado', 'RescisÃ£o', 'Folha'],
+      'Qualidade':   ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
+      'Tecnologia':  ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados']
+    };
+
+    function updateRegisterSubSectors() {
+      const setor     = document.getElementById('reg-setor').value;
+      const subSelect = document.getElementById('reg-subsetor');
+      const options   = registerSubSectorsMap[setor] || [];
+
+      subSelect.innerHTML = '<option value="" disabled selected>Selecione o subsetor...</option>';
+      options.forEach(sub => {
+        const opt = document.createElement('option');
+        opt.value = sub;
+        opt.textContent = sub;
+        subSelect.appendChild(opt);
+      });
+    }
+
     function handleRegister() {
       try {
-        const nome = document.getElementById('reg-nome').value.trim();
-        const email = document.getElementById('reg-email').value.trim();
-        const equipe = document.getElementById('reg-equipe').value;
-        const senha = document.getElementById('reg-password').value.trim();
+        const nome    = document.getElementById('reg-nome').value.trim();
+        const email   = document.getElementById('reg-email').value.trim();
+        const setor   = document.getElementById('reg-setor').value;
+        const subsetor= document.getElementById('reg-subsetor').value;
+        const funcao  = document.getElementById('reg-funcao').value.trim();
+        const senha   = document.getElementById('reg-password').value.trim();
 
-        if (!nome || !email || !senha || !equipe) {
-          alert("Preencha todos os campos.");
+        if (!nome || !email || !senha || !setor || !funcao) {
+          alert("Preencha todos os campos obrigatÃ³rios.");
+          return;
+        }
+
+        // Verificar se e-mail jÃ¡ existe
+        if (usuarios.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+          alert("Este e-mail jÃ¡ estÃ¡ cadastrado no sistema.");
           return;
         }
 
         const newUser = {
-          nome: nome,
-          email: email,
-          senha: senha,
-          equipe: equipe,
-          cargo: equipe === 'Gestão' ? 'Gestor(a)' : 'Analista',
-          perfil: equipe === 'Gestão' ? 'gestor' : 'colaborador'
+          nome:     nome,
+          email:    email,
+          senha:    senha,
+          equipe:   setor,
+          subSetor: subsetor || '',
+          cargo:    funcao,
+          perfil:   'colaborador'
         };
 
         usuarios.push(newUser);
 
-        // Salvar a lista de usuários atualizada no safeStorage
+        // Salvar a lista de usuÃ¡rios atualizada no safeStorage
         try {
           safeStorage.setItem('premier_usuarios', JSON.stringify(usuarios));
         } catch (e) {
@@ -5046,14 +5304,14 @@
         const errorMsg = document.getElementById('login-error-msg');
         const errorText = document.getElementById('login-error-text');
 
-        // Procurar usuário
+        // Procurar usuÃ¡rio
         const found = usuarios.find(u => u.email.toLowerCase() === email.toLowerCase() && u.senha === pass);
 
         if (found) {
           errorMsg.classList.add('hidden');
           state.currentUser = found;
           
-          // Cachear sessão no localstorage
+          // Cachear sessÃ£o no localstorage
           safeStorage.setItem('premier_user', JSON.stringify(found));
           
           initApp();
@@ -5077,9 +5335,16 @@
         document.getElementById('login-password').value = '';
         document.getElementById('login-error-msg').classList.add('hidden');
 
+        // Garantir que volta sempre para o formulÃ¡rio de login (nÃ£o de cadastro)
+        toggleRegisterForm(false);
+
         // Esconder app e mostrar login
         document.getElementById('app-section').classList.add('hidden');
         document.getElementById('login-section').classList.remove('hidden');
+
+        // Rolar para o topo da tela de login
+        document.getElementById('login-section').scrollTop = 0;
+        window.scrollTo(0, 0);
       } catch (err) {
         console.error("Erro ao fazer logout:", err);
       }
@@ -5096,7 +5361,7 @@
     function handleGlobalSearch(value) {
       state.filters.search = value;
       
-      // Decidir qual view atualizar com base no que está aberto
+      // Decidir qual view atualizar com base no que estÃ¡ aberto
       const currentActiveMenuLink = document.querySelector('.sidebar-menu .menu-link.active');
       const clickAttr = currentActiveMenuLink ? currentActiveMenuLink.getAttribute('onclick') : '';
 
@@ -5145,19 +5410,22 @@
       switch (status) {
         case 'todo': return 'A Fazer';
         case 'in_progress': return 'Em Andamento';
-        case 'review': return 'Revisão';
-        case 'done': return 'Concluído';
+        case 'review': return 'RevisÃ£o';
+        case 'done': return 'ConcluÃ­do';
         default: return status;
       }
     }
 
     function getTeamSlug(teamName) {
-      if (teamName.includes('Faturamento')) return 'fat';
-      if (teamName.includes('Logística')) return 'log';
-      if (teamName.includes('Comercial')) return 'com';
-      if (teamName.includes('RH')) return 'rh';
+      if (teamName.includes('Financeiro') || teamName.includes('Faturamento')) return 'fat';
+      if (teamName.includes('Operacional') || teamName.includes('LogÃ­stica')) return 'log';
+      if (teamName.includes('R&S') || teamName.includes('Comercial')) return 'com';
+      if (teamName.includes('DP') || teamName.includes('RH')) return 'rh';
+      if (teamName.includes('Qualidade')) return 'qualidade';
+      if (teamName.includes('Tecnologia')) return 'tecnologia';
       return 'gestao';
     }
   </script>
 </body>
 </html>
+
