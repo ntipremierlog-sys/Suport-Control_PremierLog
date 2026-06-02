@@ -3361,7 +3361,7 @@
        1. USUÃRIOS PRÃ‰-DEFINIDOS (SIMULAÃ‡ÃƒO DB)
        ========================================== */
     const defaultUsuarios = [
-      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Diretor de OperaÃ§Ãµes", perfil: "gestor" }
+      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Gerente Geral", perfil: "gestor" }
     ];
 
     let cachedUsuarios = [];
@@ -3413,7 +3413,7 @@
        ========================================== */
 
     // VersÃ£o dos dados â€” altere sempre que quiser forÃ§ar um reset do cache
-    const DATA_VERSION = '2026-06-02-v3';
+    const DATA_VERSION = '2026-06-02-v4';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
       // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes)
