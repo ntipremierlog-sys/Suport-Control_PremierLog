@@ -3406,18 +3406,1164 @@
     /* ==========================================
        2. MOCK DATA ROBUSTA (DADOS INICIAIS)
        ========================================== */
-    const initialTasks = [];
+    const initialTasks = [
+    {
+        "id":  "F1-01",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Gestão",
+        "desc":  "Concluído em 12/05/2026.",
+        "deadline":  "2026-05-12",
+        "status":  "done",
+        "assignee":  "JS3 + GG",
+        "title":  "Reunião de abertura - alinhamento de escopo e cronograma",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-02",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Concluído em 12/05/2026.",
+        "deadline":  "2026-05-12",
+        "status":  "done",
+        "assignee":  "JS3 (Daniela)",
+        "title":  "DISC aplicado com todos os líderes (DP, RS, Fin., Op., Petrobras, GG)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-03",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Concluído em 18/05/2026.",
+        "deadline":  "2026-05-18",
+        "status":  "done",
+        "assignee":  "JS3 + Analista",
+        "title":  "Workshop de Sensibilização - 1ª turma presencial",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-04",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Financeiro",
+        "desc":  "Concluído até 21/05/2026.",
+        "deadline":  "2026-05-21",
+        "status":  "done",
+        "assignee":  "JS3 (Daniela)",
+        "title":  "SWOT Cruzada - Financeiro, Petrobras, R\u0026S, DP e Operacional",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-05",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "R\u0026S",
+        "desc":  "Concluído. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-05-21",
+        "status":  "done",
+        "assignee":  "JS3 + Analista",
+        "title":  "Árvore de Processos - R\u0026S",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F1-06",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "DP",
+        "desc":  "Concluído. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-05-21",
+        "status":  "done",
+        "assignee":  "JS3 + Analista",
+        "title":  "Árvore de Processos - DP",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F1-07",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Operacional",
+        "desc":  "Concluído. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-05-21",
+        "status":  "done",
+        "assignee":  "JS3 + Analista",
+        "title":  "Árvore de Processos - Operacional",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F1-08",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Previsto para 25/05/2026.",
+        "deadline":  "2026-05-25",
+        "status":  "done",
+        "assignee":  "JS3 + Analista",
+        "title":  "Workshop de Sensibilização - 2ª turma híbrida (presencial + online)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-09",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Financeiro",
+        "desc":  "Prioridade imediata. Prazo: 30/05/2026. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-05-30",
+        "status":  "done",
+        "assignee":  "Ligiane Castro",
+        "title":  "Árvore de Processos - Financeiro (conclusão por Ligiane)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-10",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Operacional",
+        "desc":  "Informações a serem solicitadas ao Luiz. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-05-30",
+        "status":  "done",
+        "assignee":  "Ligiane Castro",
+        "title":  "Solicitar ao Contrato Petrobras informações para Árvore de Processos",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-11",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Indicados pelas lideranças.",
+        "deadline":  "2026-05-30",
+        "status":  "done",
+        "assignee":  "Ligiane Castro",
+        "title":  "Elaborar lista de colaboradores indicados para DISC - 2ª turma",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-12",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Em andamento com colaboradores do operacional -ponta.",
+        "deadline":  "2026-06-06",
+        "status":  "in_progress",
+        "assignee":  "JS3 (Daniela) + Analista",
+        "title":  "DISC com colaboradores indicados pelas lideranças - 2ª turma",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-13",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "A iniciar.",
+        "deadline":  "2026-06-06",
+        "status":  "in_progress",
+        "assignee":  "Ligiane Castro",
+        "title":  "Levantamento documental inicial (contratos, organograma, planilhas)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-14",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Meta: redução de 10% ao final do projeto. [Entregável JS3: 05 - Indicadores]",
+        "deadline":  "2026-06-06",
+        "status":  "todo",
+        "assignee":  "Ligiane Castro",
+        "title":  "Levantar linha de base dos indicadores operacionais (absenteísmo, turnover, vagas)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-15",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Tecnologia",
+        "desc":  "A iniciar.",
+        "deadline":  "2026-06-06",
+        "status":  "done",
+        "assignee":  "Ligiane Castro",
+        "title":  "Definir siglas dos setores e solicitar e-mail da Qualidade",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F1-16",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Tecnologia",
+        "desc":  "Interno concluído",
+        "deadline":  "2026-06-06",
+        "status":  "in_progress",
+        "assignee":  "Ligiane Castro",
+        "title":  "Levantar atividades de TI (interno x terceirizado)",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F1-17",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Organograma atualizado com os nomes do colaboradores. [Entregável JS3: 03 - Organograma]",
+        "deadline":  "2026-06-06",
+        "status":  "in_progress",
+        "assignee":  "Ligiane Castro",
+        "title":  "Solicitar e validar organograma oficial junto à Gerência Geral",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-18",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Gestão",
+        "desc":  "A iniciar.",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista + GG",
+        "title":  "Definir e comunicar calendário de reuniões mensais (5 meses restantes)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-19",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Qualidade",
+        "desc":  "Datas mapeamento de processos definidos com os setores de R\u0026S, jurídico, finandeiro, DP, operacional e Petrobras.",
+        "deadline":  "2026-06-10",
+        "status":  "in_progress",
+        "assignee":  "JS3",
+        "title":  "Apresentação do cronograma atualizado pela JS3",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-20",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Operacional",
+        "desc":  "Após coleta de informações com Luiz. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-06-06",
+        "status":  "done",
+        "assignee":  "Ligiane Castro",
+        "title":  "Árvore de Processos - Contrato Petrobras (conclusão)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F1-V",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 1",
+        "team":  "Gestão",
+        "desc":  "GG assina o aceite antes de avançar para a Fase 2.",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "Ronaldo Brito",
+        "title":  "?? CHECKPOINT - Aceite formal da Fase 1 (GG assina)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-01",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Gestão",
+        "desc":  "Módulo 1 do Plano Premier - orientadores estratégicos. [Entregável JS3: 01 - Planejamento]",
+        "deadline":  "2026-07-15",
+        "status":  "todo",
+        "assignee":  "JS3 + GG",
+        "title":  "Planejamento estratégico elaborado e validado pela diretoria",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-02",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Tecnologia",
+        "desc":  "Política já esboçada no Plano Premier - JS3 formaliza. [Entregável JS3: 02 - Política]",
+        "deadline":  "2026-07-15",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Política da Qualidade formalizada e publicada",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-03",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "Organograma básico existe - JS3 estrutura formalmente. [Entregável JS3: 03 - Organograma]",
+        "deadline":  "2026-07-15",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Organograma oficial atualizado com SGQ posicionado",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-04",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "A iniciar. [Entregável JS3: 03 - Organograma]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Descrição de cargos elaborada para todas as áreas da sede",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-05",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Financeiro",
+        "desc":  "6 processos críticos a mapear. [Entregável JS3: 04 - Mapeamento]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - Financeiro",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-06",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "R\u0026S",
+        "desc":  "04 - Mapeamento [Entregável JS3: SGQ; Fase 2]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - R\u0026S",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-07",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "DP",
+        "desc":  "04 - Mapeamento [Entregável JS3: SGQ; Fase 2]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - Admissão",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-08",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "DP",
+        "desc":  "04 - Mapeamento [Entregável JS3: SGQ; Fase 2]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - DP",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-09",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Tecnologia",
+        "desc":  "04 - Mapeamento [Entregável JS3: SGQ; Fase 2]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - Gestão de Contratos",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-10",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Operacional",
+        "desc":  "04 - Mapeamento [Entregável JS3: SGQ; Fase 2]",
+        "deadline":  "2026-07-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Mapeamento de processos críticos - Operacional",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-11",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "JS3 orienta e revisa. Analista redige. GG valida processos críticos. [Entregável JS3: 06 - POPs]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "POPs elaborados - mínimo 5 por área (30 procedimentos no total)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-12",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "JS3 define o sistema. Analista opera e mantém. [Entregável JS3: 09 - Certificação]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Sistema de controle documental implantado (versões, aprovação, armazenamento)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-13",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "Absenteísmo, turnover, vagas, reposição. [Entregável JS3: 05 - Indicadores]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Fichas técnicas de indicadores definidas por processo e por contrato",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-14",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Operacional",
+        "desc":  "Meta: redução de 10% em absenteísmo e turnover. [Entregável JS3: 05 - Indicadores]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "Ligiane Castro",
+        "title":  "Planilhas de controle operacional padronizadas (efetivo, absenteísmo, vagas)",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F2-15",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Qualidade",
+        "desc":  "Cadastro, homologação e avaliação periódica. [Entregável JS3: 12 - Fornecedores]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Qualificação de fornecedores estruturada",
+        "priority":  "Média"
+    },
+    {
+        "id":  "F2-16",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Tecnologia",
+        "desc":  "JS3 facilita. Analista prepara relatório. GG lidera. [Entregável JS3: 11 - Análise Crítica]",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Diretoria + GG",
+        "title":  "1ª Análise crítica da direção (trimestral) - Agosto/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F2-V",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 2",
+        "team":  "Gestão",
+        "desc":  "GG assina o aceite antes de avançar para a Fase 3.",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "Ronaldo Brito",
+        "title":  "?? CHECKPOINT - Aceite formal da Fase 2 (GG assina)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-01",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Qualidade",
+        "desc":  "JS3 facilita módulos. Analista organiza. GG abre formalmente. Meta: =90% presença. [Entregável JS3: 13 - Treinamentos]",
+        "deadline":  "2026-09-30",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Treinamentos do SGQ realizados com todas as equipes da sede",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-02",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Qualidade",
+        "desc":  "Registro, causa raiz, ação corretiva, eficácia. [Entregável JS3: 08 - Não Conformidades]",
+        "deadline":  "2026-09-15",
+        "status":  "todo",
+        "assignee":  "Ligiane Castro",
+        "title":  "Formulário de Não Conformidades implantado e em uso",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-03",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Operacional",
+        "desc":  "JS3 define o processo. Analista registra, acompanha e encerra NCs. [Entregável JS3: 08 - Não Conformidades]",
+        "deadline":  "2026-09-30",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Sistema de gestão de NCs operacional (registro \u001a causa \u001a ação \u001a eficácia)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-04",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Tecnologia",
+        "desc":  "Estruturada e aplicada. [Entregável JS3: 07 - Controle Qualidade]",
+        "deadline":  "2026-09-30",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Pesquisa de satisfação do cliente - Petrobras e Correios",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-05",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Qualidade",
+        "desc":  "JS3 conduz. GG recebe e analisa resultados. [Entregável JS3: 14 - Clima Org.]",
+        "deadline":  "2026-09-30",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Pesquisa de clima organizacional aplicada e resultados apresentados",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-06",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Tecnologia",
+        "desc":  "Coleta mensal em todas as áreas e contratos. [Entregável JS3: 05 - Indicadores]",
+        "deadline":  "2026-09-30",
+        "status":  "todo",
+        "assignee":  "Ligiane Castro",
+        "title":  "Rotina mensal de gestão operando (indicadores + problemas + plano de ação)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-07",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Qualidade",
+        "desc":  "Conformidade dos postos operacionais e serviços entregues ao cliente. [Entregável JS3: 07 - Controle Qualidade]",
+        "deadline":  "2026-10-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Controle de qualidade do serviço prestado implantado nos contratos",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-08",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Tecnologia",
+        "desc":  "JS3 facilita. Analista prepara relatório. GG lidera. [Entregável JS3: 11 - Análise Crítica]",
+        "deadline":  "2026-10-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Diretoria + GG",
+        "title":  "2ª Análise crítica da direção (trimestral) - Outubro/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F3-V",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 3",
+        "team":  "Gestão",
+        "desc":  "GG assina o aceite antes de avançar para a Fase 4.",
+        "deadline":  "2026-10-10",
+        "status":  "todo",
+        "assignee":  "Ronaldo Brito",
+        "title":  "?? CHECKPOINT - Aceite formal da Fase 3 (GG assina)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-01",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Qualidade",
+        "desc":  "JS3 conduz. Analista co-audita e documenta. GG participa abertura e encerramento. [Entregável JS3: 10 - Auditoria]",
+        "deadline":  "2026-10-31",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "1ª Auditoria interna realizada com relatório formal",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-02",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Tecnologia",
+        "desc":  "JS3 facilita. Analista prepara indicadores. GG lidera. [Entregável JS3: 11 - Análise Crítica]",
+        "deadline":  "2026-11-05",
+        "status":  "todo",
+        "assignee":  "JS3 + GG",
+        "title":  "Análise crítica da direção - reunião com diretoria e apresentação dos resultados",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-03",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Qualidade",
+        "desc":  "JS3 elabora. GG recebe, lê e assina ciência.",
+        "deadline":  "2026-11-07",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Relatório consolidado do SGQ - previsto x realizado de todos os entregáveis",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-04",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Qualidade",
+        "desc":  "Base para continuidade pós-projeto.",
+        "deadline":  "2026-11-07",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Plano de melhoria contínua anual elaborado",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-05",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Tecnologia",
+        "desc":  "Documentação completa para certificação. [Entregável JS3: 09 - Certificação]",
+        "deadline":  "2026-11-07",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista",
+        "title":  "Documentação preparada para eventual processo de certificação ISO 9001",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-06",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Gestão",
+        "desc":  "Analista assume manutenção autônoma do SGQ.",
+        "deadline":  "2026-11-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Analista + GG",
+        "title":  "Transferência formal do sistema - Analista assume manutenção autônoma",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "F4-07",
+        "project":  "proj-sgq",
+        "subSector":  "Fase 4",
+        "team":  "Gestão",
+        "desc":  "Resultados finais, transferência do sistema e plano de continuidade.",
+        "deadline":  "2026-11-10",
+        "status":  "todo",
+        "assignee":  "JS3 + Diretoria + GG + Analista",
+        "title":  "Reunião de encerramento com diretoria",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-322",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Alinhamento de andamento, bloqueios e próximos passos (Freq: Semanal, Partic: JS3 + Analista, Resp: Analista registra ata em até 48h)",
+        "deadline":  "2026-06-10",
+        "status":  "in_progress",
+        "assignee":  "Analista registra ata em até 48h",
+        "title":  "Reunião Semanal Operacional",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-991",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Análise previsto × realizado. Validação de entregáveis. Decisões pendentes. (Freq: Mensal, Partic: JS3 + Analista + GG, Resp: GG preside. JS3 apresenta.)",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "GG preside. JS3 apresenta.",
+        "title":  "Reunião Mensal de Acompanhamento - Jun/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-735",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Análise previsto × realizado. Validação de entregáveis. Decisões pendentes. (Freq: Mensal, Partic: JS3 + Analista + GG, Resp: GG preside. JS3 apresenta.)",
+        "deadline":  "2026-07-10",
+        "status":  "todo",
+        "assignee":  "GG preside. JS3 apresenta.",
+        "title":  "Reunião Mensal de Acompanhamento - Jul/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-269",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Análise previsto × realizado. Validação de entregáveis. Decisões pendentes. (Freq: Mensal, Partic: JS3 + Analista + GG, Resp: GG preside. JS3 apresenta.)",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "GG preside. JS3 apresenta.",
+        "title":  "Reunião Mensal de Acompanhamento - Ago/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-951",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Análise previsto × realizado. Validação de entregáveis. Decisões pendentes. (Freq: Mensal, Partic: JS3 + Analista + GG, Resp: GG preside. JS3 apresenta.)",
+        "deadline":  "2026-09-10",
+        "status":  "todo",
+        "assignee":  "GG preside. JS3 apresenta.",
+        "title":  "Reunião Mensal de Acompanhamento - Set/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-519",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Análise previsto × realizado. Validação de entregáveis. Decisões pendentes. (Freq: Mensal, Partic: JS3 + Analista + GG, Resp: GG preside. JS3 apresenta.)",
+        "deadline":  "2026-10-10",
+        "status":  "todo",
+        "assignee":  "GG preside. JS3 apresenta.",
+        "title":  "Reunião Mensal de Acompanhamento - Out/2026",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-432",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Desempenho do SGQ, indicadores, riscos e decisões estratégicas. (Freq: Bimestral, Partic: JS3 + Diretoria + GG, Resp: JS3 facilita. Analista prepara relatório.)",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "JS3 facilita. Analista prepara relatório.",
+        "title":  "1ª Análise Crítica da Direção (Trimestral)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-216",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Desempenho do SGQ, indicadores, riscos e decisões estratégicas. (Freq: Bimestral, Partic: JS3 + Diretoria + GG, Resp: JS3 facilita. Analista prepara relatório.)",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "JS3 facilita. Analista prepara relatório.",
+        "title":  "2ª Análise Crítica da Direção (Trimestral)",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-283",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Validação formal dos entregáveis antes de avançar para a próxima fase. (Freq: Por fase, Partic: JS3 + Analista + GG, Resp: GG assina o aceite da fase.)",
+        "deadline":  "2026-06-10",
+        "status":  "todo",
+        "assignee":  "GG assina o aceite da fase.",
+        "title":  "Checkpoint de Entregáveis - Fase 1",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-782",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Validação formal dos entregáveis antes de avançar para a próxima fase. (Freq: Por fase, Partic: JS3 + Analista + GG, Resp: GG assina o aceite da fase.)",
+        "deadline":  "2026-08-10",
+        "status":  "todo",
+        "assignee":  "GG assina o aceite da fase.",
+        "title":  "Checkpoint de Entregáveis - Fase 2",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-664",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Validação formal dos entregáveis antes de avançar para a próxima fase. (Freq: Por fase, Partic: JS3 + Analista + GG, Resp: GG assina o aceite da fase.)",
+        "deadline":  "2026-10-10",
+        "status":  "todo",
+        "assignee":  "GG assina o aceite da fase.",
+        "title":  "Checkpoint de Entregáveis - Fase 3",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-509",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "JS3 elabora e envia até dia 5. GG recebe, lê e assina ciência. (Freq: Mensal (até dia 5), Partic: GG + Analista, Resp: Se não recebido, Analista notifica JS3 em 48h.)",
+        "deadline":  "2026-06-05",
+        "status":  "todo",
+        "assignee":  "Se não recebido, Analista notifica JS3 em 48h.",
+        "title":  "Recebimento do Relatório Mensal JS3",
+        "priority":  "Alta"
+    },
+    {
+        "id":  "RIT-236",
+        "project":  "proj-sgq",
+        "subSector":  "Ritual de Governança",
+        "team":  "Gestão",
+        "desc":  "Resultados finais, transferência do sistema e plano de continuidade. (Freq: Única - Nov/2026, Partic: JS3 + Diretoria + GG + Analista, Resp: GG e diretoria participam obrigatoriamente.)",
+        "deadline":  "2026-11-10",
+        "status":  "todo",
+        "assignee":  "GG e diretoria participam obrigatoriamente.",
+        "title":  "Reunião de Encerramento do Projeto",
+        "priority":  "Alta"
+    }
+];
 
-    const initialProjects = [];
+    const initialProjects = [
+      {
+        id: "proj-sgq",
+        name: "Implanta\u00e7\u00e3o do SGQ | ISO 9001:2015",
+        team: "Qualidade",
+        progress: 24,
+        startDate: "2026-05-11",
+        deadline: "2026-11-10",
+        status: "Em Execu\u00e7\u00e3o",
+        description: "Plano de Implanta\u00e7\u00e3o do Sistema de Gest\u00e3o da Qualidade (SGQ) na Premier Logistics, sob coordena\u00e7\u00e3o da Consultoria JS3 e da Analista SGQ Ligiane Castro."
+      }
+    ];
 
     const initialRoadmaps = {
-      'Financeiro': [],
-      'Operacional': [],
-      'R&S': [],
-      'DP': [],
-      'Qualidade': [],
-      'Tecnologia': []
-    };
+    "Financeiro":  [
+                       {
+                           "status":  "Concluído",
+                           "title":  "SWOT Cruzada - Financeiro, Petrobras, R\u0026S, DP e Operacional",
+                           "id":  "step-F1-04",
+                           "fluxo":  "Fase 1 - Preparação"
+                       },
+                       {
+                           "status":  "Concluído",
+                           "title":  "Árvore de Processos - Financeiro (conclusão por Ligiane)",
+                           "id":  "step-F1-09",
+                           "fluxo":  "Fase 1 - Preparação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Mapeamento de processos críticos - Financeiro",
+                           "id":  "step-F2-05",
+                           "fluxo":  "Fase 2 - Implantação"
+                       }
+                   ],
+    "R\u0026S":  [
+                     {
+                         "status":  "Concluído",
+                         "title":  "Árvore de Processos - R\u0026S",
+                         "id":  "step-F1-05",
+                         "fluxo":  "Fase 1 - Preparação"
+                     },
+                     {
+                         "status":  "A iniciar",
+                         "title":  "Mapeamento de processos críticos - R\u0026S",
+                         "id":  "step-F2-06",
+                         "fluxo":  "Fase 2 - Implantação"
+                     }
+                 ],
+    "Qualidade":  [
+                      {
+                          "status":  "Concluído",
+                          "title":  "Reunião de abertura - alinhamento de escopo e cronograma",
+                          "id":  "step-F1-01",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Concluído",
+                          "title":  "DISC aplicado com todos os líderes (DP, RS, Fin., Op., Petrobras, GG)",
+                          "id":  "step-F1-02",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Concluído",
+                          "title":  "Workshop de Sensibilização - 1ª turma presencial",
+                          "id":  "step-F1-03",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Concluído",
+                          "title":  "Workshop de Sensibilização - 2ª turma híbrida (presencial + online)",
+                          "id":  "step-F1-08",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Concluído",
+                          "title":  "Elaborar lista de colaboradores indicados para DISC - 2ª turma",
+                          "id":  "step-F1-11",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Em andamento",
+                          "title":  "DISC com colaboradores indicados pelas lideranças - 2ª turma",
+                          "id":  "step-F1-12",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Em andamento",
+                          "title":  "Levantamento documental inicial (contratos, organograma, planilhas)",
+                          "id":  "step-F1-13",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Levantar linha de base dos indicadores operacionais (absenteísmo, turnover, vagas)",
+                          "id":  "step-F1-14",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Em andamento",
+                          "title":  "Solicitar e validar organograma oficial junto à Gerência Geral",
+                          "id":  "step-F1-17",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Definir e comunicar calendário de reuniões mensais (5 meses restantes)",
+                          "id":  "step-F1-18",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "Em andamento",
+                          "title":  "Apresentação do cronograma atualizado pela JS3",
+                          "id":  "step-F1-19",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "?? CHECKPOINT - Aceite formal da Fase 1 (GG assina)",
+                          "id":  "step-F1-V",
+                          "fluxo":  "Fase 1 - Preparação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Planejamento estratégico elaborado e validado pela diretoria",
+                          "id":  "step-F2-01",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Organograma oficial atualizado com SGQ posicionado",
+                          "id":  "step-F2-03",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Descrição de cargos elaborada para todas as áreas da sede",
+                          "id":  "step-F2-04",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "POPs elaborados - mínimo 5 por área (30 procedimentos no total)",
+                          "id":  "step-F2-11",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Sistema de controle documental implantado (versões, aprovação, armazenamento)",
+                          "id":  "step-F2-12",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Fichas técnicas de indicadores definidas por processo e por contrato",
+                          "id":  "step-F2-13",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Qualificação de fornecedores estruturada",
+                          "id":  "step-F2-15",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "?? CHECKPOINT - Aceite formal da Fase 2 (GG assina)",
+                          "id":  "step-F2-V",
+                          "fluxo":  "Fase 2 - Implantação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Treinamentos do SGQ realizados com todas as equipes da sede",
+                          "id":  "step-F3-01",
+                          "fluxo":  "Fase 3 - Implementação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Formulário de Não Conformidades implantado e em uso",
+                          "id":  "step-F3-02",
+                          "fluxo":  "Fase 3 - Implementação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Pesquisa de clima organizacional aplicada e resultados apresentados",
+                          "id":  "step-F3-05",
+                          "fluxo":  "Fase 3 - Implementação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Controle de qualidade do serviço prestado implantado nos contratos",
+                          "id":  "step-F3-07",
+                          "fluxo":  "Fase 3 - Implementação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "?? CHECKPOINT - Aceite formal da Fase 3 (GG assina)",
+                          "id":  "step-F3-V",
+                          "fluxo":  "Fase 3 - Implementação"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "1ª Auditoria interna realizada com relatório formal",
+                          "id":  "step-F4-01",
+                          "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Relatório consolidado do SGQ - previsto x realizado de todos os entregáveis",
+                          "id":  "step-F4-03",
+                          "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Plano de melhoria contínua anual elaborado",
+                          "id":  "step-F4-04",
+                          "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Transferência formal do sistema - Analista assume manutenção autônoma",
+                          "id":  "step-F4-06",
+                          "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                      },
+                      {
+                          "status":  "A iniciar",
+                          "title":  "Reunião de encerramento com diretoria",
+                          "id":  "step-F4-07",
+                          "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                      }
+                  ],
+    "DP":  [
+               {
+                   "status":  "Concluído",
+                   "title":  "Árvore de Processos - DP",
+                   "id":  "step-F1-06",
+                   "fluxo":  "Fase 1 - Preparação"
+               },
+               {
+                   "status":  "A iniciar",
+                   "title":  "Mapeamento de processos críticos - Admissão",
+                   "id":  "step-F2-07",
+                   "fluxo":  "Fase 2 - Implantação"
+               },
+               {
+                   "status":  "A iniciar",
+                   "title":  "Mapeamento de processos críticos - DP",
+                   "id":  "step-F2-08",
+                   "fluxo":  "Fase 2 - Implantação"
+               }
+           ],
+    "Tecnologia":  [
+                       {
+                           "status":  "Concluído",
+                           "title":  "Definir siglas dos setores e solicitar e-mail da Qualidade",
+                           "id":  "step-F1-15",
+                           "fluxo":  "Fase 1 - Preparação"
+                       },
+                       {
+                           "status":  "Em andamento",
+                           "title":  "Levantar atividades de TI (interno x terceirizado)",
+                           "id":  "step-F1-16",
+                           "fluxo":  "Fase 1 - Preparação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Política da Qualidade formalizada e publicada",
+                           "id":  "step-F2-02",
+                           "fluxo":  "Fase 2 - Implantação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Mapeamento de processos críticos - Gestão de Contratos",
+                           "id":  "step-F2-09",
+                           "fluxo":  "Fase 2 - Implantação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "1ª Análise crítica da direção (trimestral) - Agosto/2026",
+                           "id":  "step-F2-16",
+                           "fluxo":  "Fase 2 - Implantação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Pesquisa de satisfação do cliente - Petrobras e Correios",
+                           "id":  "step-F3-04",
+                           "fluxo":  "Fase 3 - Implementação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Rotina mensal de gestão operando (indicadores + problemas + plano de ação)",
+                           "id":  "step-F3-06",
+                           "fluxo":  "Fase 3 - Implementação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "2ª Análise crítica da direção (trimestral) - Outubro/2026",
+                           "id":  "step-F3-08",
+                           "fluxo":  "Fase 3 - Implementação"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Análise crítica da direção - reunião com diretoria e apresentação dos resultados",
+                           "id":  "step-F4-02",
+                           "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                       },
+                       {
+                           "status":  "A iniciar",
+                           "title":  "Documentação preparada para eventual processo de certificação ISO 9001",
+                           "id":  "step-F4-05",
+                           "fluxo":  "Fase 4 - Monitoramento e Encerramento"
+                       }
+                   ],
+    "Operacional":  [
+                        {
+                            "status":  "Concluído",
+                            "title":  "Árvore de Processos - Operacional",
+                            "id":  "step-F1-07",
+                            "fluxo":  "Fase 1 - Preparação"
+                        },
+                        {
+                            "status":  "Concluído",
+                            "title":  "Solicitar ao Contrato Petrobras informações para Árvore de Processos",
+                            "id":  "step-F1-10",
+                            "fluxo":  "Fase 1 - Preparação"
+                        },
+                        {
+                            "status":  "Concluído",
+                            "title":  "Árvore de Processos - Contrato Petrobras (conclusão)",
+                            "id":  "step-F1-20",
+                            "fluxo":  "Fase 1 - Preparação"
+                        },
+                        {
+                            "status":  "A iniciar",
+                            "title":  "Mapeamento de processos críticos - Operacional",
+                            "id":  "step-F2-10",
+                            "fluxo":  "Fase 2 - Implantação"
+                        },
+                        {
+                            "status":  "A iniciar",
+                            "title":  "Planilhas de controle operacional padronizadas (efetivo, absenteísmo, vagas)",
+                            "id":  "step-F2-14",
+                            "fluxo":  "Fase 2 - Implantação"
+                        },
+                        {
+                            "status":  "A iniciar",
+                            "title":  "Sistema de gestão de NCs operacional (registro \u001a causa \u001a ação \u001a eficácia)",
+                            "id":  "step-F3-03",
+                            "fluxo":  "Fase 3 - Implementação"
+                        }
+                    ]
+};
 
     const initialNotifications = [];
 
@@ -3426,7 +4572,7 @@
        ========================================== */
 
     // Versão dos dados — altere sempre que quiser forçar um reset do cache
-    const DATA_VERSION = '2026-06-03-v5';
+    const DATA_VERSION = '2026-06-03-v6';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
       // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificações, usuário logado)
