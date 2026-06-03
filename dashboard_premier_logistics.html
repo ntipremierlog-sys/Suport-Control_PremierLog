@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -2677,10 +2677,10 @@
       </div>
 
       <div class="user-profile-widget">
-        <div class="profile-avatar-circle flex-center" id="sidebar-avatar-initials">CM</div>
+        <div class="profile-avatar-circle flex-center" id="sidebar-avatar-initials">RB</div>
         <div class="profile-info">
-          <h4 class="profile-name" id="sidebar-user-name">Carlos Mendes</h4>
-          <p class="profile-role" id="sidebar-user-role">Diretor de OperaÃ§Ãµes</p>
+          <h4 class="profile-name" id="sidebar-user-name">Ronaldo Brito</h4>
+          <p class="profile-role" id="sidebar-user-role">Gerente Geral</p>
         </div>
       </div>
 
@@ -2783,8 +2783,8 @@
 
           <!-- UsuÃ¡rio logado -->
           <div class="header-avatar-widget" onclick="switchView('settings')">
-            <div class="header-avatar-circle" id="header-avatar-initials">CM</div>
-            <span class="header-avatar-name" id="header-user-name">Carlos Mendes</span>
+            <div class="header-avatar-circle" id="header-avatar-initials">RB</div>
+            <span class="header-avatar-name" id="header-user-name">Ronaldo Brito</span>
           </div>
         </div>
       </header>
@@ -3046,10 +3046,10 @@
         <div id="view-settings" class="view-panel hidden">
           <div class="settings-grid">
             <div class="settings-profile-widget">
-              <div class="settings-avatar-big flex-center" id="settings-avatar-initials">CM</div>
+              <div class="settings-avatar-big flex-center" id="settings-avatar-initials">RB</div>
               <div>
-                <h3 style="font-weight: 700;" id="settings-user-name">Carlos Mendes</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;" id="settings-user-role">Diretor de OperaÃ§Ãµes</p>
+                <h3 style="font-weight: 700;" id="settings-user-name">Ronaldo Brito</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;" id="settings-user-role">Gerente Geral</p>
               </div>
               <div style="background-color: var(--bg-primary); padding: 0.4rem 0.85rem; border-radius: 6px; font-size: 0.8rem; font-weight: 700; border: 1px solid var(--border-color);" id="settings-user-badge">
                 GESTOR
@@ -3413,15 +3413,16 @@
        ========================================== */
 
     // VersÃ£o dos dados â€” altere sempre que quiser forÃ§ar um reset do cache
-    const DATA_VERSION = '2026-06-02-v4';
+    const DATA_VERSION = '2026-06-03-v5';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
-      // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes)
+      // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes, usuÃ¡rio logado)
       safeStorage.removeItem('premier_tasks');
       safeStorage.removeItem('premier_projects');
       safeStorage.removeItem('premier_roadmaps');
       safeStorage.removeItem('premier_notifications');
       safeStorage.removeItem('premier_usuarios');
+      safeStorage.removeItem('premier_user');
       safeStorage.setItem('premier_data_version', DATA_VERSION);
       console.info('Cache de dados limpo â€” nova versÃ£o:', DATA_VERSION);
     }

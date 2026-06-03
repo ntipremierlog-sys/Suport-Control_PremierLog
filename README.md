@@ -33,11 +33,7 @@ A aplicação conta com um banco de dados local simulado com as seguintes creden
 
 | Nome | E-mail corporativo | Senha | Equipe | Cargo | Perfil |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Carlos Mendes** | `carlos@premier.com` | `gestor123` | Gestão | Diretor de Operações | **Gestor** (Acesso geral) |
-| **Ana Lima** | `ana@premier.com` | `fat123` | Faturamento | Analista de Faturamento | **Colaborador** (Setorial) |
-| **Pedro Souza** | `pedro@premier.com` | `log123` | Logística / Operações | Coordenador Logístico | **Colaborador** (Setorial) |
-| **Julia Castro** | `julia@premier.com` | `com123` | Comercial / Vendas | Consultora Comercial | **Colaborador** (Setorial) |
-| **Marcos Ferreira** | `marcos@premier.com` | `rh123` | RH / Administrativo | Analista de RH | **Colaborador** (Setorial) |
+| **Ronaldo Brito** | `ggu@premierlog.com.br` | `Premier!2026` | Gestão | Gerente Geral | **Gestor** (Acesso geral) |
 
 > 💡 **Nota:** A plataforma também suporta o registro de novas contas diretamente através do formulário **"Criar um Novo Login"** presente na tela inicial. Todo o estado, dados e novos usuários são armazenados dinamicamente na memória cache (`localStorage`) do navegador.
 
