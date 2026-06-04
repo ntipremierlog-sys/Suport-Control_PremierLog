@@ -4715,7 +4715,7 @@
        ========================================== */
 
     // VersÃ£o dos dados â€” altere sempre que quiser forÃ§ar um reset do cache
-    const DATA_VERSION = '2026-06-03-v7';
+    const DATA_VERSION = '2026-06-03-v8';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
       // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes, usuÃ¡rio logado)
@@ -4812,6 +4812,14 @@
     });
 
     function initApp() {
+      // Garantir indexação consecutiva das etapas do roteiro
+      if (state.roadmaps) {
+        Object.keys(state.roadmaps).forEach(team => {
+          state.roadmaps[team].forEach((s, idx) => {
+            if (typeof s.step === 'undefined') s.step = idx + 1;
+          });
+        });
+      }
       // Validar seguranÃ§a do usuÃ¡rio antes de iniciar app para evitar crash fatal
       if (!state.currentUser || !state.currentUser.nome || !state.currentUser.perfil || !state.currentUser.equipe) {
         console.warn("UsuÃ¡rio invÃ¡lido ou nÃ£o autenticado. Redirecionando para login.");
@@ -5684,6 +5692,28 @@
                   <div class="roadmap-checklist" style="display:flex; flex-direction:column; gap:0.5rem;">
                     ${fluxoSteps.map(step => {
                       const selectDisabled = !isMyTeam ? 'disabled' : '';
+                      const isEditing = state.activeEditStep === `${teamName}-${step.step}`;
+                      
+                      if (isEditing) {
+                        return `
+                          <div class="roadmap-step-item" style="background: var(--bg-primary); border: 1px dashed var(--primary); padding: 0.75rem 1rem; border-radius: var(--radius-sm); width: 100%;">
+                            <div style="font-size:0.75rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.25rem; margin-bottom: 0.5rem;">
+                              <i data-lucide="edit-3" style="width:12px; height:12px;"></i> Editar Etapa ${step.step}
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                              <input type="text" id="edit-step-title-${teamName}-${step.step}" value="${step.title.replace(/"/g, '&quot;')}" style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-secondary); color:var(--text-main); outline:none;" placeholder="Título da etapa...">
+                              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <input type="text" id="edit-step-deadline-${teamName}-${step.step}" value="${(step.deadline || '').replace(/"/g, '&quot;')}" style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" placeholder="Prazo...">
+                                <input type="text" id="edit-step-assignee-${teamName}-${step.step}" value="${(step.assignee || '').replace(/"/g, '&quot;')}" style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" placeholder="Responsável...">
+                              </div>
+                              <div style="display:flex; justify-content:flex-end; gap:0.35rem; margin-top: 0.25rem;">
+                                <button class="panel-action-btn" onclick="cancelEditStep()" style="font-size:0.7rem; padding:0.25rem 0.5rem; background:var(--border-color); color:var(--text-main);">Cancelar</button>
+                                <button class="btn-action-primary" onclick="submitEditStep('${teamName}', ${step.step})" style="font-size:0.7rem; padding:0.25rem 0.5rem;">Salvar</button>
+                              </div>
+                            </div>
+                          </div>
+                        `;
+                      }
                       
                       return `
                         <div class="roadmap-step-item" style="background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.75rem 1rem; border-radius: var(--radius-sm);">
@@ -5696,7 +5726,7 @@
                           <!-- Line Break / Thin Separator -->
                           <div style="border-top: 1px dashed var(--border-color); margin: 0.4rem 0; width: 100%;"></div>
                           
-                          <!-- Bottom Line: Meta info on left, action status selector and delete button on right -->
+                          <!-- Bottom Line: Meta info on left, action status selector and buttons on right -->
                           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
                             <div style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
                               <span class="roadmap-step-deadline" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
@@ -5705,16 +5735,19 @@
                               </span>
                               <span class="roadmap-step-assignee" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.35rem;">
                                 <i data-lucide="user" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
-                                <strong>ResponsÃ¡vel:</strong> ${step.assignee}
+                                <strong>Responsável:</strong> ${step.assignee}
                               </span>
                             </div>
                             <div style="display:flex; align-items:center; gap:0.5rem;">
                               <select class="step-status-selector select-${step.status.toLowerCase().replace(' ', '')}" ${selectDisabled} onchange="handleStepStatusChange('${teamName}', ${step.step}, this.value)">
                                 <option value="Pendente" ${step.status === 'Pendente' ? 'selected' : ''}>Pendente</option>
                                 <option value="Em Andamento" ${step.status === 'Em Andamento' ? 'selected' : ''}>Em Andamento</option>
-                                <option value="ConcluÃ­do" ${step.status === 'ConcluÃ­do' ? 'selected' : ''}>ConcluÃ­do</option>
+                                <option value="Concluído" ${step.status === 'Concluído' ? 'selected' : ''}>Concluído</option>
                               </select>
                               ${isMyTeam ? `
+                                <button onclick="editRoadmapStep('${teamName}', ${step.step})" style="background:transparent; border:none; color:var(--primary); cursor:pointer; padding:0.25rem; display:flex; align-items:center; justify-content:center; border-radius:var(--radius-sm); transition:var(--transition-normal); opacity:0.75;" onmouseover="this.style.opacity='1';this.style.background='rgba(99,102,241,0.1)';" onmouseout="this.style.opacity='0.75';this.style.background='transparent';" title="Editar etapa">
+                                  <i data-lucide="edit-3" style="width:14px; height:14px;"></i>
+                                </button>
                                 <button onclick="deleteRoadmapStep('${teamName}', ${step.step})" style="background:transparent; border:none; color:var(--danger); cursor:pointer; padding:0.25rem; display:flex; align-items:center; justify-content:center; border-radius:var(--radius-sm); transition:var(--transition-normal); opacity:0.75;" onmouseover="this.style.opacity='1';this.style.background='rgba(239,68,68,0.1)';" onmouseout="this.style.opacity='0.75';this.style.background='transparent';" title="Excluir etapa">
                                   <i data-lucide="trash-2" style="width:14px; height:14px;"></i>
                                 </button>
@@ -5735,6 +5768,45 @@
       });
 
       safeCreateIcons();
+    }
+
+    function editRoadmapStep(teamName, stepNumber) {
+      state.activeEditStep = `${teamName}-${stepNumber}`;
+      renderRoadmaps();
+    }
+
+    function cancelEditStep() {
+      state.activeEditStep = null;
+      renderRoadmaps();
+    }
+
+    function submitEditStep(teamName, stepNumber) {
+      const titleEl = document.getElementById(`edit-step-title-${teamName}-${stepNumber}`);
+      const deadlineEl = document.getElementById(`edit-step-deadline-${teamName}-${stepNumber}`);
+      const assigneeEl = document.getElementById(`edit-step-assignee-${teamName}-${stepNumber}`);
+      
+      if (!titleEl) return;
+      const newTitle = titleEl.value.trim();
+      const newDeadline = deadlineEl ? deadlineEl.value.trim() : '';
+      const newAssignee = assigneeEl ? assigneeEl.value.trim() : '';
+
+      if (!newTitle) {
+        addNotification('O título da etapa é obrigatório.', 'warning');
+        return;
+      }
+
+      const steps = state.roadmaps[teamName] || [];
+      const stepItem = steps.find(s => s.step === stepNumber);
+      if (stepItem) {
+        stepItem.title = newTitle;
+        stepItem.deadline = newDeadline || 'Conforme demanda';
+        stepItem.assignee = newAssignee || 'Qualquer';
+        
+        saveStateToStorage();
+        state.activeEditStep = null;
+        renderRoadmaps();
+        addNotification(`Etapa ${stepNumber} do fluxo de ${teamName} editada com sucesso.`, 'success');
+      }
     }
 
     function showAddStepForm(teamName, fluxoName) {
@@ -5831,6 +5903,7 @@
       });
 
       state.roadmaps[teamName] = steps;
+      saveStateToStorage();
       renderRoadmaps();
       
       if (removedStep) {
