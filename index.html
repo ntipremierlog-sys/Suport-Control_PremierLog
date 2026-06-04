@@ -3151,10 +3151,31 @@
         </div>
       </div>
 
-      <div>
-        <span class="drawer-section-title">Tarefas Vinculadas</span>
+            <!-- Project Tabs and Content -->
+      <div id="drawer-project-tabs-container" style="margin-top: 1.5rem; margin-bottom: 1rem;">
+        <div style="display: flex; border-bottom: 1px solid var(--border-color); gap: 1rem; margin-bottom: 1rem;">
+          <button class="drawer-tab-btn active" onclick="switchDrawerTab('tasks')" id="tab-btn-tasks" style="padding: 0.5rem 0.25rem; font-size: 0.82rem; font-weight: 700; color: var(--primary); border-bottom: 2px solid var(--primary); cursor: pointer; transition: all 0.2s;">Tarefas Vinculadas</button>
+          <button class="drawer-tab-btn" onclick="switchDrawerTab('indicators')" id="tab-btn-indicators" style="padding: 0.5rem 0.25rem; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; display: none;">Indicadores (KPIs)</button>
+          <button class="drawer-tab-btn" onclick="switchDrawerTab('diagnostics')" id="tab-btn-diagnostics" style="padding: 0.5rem 0.25rem; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; display: none;">Diagn&oacute;stico Setorial</button>
+        </div>
+      </div>
+
+      <div id="drawer-tab-content-tasks">
         <div class="drawer-task-list" id="drawer-project-tasks-list">
           <!-- Loaded dynamically based on the project selection -->
+        </div>
+      </div>
+
+      <div id="drawer-tab-content-indicators" class="hidden">
+        <div id="drawer-project-indicators-list" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 400px; overflow-y: auto; padding-right: 0.25rem;">
+          <!-- Loaded dynamically for SGQ project -->
+        </div>
+      </div>
+
+      <div id="drawer-tab-content-diagnostics" class="hidden">
+        <div id="drawer-project-diagnostics-list" style="display: flex; flex-direction: column; gap: 0.75rem; overflow-x: auto; max-height: 400px; overflow-y: auto; padding-right: 0.25rem;">
+          <!-- Loaded dynamically for SGQ project -->
+        </div>
       </div>
 
       <div style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
@@ -4563,7 +4584,129 @@
                             "fluxo":  "Fase 3 - Implementação"
                         }
                     ]
-};
+}; const initialIndicators = [
+    {
+        "name":  "% de entregáveis concluídos no prazo por fase",
+        "freq":  "Mensal",
+        "base":  "-",
+        "resp":  "JS3 informa no relatório mensal",
+        "obs":  "Principal KPI do projeto",
+        "target":  "= 80% por fase"
+    },
+    {
+        "name":  "% de POPs elaborados vs. previstos",
+        "freq":  "Mensal",
+        "base":  "-",
+        "resp":  "Analista controla a lista de POPs",
+        "obs":  "30 procedimentos no total",
+        "target":  "100% ao final da Fase 2"
+    },
+    {
+        "name":  "Nº de Não Conformidades registradas por mês",
+        "freq":  "Mensal",
+        "base":  "-",
+        "resp":  "Analista registra e consolida",
+        "obs":  "Esperado crescer no início",
+        "target":  "Crescimento no início = sinal de uso do sistema"
+    },
+    {
+        "name":  "Índice de absenteísmo",
+        "freq":  "Mensal por contrato",
+        "base":  "A apurar em Jun/2026",
+        "resp":  "Analista coleta nos contratos",
+        "obs":  "Base a ser levantada na Fase 1",
+        "target":  "Redução de 10% ao final vs. linha de base"
+    },
+    {
+        "name":  "Turnover mensal",
+        "freq":  "Mensal por contrato",
+        "base":  "A apurar em Jun/2026",
+        "resp":  "Analista coleta nos contratos",
+        "obs":  "Base a ser levantada na Fase 1",
+        "target":  "Redução de 10% ao final vs. linha de base"
+    },
+    {
+        "name":  "Tempo médio de preenchimento de vagas",
+        "freq":  "Mensal",
+        "base":  "A apurar em Jun/2026",
+        "resp":  "Analista coleta em R\u0026S",
+        "obs":  "Base a ser levantada na Fase 1",
+        "target":  "Redução de 15% ao final vs. linha de base"
+    },
+    {
+        "name":  "% de presença nos treinamentos",
+        "freq":  "Por treinamento",
+        "base":  "-",
+        "resp":  "Analista registra lista de presença",
+        "obs":  "Aplicável a partir da Fase 3",
+        "target":  "= 90% de presença"
+    },
+    {
+        "name":  "Nº de reuniões mensais realizadas vs. previstas",
+        "freq":  "Mensal",
+        "base":  "-",
+        "resp":  "Analista registra em ata",
+        "obs":  "Nenhuma pode ser cancelada",
+        "target":  "100% - nenhuma cancelada sem reagendamento"
+    },
+    {
+        "name":  "Satisfação dos colaboradores com o projeto",
+        "freq":  "Bimestral",
+        "base":  "-",
+        "resp":  "JS3 aplica junto à pesquisa de clima",
+        "obs":  "Primeira medição: Fase 3",
+        "target":  "= 75% de avaliação positiva"
+    }
+]; const initialDiagnostics = [
+    {
+        "sector":  "Gerente Geral (Ronaldo Brito)",
+        "disc":  "Concluído",
+        "tree":  "-",
+        "swot":  "-",
+        "workshop":  "Concluído",
+        "status":  "Em andamento"
+    },
+    {
+        "sector":  "Financeiro (Geisa)",
+        "disc":  "Concluído",
+        "tree":  "Parcial",
+        "swot":  "Concluído",
+        "workshop":  "Concluído",
+        "status":  "Quase completo"
+    },
+    {
+        "sector":  "Contrato Petrobras (Luiz)",
+        "disc":  "Concluído",
+        "tree":  "Parcial",
+        "swot":  "Concluído",
+        "workshop":  "Concluído",
+        "status":  "Em andamento"
+    },
+    {
+        "sector":  "R\u0026S",
+        "disc":  "Concluído",
+        "tree":  "Concluído",
+        "swot":  "Concluído",
+        "workshop":  "Concluído",
+        "status":  "Concluído"
+    },
+    {
+        "sector":  "DP",
+        "disc":  "Concluído",
+        "tree":  "Concluído",
+        "swot":  "Concluído",
+        "workshop":  "Concluído",
+        "status":  "Concluído"
+    },
+    {
+        "sector":  "Operacional (Adanair)",
+        "disc":  "Concluído",
+        "tree":  "Concluído",
+        "swot":  "Concluído",
+        "workshop":  "Concluído",
+        "status":  "Concluído"
+    }
+];
 
     const initialNotifications = [];
 
@@ -4572,14 +4715,13 @@
        ========================================== */
 
     // Versão dos dados — altere sempre que quiser forçar um reset do cache
-    const DATA_VERSION = '2026-06-03-v6';
+    const DATA_VERSION = '2026-06-03-v7';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
       // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificações, usuário logado)
       safeStorage.removeItem('premier_tasks');
       safeStorage.removeItem('premier_projects');
-      safeStorage.removeItem('premier_roadmaps');
-      safeStorage.removeItem('premier_notifications');
+      safeStorage.removeItem('premier_roadmaps'); safeStorage.removeItem('premier_indicators'); safeStorage.removeItem('premier_diagnostics'); safeStorage.removeItem('premier_notifications');
       safeStorage.removeItem('premier_usuarios');
       safeStorage.removeItem('premier_user');
       safeStorage.setItem('premier_data_version', DATA_VERSION);
@@ -4591,8 +4733,7 @@
       try {
         safeStorage.setItem('premier_tasks', JSON.stringify(state.tasks));
         safeStorage.setItem('premier_projects', JSON.stringify(state.projects));
-        safeStorage.setItem('premier_roadmaps', JSON.stringify(state.roadmaps));
-        safeStorage.setItem('premier_notifications', JSON.stringify(state.notifications));
+        safeStorage.setItem('premier_roadmaps', JSON.stringify(state.roadmaps)); safeStorage.setItem('premier_indicators', JSON.stringify(state.indicators)); safeStorage.setItem('premier_diagnostics', JSON.stringify(state.diagnostics)); safeStorage.setItem('premier_notifications', JSON.stringify(state.notifications));
       } catch (e) {
         console.warn("Failed to save state to localStorage:", e);
       }
@@ -4615,11 +4756,25 @@
       console.warn("Failed to load state from cache:", e);
     }
 
+        let cachedIndicators = null;
+    try {
+      const ind = safeStorage.getItem('premier_indicators');
+      if (ind) cachedIndicators = JSON.parse(ind);
+    } catch(e) {}
+    
+    let cachedDiagnostics = null;
+    try {
+      const diag = safeStorage.getItem('premier_diagnostics');
+      if (diag) cachedDiagnostics = JSON.parse(diag);
+    } catch(e) {}
+
     const state = {
       currentUser: null,
       tasks: cachedTasks || [...initialTasks],
       projects: cachedProjects || [...initialProjects],
       roadmaps: cachedRoadmaps || JSON.parse(JSON.stringify(initialRoadmaps)), // Deep copy
+      indicators: cachedIndicators || [...initialIndicators],
+      diagnostics: cachedDiagnostics || [...initialDiagnostics], // Deep copy
       notifications: cachedNotifications || [...initialNotifications],
       filters: {
         team: 'All',
@@ -5863,6 +6018,30 @@
       safeCreateIcons();
     }
 
+        function switchDrawerTab(tabName) {
+      const buttons = document.querySelectorAll('.drawer-tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.color = 'var(--text-muted)';
+        btn.style.borderBottomColor = 'transparent';
+        btn.style.fontWeight = '600';
+      });
+
+      const activeBtn = document.getElementById('tab-btn-' + tabName);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.style.color = 'var(--primary)';
+        activeBtn.style.borderBottomColor = 'var(--primary)';
+        activeBtn.style.fontWeight = '700';
+      }
+
+      document.getElementById('drawer-tab-content-tasks').classList.add('hidden');
+      document.getElementById('drawer-tab-content-indicators').classList.add('hidden');
+      document.getElementById('drawer-tab-content-diagnostics').classList.add('hidden');
+
+      document.getElementById('drawer-tab-content-' + tabName).classList.remove('hidden');
+    }
+
     // Abrir o Painel Lateral Deslizante (Slide-over Drawer)
     function openProjectDrawer(projectId) {
       const proj = state.projects.find(p => p.id === projectId);
@@ -5873,15 +6052,15 @@
       // Definir textos no drawer
       document.getElementById('drawer-project-title').textContent = proj.name;
       document.getElementById('drawer-project-desc').textContent = proj.description || 'Sem escopo cadastrado.';
-      document.getElementById('drawer-project-team').textContent = proj.subSector ? `${proj.team} (${proj.subSector})` : proj.team;
+      document.getElementById('drawer-project-team').textContent = proj.subSector ? proj.team + ' (' + proj.subSector + ')' : proj.team;
       document.getElementById('drawer-project-status').textContent = proj.status;
       document.getElementById('drawer-project-start').textContent = formatDate(proj.startDate);
       document.getElementById('drawer-project-deadline').textContent = formatDate(proj.deadline);
-      document.getElementById('drawer-project-progress-pct').textContent = `${proj.progress}%`;
+      document.getElementById('drawer-project-progress-pct').textContent = proj.progress + '%';
       
       const fill = document.getElementById('drawer-project-progress-fill');
-      fill.className = `progress-bar-fill fill-${getTeamSlug(proj.team)}`;
-      fill.style.width = `${proj.progress}%`;
+      fill.className = 'progress-bar-fill fill-' + getTeamSlug(proj.team);
+      fill.style.width = proj.progress + '%';
 
       // Renderizar tarefas vinculadas a este projeto
       const tasksList = document.getElementById('drawer-project-tasks-list');
@@ -5889,20 +6068,55 @@
       
       const linkedTasks = state.tasks.filter(t => t.project === projectId);
       if (linkedTasks.length === 0) {
-        tasksList.innerHTML = `<p style="font-size:0.8rem; color:var(--text-muted); text-align:center; padding:1rem;">Nenhuma tarefa vinculada a este projeto.</p>`;
+        tasksList.innerHTML = '<p style="font-size:0.8rem; color:var(--text-muted); text-align:center; padding:1rem;">Nenhuma tarefa vinculada a este projeto.</p>';
       } else {
         linkedTasks.forEach(task => {
-          tasksList.innerHTML += `
-            <div class="drawer-task-item">
-              <div class="drawer-task-info">
-                <span class="drawer-task-title">${task.title}</span>
-                <span class="drawer-task-meta">Prazo: ${formatDate(task.deadline)} | Resp: ${task.assignee}</span>
-              </div>
-              <span class="badge status-badge status-badge-${task.status}">${formatStatus(task.status)}</span>
-            </div>
-          `;
+          tasksList.innerHTML += '<div class="drawer-task-item"><div class="drawer-task-info"><span class="drawer-task-title">' + task.title + '</span><span class="drawer-task-meta">Prazo: ' + formatDate(task.deadline) + ' | Resp: ' + task.assignee + '</span></div><span class="badge status-badge status-badge-' + task.status + '">' + formatStatus(task.status) + '</span></div>';
         });
       }
+
+      // Configuracao de abas extras para o projeto SGQ
+      const tabIndicators = document.getElementById('tab-btn-indicators');
+      const tabDiagnostics = document.getElementById('tab-btn-diagnostics');
+      
+      if (projectId === 'proj-sgq') {
+        if (tabIndicators) tabIndicators.style.display = 'block';
+        if (tabDiagnostics) tabDiagnostics.style.display = 'block';
+        
+        // Renderizar indicadores
+        const indList = document.getElementById('drawer-project-indicators-list');
+        if (indList && typeof state.indicators !== 'undefined') {
+          let indicatorsHtml = '';
+          state.indicators.forEach(ind => {
+            indicatorsHtml += '<div style="background: var(--bg-primary); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.4rem;"><div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;"><span style="font-weight: 700; font-size: 0.85rem; color: var(--text-main);">' + ind.name + '</span><span style="font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.4rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); text-transform: uppercase;">' + ind.freq + '</span></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.78rem; border-top: 1px solid var(--border-color); padding-top: 0.4rem; margin-top: 0.2rem;"><div><span style="color: var(--text-muted);">Meta:</span> <strong style="color: var(--text-main);">' + ind.target + '</strong></div><div><span style="color: var(--text-muted);">Resp:</span> <strong style="color: var(--text-main);">' + ind.resp + '</strong></div></div>' + (ind.base !== '-' ? '<div style="font-size: 0.78rem;"><span style="color: var(--text-muted);">Linha de Base:</span> <strong style="color: var(--text-main);">' + ind.base + '</strong></div>' : '') + (ind.obs ? '<div style="font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-top: 0.15rem;"><i data-lucide="info" style="width: 12px; height: 12px; display: inline-block; vertical-align: middle; margin-right: 0.15rem;"></i>' + ind.obs + '</div>' : '') + '</div>';
+          });
+          indList.innerHTML = indicatorsHtml;
+        }
+
+        // Renderizar diagnostico
+        const diagList = document.getElementById('drawer-project-diagnostics-list');
+        if (diagList && typeof state.diagnostics !== 'undefined') {
+          let diagHtml = '<table class="data-table" style="width: 100%; min-width: 500px; font-size: 0.78rem;"><thead><tr><th style="padding: 0.5rem;">Setor / Respons\u00e1vel</th><th style="padding: 0.5rem; text-align: center;">DISC</th><th style="padding: 0.5rem; text-align: center;">SWOT</th><th style="padding: 0.5rem; text-align: center;">Processos</th><th style="padding: 0.5rem; text-align: center;">Workshop</th><th style="padding: 0.5rem; text-align: center;">Status Geral</th></tr></thead><tbody>';
+          state.diagnostics.forEach(d => {
+            const getBadge = (val) => {
+              if (val === 'Conclu\u00eddo') return '<span style="color: var(--success); font-weight: 700;">\u2713 Sim</span>';
+              if (val === 'Parcial') return '<span style="color: var(--warning); font-weight: 700;">\u26a0\ufe0f Parcial</span>';
+              if (val === '-') return '<span style="color: var(--text-muted);">-</span>';
+              if (val === 'Quase completo') return '<span style="color: var(--success); font-weight: 700; background: var(--success-light); padding: 0.1rem 0.3rem; border-radius: 4px;">Quase completo</span>';
+              if (val === 'Em andamento') return '<span style="color: var(--warning); font-weight: 700; background: var(--warning-light); padding: 0.1rem 0.3rem; border-radius: 4px;">Em andamento</span>';
+              return '<span style="font-weight: 600;">' + val + '</span>';
+            };
+            diagHtml += '<tr><td style="padding: 0.5rem; font-weight: 600;">' + d.sector + '</td><td style="padding: 0.5rem; text-align: center;">' + getBadge(d.disc) + '</td><td style="padding: 0.5rem; text-align: center;">' + getBadge(d.swot) + '</td><td style="padding: 0.5rem; text-align: center;">' + getBadge(d.tree) + '</td><td style="padding: 0.5rem; text-align: center;">' + getBadge(d.workshop) + '</td><td style="padding: 0.5rem; text-align: center;">' + getBadge(d.status) + '</td></tr>';
+          });
+          diagHtml += '</tbody></table>';
+          diagList.innerHTML = diagHtml;
+        }
+      } else {
+        if (tabIndicators) tabIndicators.style.display = 'none';
+        if (tabDiagnostics) tabDiagnostics.style.display = 'none';
+      }
+
+      switchDrawerTab('tasks');
 
       // Animando a abertura
       document.getElementById('project-drawer-overlay').classList.add('active');
