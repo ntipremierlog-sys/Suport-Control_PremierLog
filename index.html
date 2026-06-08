@@ -2890,6 +2890,7 @@
                 <option value="DP">DP</option>
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
+                <option value="Gestão">Gestão</option>
               </select>
 
               <select class="filter-select" id="filter-priority" onchange="handleTaskFilterChange()">
@@ -3238,18 +3239,28 @@
             </div>
           </div>
 
-          <div class="modal-grid-2">
+                    <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
               <label class="modal-form-label" for="task-deadline">Prazo de Conclusão</label>
               <input type="date" id="task-deadline" class="modal-form-input" required>
             </div>
 
             <div class="modal-form-group">
+              <label class="modal-form-label" for="task-periodicity">Periodicidade</label>
+              <select id="task-periodicity" class="modal-form-select" required>
+                <option value="Pontual">Pontual</option>
+                <option value="Diário">Diário</option>
+                <option value="Semanal">Semanal</option>
+                <option value="Mensal">Mensal</option>
+              </select>
+            </div>
+
+            <div class="modal-form-group">
               <label class="modal-form-label" for="task-priority">Prioridade</label>
               <select id="task-priority" class="modal-form-select" required>
                 <option value="Alta">Alta</option>
-                <option value="Média">Média</option>
                 <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
               </select>
             </div>
           </div>
@@ -5386,7 +5397,10 @@
             <h4 class="card-title">${task.title}</h4>
             <p class="card-description">${task.description || 'Sem descrição.'}</p>
             
-            ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; width: max-content; font-weight: 600; margin-bottom: 0.5rem;">${task.subSector}</div>` : ''}
+            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+              ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; line-height: 1;">${task.subSector}</div>` : ''}
+              ${task.periodicity && task.periodicity !== 'Pontual' ? `<div style="font-size: 0.68rem; color: var(--primary); background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 4px; line-height: 1;"><i data-lucide="refresh-cw" style="width: 10px; height: 10px;"></i>${task.periodicity}</div>` : ''}
+            </div>
 
             <div class="card-meta">
               <div class="card-due-date ${isDelayed ? 'delayed-text' : ''}">
@@ -6407,6 +6421,7 @@
       document.getElementById('task-title').value = '';
       document.getElementById('task-desc').value = '';
       document.getElementById('task-deadline').value = '';
+      document.getElementById('task-periodicity').value = 'Pontual';
       document.getElementById('task-priority').value = 'Média';
       
       // Controlar permissão de seleção de equipe
@@ -6467,6 +6482,7 @@
       const subSector = document.getElementById('task-subsector').value;
       const assignee = document.getElementById('task-assignee').value;
       const deadline = document.getElementById('task-deadline').value;
+      const periodicity = document.getElementById('task-periodicity').value;
       const priority = document.getElementById('task-priority').value;
       const project = document.getElementById('task-project').value;
 
@@ -6479,6 +6495,7 @@
         assignee: assignee,
         status: 'todo',
         deadline: deadline,
+        periodicity: periodicity,
         priority: priority,
         project: project || null
       };
