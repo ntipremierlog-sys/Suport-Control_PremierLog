@@ -75,6 +75,8 @@
       --color-qualidade-light: #ECFDF5;
       --color-tecnologia: #06B6D4; /* Cyan */
       --color-tecnologia-light: #ECFEFF;
+      --color-petrobras: #4F46E5; /* Indigo */
+      --color-petrobras-light: #EEF2FF;
 
       /* UI Constants */
       --sidebar-width: 280px;
@@ -108,6 +110,7 @@
       --color-gestao-light: rgba(0, 102, 255, 0.15);
       --color-qualidade-light: rgba(16, 185, 129, 0.15);
       --color-tecnologia-light: rgba(6, 182, 212, 0.15);
+      --color-petrobras-light: rgba(79, 70, 229, 0.15);
     }
 
     /* ==========================================
@@ -998,6 +1001,7 @@
     .dot-qualidade { background-color: var(--color-qualidade); }
     .dot-tecnologia { background-color: var(--color-tecnologia); }
     .dot-gestao { background-color: var(--color-gestao); }
+    .dot-petrobras { background-color: var(--color-petrobras); }
 
     .progress-bar-bg {
       width: 100%;
@@ -1021,6 +1025,7 @@
     .fill-qualidade { background: var(--color-qualidade); }
     .fill-tecnologia { background: var(--color-tecnologia); }
     .fill-gestao { background: var(--color-gestao); }
+    .fill-petrobras { background: var(--color-petrobras); }
 
     /* Delayed Alerts Section */
     .delayed-alerts-list {
@@ -1144,6 +1149,7 @@
     .team-badge-gestao { background-color: var(--color-gestao-light); color: var(--color-gestao); border: 1px solid rgba(0, 102, 255, 0.2); }
     .team-badge-qualidade { background-color: var(--color-qualidade-light); color: var(--color-qualidade); border: 1px solid rgba(16, 185, 129, 0.2); }
     .team-badge-tecnologia { background-color: var(--color-tecnologia-light); color: var(--color-tecnologia); border: 1px solid rgba(6, 182, 212, 0.2); }
+    .team-badge-petrobras { background-color: var(--color-petrobras-light); color: var(--color-petrobras); border: 1px solid rgba(79, 70, 229, 0.2); }
 
     /* Statuses */
     .status-badge {
@@ -1978,6 +1984,7 @@
     .cal-dot-qualidade { background-color: var(--color-qualidade-light); color: var(--color-qualidade); border-left-color: var(--color-qualidade); }
     .cal-dot-tecnologia { background-color: var(--color-tecnologia-light); color: var(--color-tecnologia); border-left-color: var(--color-tecnologia); }
     .cal-dot-gestao { background-color: var(--color-gestao-light); color: var(--color-gestao); border-left-color: var(--color-gestao); }
+    .cal-dot-petrobras { background-color: var(--color-petrobras-light); color: var(--color-petrobras); border-left-color: var(--color-petrobras); }
 
     .calendar-day-detail-panel {
       margin-top: 1.5rem;
@@ -2628,6 +2635,7 @@
               <option value="DP">DP</option>
               <option value="Qualidade">Qualidade</option>
               <option value="Tecnologia">Tecnologia</option>
+              <option value="Petrobrás">Petrobrás</option>
             </select>
           </div>
         </div>
@@ -2906,6 +2914,7 @@
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
                 <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
 
               <select class="filter-select" id="filter-priority" onchange="handleTaskFilterChange()">
@@ -3264,6 +3273,7 @@
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
                 <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
             </div>
 
@@ -3358,6 +3368,7 @@
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
                 <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
             </div>
 
@@ -4263,6 +4274,7 @@
     ];
 
     const initialRoadmaps = {
+    "Petrobrás": [],
     "Financeiro":  [
                        {
                            "status":  "Concluído",
@@ -5144,7 +5156,7 @@
         // Barras de progresso por equipe
         const progressList = document.getElementById('dashboard-team-progress');
         progressList.innerHTML = '';
-        ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia'].forEach(team => {
+        ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'Petrobrás'].forEach(team => {
           const teamTasks = state.tasks.filter(t => t.team === team);
           const completed = teamTasks.filter(t => t.status === 'done').length;
           const pct = teamTasks.length > 0 ? Math.round((completed / teamTasks.length) * 100) : 0;
@@ -5808,7 +5820,7 @@
       // Se for gestor, mostrar roteiros de todas as equipes
       // Se for colaborador, mostrar apenas a sua
       const activeTeams = u.perfil === 'gestor' 
-        ? ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia']
+        ? ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'Petrobrás']
         : [u.equipe];
 
       state.selectedRoadmapFluxo = state.selectedRoadmapFluxo || {};
@@ -6707,7 +6719,8 @@
       'DP': ['Ponto', 'Atestado', 'Rescisão', 'Folha'],
       'Qualidade': ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
       'Tecnologia': ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados'],
-      'Gestão': ['Geral']
+      'Gestão': ['Geral'],
+      'Petrobrás': ['Geral', 'Operação', 'Contratos', 'Medição']
     };
 
     function updateSubSectorsSelect(modalType) {
@@ -6944,7 +6957,8 @@
       'R&S':         ['Recrutamento', 'Seleção', 'Integração'],
       'DP':          ['Ponto', 'Atestado', 'Rescisão', 'Folha'],
       'Qualidade':   ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
-      'Tecnologia':  ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados']
+      'Tecnologia':  ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados'],
+      'Petrobrás':   ['Geral', 'Operação', 'Contratos', 'Medição']
     };
 
     function updateRegisterSubSectors() {
@@ -7132,6 +7146,7 @@
     }
 
     function getTeamSlug(teamName) {
+      if (teamName.includes('Petrobras') || teamName.includes('Petrobrás')) return 'petrobras';
       if (teamName.includes('Financeiro') || teamName.includes('Faturamento')) return 'fat';
       if (teamName.includes('Operacional') || teamName.includes('Logística')) return 'log';
       if (teamName.includes('R&S') || teamName.includes('Comercial')) return 'com';
