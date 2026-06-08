@@ -2882,6 +2882,21 @@
           <!-- Barra de Filtros -->
           <div class="filter-bar">
             <div class="filters-group-left">
+                          <div class="view-toggle-buttons" style="display: flex; gap: 0.25rem; border: 1px solid var(--border-color); padding: 2px; border-radius: var(--radius-md); background: var(--bg-secondary); margin-right: 0.75rem;">
+                <button class="btn-view-toggle active" onclick="switchTaskLayout('kanban')" id="btn-layout-kanban" style="padding: 0.35rem 0.65rem; border-radius: 4px; border: none; background: var(--bg-primary); color: var(--text-main); font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; font-size: 0.75rem;">
+                  <i data-lucide="kanban" style="width: 12px; height: 12px;"></i>
+                  <span>Kanban</span>
+                </button>
+                <button class="btn-view-toggle" onclick="switchTaskLayout('table')" id="btn-layout-table" style="padding: 0.35rem 0.65rem; border-radius: 4px; border: none; background: transparent; color: var(--text-muted); font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; font-size: 0.75rem;">
+                  <i data-lucide="table" style="width: 12px; height: 12px;"></i>
+                  <span>Tabela</span>
+                </button>
+                <button class="btn-view-toggle" onclick="switchTaskLayout('list')" id="btn-layout-list" style="padding: 0.35rem 0.65rem; border-radius: 4px; border: none; background: transparent; color: var(--text-muted); font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 0.3rem; font-size: 0.75rem;">
+                  <i data-lucide="list" style="width: 12px; height: 12px;"></i>
+                  <span>Lista</span>
+                </button>
+              </div>
+
               <select class="filter-select" id="filter-team" onchange="handleTaskFilterChange()">
                 <option value="All">Todas as Equipes</option>
                 <option value="Financeiro">Financeiro</option>
@@ -2954,8 +2969,35 @@
                 </span>
                 <span class="column-counter" id="counter-done">0</span>
               </div>
-              <div class="cards-container" id="container-done"></div>
+                            <div class="cards-container" id="container-done"></div>
             </div>
+          </div>
+
+          <!-- Table Layout -->
+          <div id="tasks-table-layout" class="hidden" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow: hidden; margin-top: 1.25rem;">
+            <div style="overflow-x: auto;">
+              <table class="projects-table" style="width: 100%; border-collapse: collapse; text-align: left; min-width: 800px;">
+                <thead>
+                  <tr style="border-bottom: 1px solid var(--border-color); background: var(--bg-primary);">
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Tarefa</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Equipe</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Respons&aacute;vel</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Prazo</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Periodicidade</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Prioridade</th>
+                    <th style="padding: 1rem 1.25rem; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; width: 180px;">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="tasks-table-tbody">
+                  <!-- Populated in JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- List Layout -->
+          <div id="tasks-list-layout" class="hidden" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem;">
+            <!-- Populated in JS -->
           </div>
         </div>
 
@@ -4737,7 +4779,8 @@
       },
       calendarDate: new Date("2026-06-02"),
       currentSelectedProject: null,
-      currentSelectedDay: null
+      currentSelectedDay: null,
+      currentTaskLayout: 'kanban'
     };
 
     /* ==========================================
@@ -5356,11 +5399,11 @@
       const containerReview = document.getElementById('container-review');
       const containerDone = document.getElementById('container-done');
 
-      // Limpar todos os quadros
-      containerTodo.innerHTML = '';
-      containerInProgress.innerHTML = '';
-      containerReview.innerHTML = '';
-      containerDone.innerHTML = '';
+      // Limpar todos os quadros se existirem
+      if (containerTodo) containerTodo.innerHTML = '';
+      if (containerInProgress) containerInProgress.innerHTML = '';
+      if (containerReview) containerReview.innerHTML = '';
+      if (containerDone) containerDone.innerHTML = '';
 
       // Aplicar filtros
       const filtered = state.tasks.filter(t => {
@@ -5383,66 +5426,285 @@
         return matchesUser && matchesTeam && matchesPriority && matchesSearch;
       });
 
-      const todayStr = new Date().toISOString().split('T')[0];
-      const priorityColor = p => {
-        const lp = p.toLowerCase();
-        if (lp.includes('alt')) return 'var(--danger)';
-        if (lp.includes('mÃ©d')) return 'var(--warning)';
-        return 'var(--success)';
-      };
+      // Render based on active layout
+      if (state.currentTaskLayout === 'table') {
+        renderTasksTable(filtered);
+      } else if (state.currentTaskLayout === 'list') {
+        renderTasksList(filtered);
+      } else {
+        const todayStr = new Date().toISOString().split('T')[0];
+        const priorityColor = p => {
+          const lp = p.toLowerCase();
+          if (lp.includes('alt')) return 'var(--danger)';
+          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          return 'var(--success)';
+        };
 
-      // Popular colunas
-      filtered.forEach(task => {
-        const isDelayed = task.deadline < todayStr && task.status !== 'done';
-        const teamSlug = getTeamSlug(task.team);
-        
-        const cardHtml = `
-          <div class="kanban-card" id="task-card-${task.id}" draggable="true" ondragstart="handleDragStart(event, '${task.id}')" ondragend="handleDragEnd(event)">
-            <div class="card-top">
-              <div style="display:flex; align-items:center; gap:0.4rem;">
-                <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${teamSlug}); display:inline-block; flex-shrink:0;"></span>
-                <span style="font-size:0.75rem; font-weight:700; color:var(--text-main); text-transform:uppercase; letter-spacing:0.3px;">${task.team}</span>
+        // Popular colunas
+        filtered.forEach(task => {
+          const isDelayed = task.deadline < todayStr && task.status !== 'done';
+          const teamSlug = getTeamSlug(task.team);
+          
+          const cardHtml = `
+            <div class="kanban-card" id="task-card-${task.id}" draggable="true" ondragstart="handleDragStart(event, '${task.id}')" ondragend="handleDragEnd(event)">
+              <div class="card-top">
+                <div style="display:flex; align-items:center; gap:0.4rem;">
+                  <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${teamSlug}); display:inline-block; flex-shrink:0;"></span>
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--text-main); text-transform:uppercase; letter-spacing:0.3px;">${task.team}</span>
+                </div>
+                <span style="font-size:0.75rem; font-weight:700; color:${priorityColor(task.priority)};">${task.priority}</span>
               </div>
-              <span style="font-size:0.75rem; font-weight:700; color:${priorityColor(task.priority)};">${task.priority}</span>
-            </div>
-            <h4 class="card-title">${task.title}</h4>
-            <p class="card-description">${task.description || 'Sem descriÃ§Ã£o.'}</p>
-            
-            <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-              ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; line-height: 1;">${task.subSector}</div>` : ''}
-              ${task.periodicity && task.periodicity !== 'Pontual' ? `<div style="font-size: 0.68rem; color: var(--primary); background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; display: flex; align-items: center; gap: 4px; line-height: 1;"><i data-lucide="refresh-cw" style="width: 10px; height: 10px;"></i>${task.periodicity}</div>` : ''}
-            </div>
-
-            <div class="card-meta">
-              <div class="card-due-date ${isDelayed ? 'delayed-text' : ''}">
-                <i data-lucide="calendar" class="due-date-icon"></i>
-                <span>${formatDate(task.deadline)}</span>
+              <h4 class="card-title">${task.title}</h4>
+              <p class="card-description">${task.description || 'Sem descriÃ§Ã£o.'}</p>
+              
+              <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; line-height: 1;">${task.subSector}</div>` : ''}
+                ${task.periodicity && task.periodicity !== 'Pontual' ? `<div style="font-size: 0.68rem; color: var(--primary); background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; line-height: 1;"><i data-lucide="refresh-cw" style="width: 10px; height: 10px;"></i>${task.periodicity}</div>` : ''}
               </div>
-              <div class="mini-avatar" title="${task.assignee}">${getInitials(task.assignee)}</div>
-            </div>
 
-            <!-- Setas rÃ¡pidas para mobilidade/acessibilidade nos computadores -->
-            <div class="card-actions-quick">
-              ${task.status !== 'todo' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'prev')" title="Mover para coluna anterior"><i data-lucide="chevron-left" style="width:12px; height:12px;"></i></button>` : ''}
-              ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para prÃ³xima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
-            </div>
-          </div>
-        `;
+              <div class="card-meta">
+                <div class="card-due-date ${isDelayed ? 'delayed-text' : ''}">
+                  <i data-lucide="calendar" class="due-date-icon"></i>
+                  <span>${formatDate(task.deadline)}</span>
+                </div>
+                <div class="mini-avatar" title="${task.assignee}">${getInitials(task.assignee)}</div>
+              </div>
 
-        if (task.status === 'todo') containerTodo.innerHTML += cardHtml;
-        else if (task.status === 'in_progress') containerInProgress.innerHTML += cardHtml;
-        else if (task.status === 'review') containerReview.innerHTML += cardHtml;
-        else if (task.status === 'done') containerDone.innerHTML += cardHtml;
-      });
+              <!-- Setas rÃ¡pidas para mobilidade/acessibilidade nos computadores -->
+              <div class="card-actions-quick">
+                ${task.status !== 'todo' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'prev')" title="Mover para coluna anterior"><i data-lucide="chevron-left" style="width:12px; height:12px;"></i></button>` : ''}
+                ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para prÃ³xima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
+              </div>
+            </div>
+          `;
+
+          if (task.status === 'todo' && containerTodo) containerTodo.innerHTML += cardHtml;
+          else if (task.status === 'in_progress' && containerInProgress) containerInProgress.innerHTML += cardHtml;
+          else if (task.status === 'review' && containerReview) containerReview.innerHTML += cardHtml;
+          else if (task.status === 'done' && containerDone) containerDone.innerHTML += cardHtml;
+        });
+      }
 
       // Atualizar contadores
-      document.getElementById('counter-todo').textContent = containerTodo.children.length;
-      document.getElementById('counter-in_progress').textContent = containerInProgress.children.length;
-      document.getElementById('counter-review').textContent = containerReview.children.length;
-      document.getElementById('counter-done').textContent = containerDone.children.length;
+      const countTodo = filtered.filter(t => t.status === 'todo').length;
+      const countInProgress = filtered.filter(t => t.status === 'in_progress').length;
+      const countReview = filtered.filter(t => t.status === 'review').length;
+      const countDone = filtered.filter(t => t.status === 'done').length;
+
+      const todoCounterEl = document.getElementById('counter-todo');
+      if (todoCounterEl) todoCounterEl.textContent = countTodo;
+      const ipCounterEl = document.getElementById('counter-in_progress');
+      if (ipCounterEl) ipCounterEl.textContent = countInProgress;
+      const revCounterEl = document.getElementById('counter-review');
+      if (revCounterEl) revCounterEl.textContent = countReview;
+      const doneCounterEl = document.getElementById('counter-done');
+      if (doneCounterEl) doneCounterEl.textContent = countDone;
 
       safeCreateIcons();
     }
+
+    function switchTaskLayout(layout) {
+      state.currentTaskLayout = layout;
+      
+      document.querySelectorAll('.btn-view-toggle').forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--text-muted)';
+        btn.style.fontWeight = '500';
+      });
+      
+      const activeBtn = document.getElementById(`btn-layout-${layout}`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.style.background = 'var(--bg-primary)';
+        activeBtn.style.color = 'var(--text-main)';
+        activeBtn.style.fontWeight = '600';
+      }
+      
+      const kanbanLayout = document.getElementById('tasks-kanban-layout');
+      const tableLayout = document.getElementById('tasks-table-layout');
+      const listLayout = document.getElementById('tasks-list-layout');
+      
+      if (layout === 'kanban') {
+        if (kanbanLayout) kanbanLayout.classList.remove('hidden');
+        if (tableLayout) tableLayout.classList.add('hidden');
+        if (listLayout) listLayout.classList.add('hidden');
+      } else if (layout === 'table') {
+        if (kanbanLayout) kanbanLayout.classList.add('hidden');
+        if (tableLayout) tableLayout.classList.remove('hidden');
+        if (listLayout) listLayout.classList.add('hidden');
+      } else if (layout === 'list') {
+        if (kanbanLayout) kanbanLayout.classList.add('hidden');
+        if (tableLayout) tableLayout.classList.add('hidden');
+        if (listLayout) listLayout.classList.remove('hidden');
+      }
+      
+      renderKanban();
+    }
+
+    function renderTasksTable(filtered) {
+      const tbody = document.getElementById('tasks-table-tbody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted); font-weight: 500;">Nenhuma tarefa encontrada.</td></tr>`;
+        return;
+      }
+
+      const todayStr = new Date().toISOString().split('T')[0];
+
+      filtered.forEach(t => {
+        const isDelayed = t.deadline < todayStr && t.status !== 'done';
+        const project = state.projects.find(p => p.id === t.project);
+        const teamSlug = getTeamSlug(t.team);
+
+        const statusSelect = `
+          <select onchange="updateTaskStatus('${t.id}', this.value)" style="padding: 0.35rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-main); font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <option value="todo" ${t.status === 'todo' ? 'selected' : ''}>A Fazer</option>
+            <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>Em Andamento</option>
+            <option value="review" ${t.status === 'review' ? 'selected' : ''}>Revis&atilde;o</option>
+            <option value="done" ${t.status === 'done' ? 'selected' : ''}>ConcluÃ­do</option>
+          </select>
+        `;
+
+        const priorityColor = p => {
+          const lp = p.toLowerCase();
+          if (lp.includes('alt')) return 'var(--danger)';
+          if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          return 'var(--success)';
+        };
+
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+        const shortTeamText = shortTeam.replace(/&iacute;/g, 'í').replace(/&otilde;/g, 'õ').replace(/Ã­/g, 'í').replace(/Ãµ/g, 'õ');
+
+        const formatStatusText = s => {
+          if (s === 'todo') return 'A Fazer';
+          if (s === 'in_progress') return 'Em Andamento';
+          if (s === 'review') return 'Revis&atilde;o';
+          return 'ConcluÃ­do';
+        };
+
+        tbody.innerHTML += `
+          <tr style="border-bottom: 1px solid var(--border-color); transition: var(--transition-normal);">
+            <td style="padding: 1rem 1.25rem;">
+              <div style="display:flex; flex-direction:column; gap:0.2rem;">
+                <span style="font-size:0.85rem; font-weight:700; color:var(--text-main);">${t.title}</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:500;">${t.description || 'Sem descriÃ§Ã£o.'}</span>
+                <div style="display:flex; align-items:center; gap:0.4rem; margin-top: 0.15rem;">
+                  <span style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem;">
+                    <i data-lucide="folder" style="width:11px; height:11px; opacity:0.6;"></i>
+                    ${project ? project.name : 'Opera&ccedil;&atilde;o de Rotina'}
+                  </span>
+                  ${t.subSector ? `<span style="font-size:0.65rem; background:var(--bg-primary); border:1px solid var(--border-color); color:var(--text-muted); padding:0.02rem 0.3rem; border-radius:4px; font-weight:600;">${t.subSector}</span>` : ''}
+                </div>
+              </div>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${teamSlug}); display:inline-block; flex-shrink:0;"></span>
+                <span style="font-size:0.8rem; font-weight:600; color:var(--text-main);">${shortTeamText}</span>
+              </div>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              <div style="display:flex; align-items:center; gap:0.4rem;">
+                <div class="mini-avatar" style="width:24px; height:24px; font-size:0.7rem;" title="${t.assignee}">${getInitials(t.assignee)}</div>
+                <span style="font-size:0.8rem; color:var(--text-main); font-weight:500;">${t.assignee}</span>
+              </div>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              <span style="font-size:0.8rem; font-weight:600; color:${isDelayed ? 'var(--danger)' : 'var(--text-main)'};">${formatDate(t.deadline)}</span>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              <span style="font-size:0.8rem; color:var(--text-muted); font-weight:500;">${t.periodicity || 'Pontual'}</span>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              <span style="font-size:0.8rem; font-weight:700; color:${priorityColor(t.priority)};">${t.priority}</span>
+            </td>
+            <td style="padding: 1rem 1.25rem;">
+              ${statusSelect}
+            </td>
+          </tr>
+        `;
+      });
+      safeCreateIcons();
+    }
+
+    function renderTasksList(filtered) {
+      const container = document.getElementById('tasks-list-layout');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="text-align: center; padding: 3rem; color: var(--text-muted); font-weight: 500;">Nenhuma tarefa encontrada.</div>`;
+        return;
+      }
+
+      const todayStr = new Date().toISOString().split('T')[0];
+
+      filtered.forEach(t => {
+        const isDelayed = t.deadline < todayStr && t.status !== 'done';
+        const project = state.projects.find(p => p.id === t.project);
+        const teamSlug = getTeamSlug(t.team);
+
+        const statusSelect = `
+          <select onchange="updateTaskStatus('${t.id}', this.value)" style="padding: 0.35rem 0.6rem; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-main); font-size: 0.8rem; font-weight: 600; cursor: pointer;">
+            <option value="todo" ${t.status === 'todo' ? 'selected' : ''}>A Fazer</option>
+            <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>Em Andamento</option>
+            <option value="review" ${t.status === 'review' ? 'selected' : ''}>Revis&atilde;o</option>
+            <option value="done" ${t.status === 'done' ? 'selected' : ''}>ConcluÃ­do</option>
+          </select>
+        `;
+
+        const priorityColor = p => {
+          const lp = p.toLowerCase();
+          if (lp.includes('alt')) return 'var(--danger)';
+          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          return 'var(--success)';
+        };
+
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+
+        container.innerHTML += `
+          <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-left: 4px solid var(--color-${teamSlug}); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; transition: var(--transition-normal);">
+            <div style="display: flex; flex-direction: column; gap: 0.25rem; flex: 1;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">${t.title}</span>
+                <span style="font-size: 0.75rem; font-weight: 700; color: ${priorityColor(t.priority)}; text-transform: uppercase;">${t.priority}</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">${t.description || 'Sem descriÃ§Ã£o.'}</p>
+              <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem;">
+                <span style="font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.25rem;">
+                  <i data-lucide="folder" style="width: 11px; height: 11px; opacity: 0.6;"></i>
+                  ${project ? project.name : 'Opera&ccedil;&atilde;o de Rotina'}
+                </span>
+                ${t.subSector ? `<span style="font-size: 0.65rem; background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-muted); padding: 0.05rem 0.3rem; border-radius: 4px; font-weight: 600;">${t.subSector}</span>` : ''}
+                ${t.periodicity && t.periodicity !== 'Pontual' ? `<span style="font-size: 0.65rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: var(--primary); padding: 0.05rem 0.3rem; border-radius: 4px; font-weight: 600; display: inline-flex; align-items: center; gap: 2px;"><i data-lucide="refresh-cw" style="width: 8px; height: 8px;"></i>${t.periodicity}</span>` : ''}
+              </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0;">
+              <div style="display: flex; flex-direction: column; gap: 0.15rem; align-items: flex-end;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Prazo</span>
+                <span style="font-size: 0.8rem; font-weight: 700; color: ${isDelayed ? 'var(--danger)' : 'var(--text-main)'};">${formatDate(t.deadline)}</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.15rem; align-items: flex-end;">
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Respons&aacute;vel</span>
+                <div style="display: flex; align-items: center; gap: 0.3rem;">
+                  <div class="mini-avatar" style="width:20px; height:20px; font-size:0.6rem;" title="${t.assignee}">${getInitials(t.assignee)}</div>
+                  <span style="font-size: 0.8rem; font-weight: 500; color: var(--text-main);">${t.assignee.split(' ')[0]}</span>
+                </div>
+              </div>
+              <div>
+                ${statusSelect}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      safeCreateIcons();
+    }
+
 
     // Filtros Kanban
     function handleTaskFilterChange() {
