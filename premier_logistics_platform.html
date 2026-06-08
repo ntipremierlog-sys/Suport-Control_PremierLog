@@ -3221,6 +3221,7 @@
                 <option value="DP">DP</option>
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
+                <option value="GestÃ£o">GestÃ£o</option>
               </select>
             </div>
 
@@ -5364,7 +5365,17 @@
       // Aplicar filtros
       const filtered = state.tasks.filter(t => {
         const isMine = state.currentTaskViewMode === 'mine';
-        const matchesUser = !isMine || t.assignee === state.currentUser.nome;
+        const matchesUser = !isMine || 
+                            t.assignee === state.currentUser.nome || 
+                            (state.currentUser.perfil === 'gestor' && (
+                              t.assignee === 'GG' || 
+                              t.assignee === 'JS3 + GG' || 
+                              (t.assignee && t.assignee.includes('GG')) || 
+                              t.team === 'Gest&atilde;o' || 
+                              t.team === 'Gest&Atilde;&pound;o' || 
+                              t.team === 'Gest&atilde;o' || 
+                              t.team === 'GestÃ£o'
+                            ));
         const matchesTeam = isMine || state.filters.team === 'All' || t.team === state.filters.team;
         const matchesPriority = state.filters.priority === 'All' || t.priority === state.filters.priority;
         const matchesSearch = t.title.toLowerCase().includes(state.filters.search.toLowerCase()) ||
