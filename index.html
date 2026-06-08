@@ -6448,8 +6448,7 @@
       const assigneeSelect = document.getElementById('task-assignee');
       assigneeSelect.innerHTML = '';
 
-      // Filtrar usuários que pertencem à equipe selecionada
-      const teamMembers = usuarios.filter(u => u.equipe === team);
+      const teamMembers = usuarios.filter(u => u.equipe === team || u.perfil === 'gestor');
       
       // Se não houver membros explícitos, colocar gestor ou geral
       if (teamMembers.length === 0) {
