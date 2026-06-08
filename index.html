@@ -6490,7 +6490,7 @@
             <span class="day-number-badge">${day}</span>
             <div class="calendar-day-tasks-container">
               ${dayTasks.map(t => `
-                <div class="calendar-task-dot-item cal-dot-${getTeamSlug(t.team)}" title="${t.title}">${t.title}</div>
+                <div class="calendar-task-dot-item cal-dot-${getTeamSlug(t.team)}" title="${t.title}" onclick="event.stopPropagation(); openTaskDetailModal('${t.id}')">${t.title}</div>
               `).join('')}
             </div>
           </div>
@@ -6539,7 +6539,7 @@
       } else {
         dayTasks.forEach(task => {
           detailsList.innerHTML += `
-            <div class="drawer-task-item" style="margin-bottom:0.5rem; background-color: var(--bg-secondary);">
+            <div class="drawer-task-item" style="margin-bottom:0.5rem; background-color: var(--bg-secondary); cursor: pointer;" onclick="openTaskDetailModal('${task.id}')">
               <div class="drawer-task-info">
                 <span class="drawer-task-title">${task.title}</span>
                 <span class="drawer-task-meta">Equipe: <strong>${task.team}</strong> | Responsável: <strong>${task.assignee}</strong></span>
@@ -6552,6 +6552,45 @@
 
       detailsPanel.classList.remove('hidden');
       safeCreateIcons();
+    }
+
+    function openTaskDetailModal(taskId) {
+      const task = state.tasks.find(t => t.id === taskId);
+      if (!task) return;
+
+      document.getElementById('detail-task-title').textContent = task.title;
+      
+      const statusBadge = document.getElementById('detail-task-status-badge');
+      statusBadge.className = `badge status-badge status-badge-${task.status}`;
+      statusBadge.textContent = formatStatus(task.status);
+
+      const priorityBadge = document.getElementById('detail-task-priority-badge');
+      const lp = task.priority.toLowerCase();
+      let prioClass = 'var(--success)';
+      if (lp.includes('alt')) prioClass = 'var(--danger)';
+      else if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) prioClass = 'var(--warning)';
+      priorityBadge.style.background = prioClass;
+      priorityBadge.style.color = '#fff';
+      priorityBadge.textContent = task.priority;
+
+      const periodicityBadge = document.getElementById('detail-task-periodicity-badge');
+      periodicityBadge.textContent = task.periodicity || 'Pontual';
+
+      document.getElementById('detail-task-team').textContent = task.team;
+      document.getElementById('detail-task-subsector').textContent = task.subSector || 'Geral';
+      document.getElementById('detail-task-assignee').textContent = task.assignee;
+      document.getElementById('detail-task-deadline').textContent = formatDate(task.deadline);
+      document.getElementById('detail-task-desc').textContent = task.description || task.desc || 'Sem descrição cadastrada.';
+
+      const project = state.projects.find(p => p.id === task.project);
+      document.getElementById('detail-task-project').textContent = project ? project.name : 'Opera&ccedil;&atilde;o de Rotina';
+
+      document.getElementById('task-detail-modal').classList.add('active');
+      safeCreateIcons();
+    }
+
+    function closeTaskDetailModal() {
+      document.getElementById('task-detail-modal').classList.remove('active');
     }
 
     /* ==========================================
@@ -7102,5 +7141,64 @@
       return 'gestao';
     }
   </script>
+
+  <!-- ==========================================
+       MODAL DE DETALHES DA TAREFA
+       ========================================== -->
+  <div class="modal-overlay" id="task-detail-modal">
+    <div class="modal-card" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Detalhes da Tarefa</h3>
+        <button class="btn-close-modal flex-center" onclick="closeTaskDetailModal()">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; text-align: left;">
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">T&iacute;tulo</span>
+          <h4 id="detail-task-title" style="font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin-top: 0.25rem; margin-bottom: 0;"></h4>
+        </div>
+        
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span id="detail-task-status-badge" class="badge"></span>
+          <span id="detail-task-priority-badge" class="badge"></span>
+          <span id="detail-task-periodicity-badge" class="badge" style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); color: var(--primary);"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 1rem 0;">
+          <div>
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Equipe</span>
+            <span id="detail-task-team" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
+          </div>
+          <div>
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Sub-setor</span>
+            <span id="detail-task-subsector" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
+          </div>
+          <div style="margin-top: 0.5rem;">
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Respons&aacute;vel Direto</span>
+            <span id="detail-task-assignee" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
+          </div>
+          <div style="margin-top: 0.5rem;">
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Prazo de Conclusão</span>
+            <span id="detail-task-deadline" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Descrição / Detalhes</span>
+          <p id="detail-task-desc" style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 0; background: var(--bg-secondary); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); white-space: pre-wrap;"></p>
+        </div>
+
+        <div>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Projeto Vinculado</span>
+          <span id="detail-task-project" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-action-primary" onclick="closeTaskDetailModal()" style="width: 100%; justify-content: center;">Fechar</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
