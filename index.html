@@ -6994,7 +6994,6 @@
     function handleRegister() {
       try {
         loadUsuariosFromStorage(); // Load latest first to prevent duplicate emails
-      try {
         const nome    = document.getElementById('reg-nome').value.trim();
         const email   = document.getElementById('reg-email').value.trim();
         const setor   = document.getElementById('reg-setor').value;
@@ -7047,7 +7046,6 @@
     function handleLogin() {
       try {
         loadUsuariosFromStorage(); // Ensure latest registered users are loaded
-      try {
         const email = document.getElementById('login-email').value.trim();
         const pass = document.getElementById('login-password').value.trim();
         const errorMsg = document.getElementById('login-error-msg');
