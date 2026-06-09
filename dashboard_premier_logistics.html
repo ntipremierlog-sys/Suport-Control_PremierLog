@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -3459,35 +3459,49 @@
     /* ==========================================
        1. USUÃRIOS PRÃ‰-DEFINIDOS (SIMULAÃ‡ÃƒO DB)
        ========================================== */
-    const defaultUsuarios = [
-      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Gerente Geral", perfil: "gestor" }
+        const defaultUsuarios = [
+      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Gerente Geral", perfil: "gestor" },
+      { nome: "Geovanna Andrade", email: "geovanna.andrade@premierlog.com.br", senha: "Premier!2026", equipe: "Tecnologia", cargo: "Analista de TI", perfil: "colaborador" }
     ];
 
-    let cachedUsuarios = [];
-    try {
-      const cachedUsersStr = safeStorage.getItem('premier_usuarios');
-      if (cachedUsersStr) {
-        cachedUsuarios = JSON.parse(cachedUsersStr);
-      }
-    } catch (e) {
-      console.warn("Failed to load users from cache:", e);
-    }
+    const usuarios = [];
 
-    const usuarios = [...defaultUsuarios];
-    if (cachedUsuarios.length > 0) {
-      cachedUsuarios.forEach(cu => {
-        if (cu && cu.email && !usuarios.some(du => du.email.toLowerCase() === cu.email.toLowerCase())) {
-          usuarios.push(cu);
+    function loadUsuariosFromStorage() {
+      // Clear current array while preserving reference
+      usuarios.length = 0;
+      
+      // Load defaults
+      usuarios.push(...defaultUsuarios);
+      
+      // Load cached users from storage
+      let cachedUsuarios = [];
+      try {
+        const cachedUsersStr = safeStorage.getItem('premier_usuarios');
+        if (cachedUsersStr) {
+          cachedUsuarios = JSON.parse(cachedUsersStr);
         }
-      });
+      } catch (e) {
+        console.warn("Failed to load users from cache:", e);
+      }
+      
+      if (cachedUsuarios.length > 0) {
+        cachedUsuarios.forEach(cu => {
+          if (cu && cu.email && !usuarios.some(du => du.email.toLowerCase() === cu.email.toLowerCase())) {
+            usuarios.push(cu);
+          }
+        });
+      }
+      
+      // Persist list back to cache
+      try {
+        safeStorage.setItem('premier_usuarios', JSON.stringify(usuarios));
+      } catch (e) {
+        console.warn("Failed to persist combined users list:", e);
+      }
     }
 
-    // Persist list immediately to ensure it's healthy
-    try {
-      safeStorage.setItem('premier_usuarios', JSON.stringify(usuarios));
-    } catch (e) {
-      console.warn("Failed to persist combined users list:", e);
-    }
+    // Initial load of users list
+    loadUsuariosFromStorage();
 
     /* ==========================================
        2. MOCK DATA ROBUSTA (DADOS INICIAIS)
@@ -4728,7 +4742,7 @@
       safeStorage.removeItem('premier_tasks');
       safeStorage.removeItem('premier_projects');
       safeStorage.removeItem('premier_roadmaps'); safeStorage.removeItem('premier_indicators'); safeStorage.removeItem('premier_diagnostics'); safeStorage.removeItem('premier_notifications');
-      safeStorage.removeItem('premier_usuarios');
+
       safeStorage.removeItem('premier_user');
       safeStorage.setItem('premier_data_version', DATA_VERSION);
       console.info('Cache de dados limpo â€” nova versÃ£o:', DATA_VERSION);
@@ -6171,6 +6185,7 @@
        8.5. RENDERING: MEMBROS DO SETOR
        ========================================== */
     function renderMembers() {
+      loadUsuariosFromStorage(); // Keep members updated!
       const grid = document.getElementById('members-grid-container');
       const filterContainer = document.getElementById('members-filter-container');
       grid.innerHTML = '';
@@ -6784,6 +6799,7 @@
     }
 
     function populateAssigneesForSelectedTeam() {
+      loadUsuariosFromStorage(); // Keep assignees list updated!
       const team = document.getElementById('task-team').value;
       const assigneeSelect = document.getElementById('task-assignee');
       assigneeSelect.innerHTML = '';
@@ -6978,6 +6994,8 @@
 
     function handleRegister() {
       try {
+        loadUsuariosFromStorage(); // Load latest first to prevent duplicate emails
+      try {
         const nome    = document.getElementById('reg-nome').value.trim();
         const email   = document.getElementById('reg-email').value.trim();
         const setor   = document.getElementById('reg-setor').value;
@@ -7028,6 +7046,8 @@
     }
 
     function handleLogin() {
+      try {
+        loadUsuariosFromStorage(); // Ensure latest registered users are loaded
       try {
         const email = document.getElementById('login-email').value.trim();
         const pass = document.getElementById('login-password').value.trim();
