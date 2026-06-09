@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premier Logistics â€” Plataforma de GestÃ£o Integrada</title>
+  <title>Premier Logistics — Plataforma de Gestão Integrada</title>
   <script>
     (function() {
       let savedTheme = 'light';
@@ -780,7 +780,7 @@
       font-weight: 600;
     }
 
-    /* ConteÃºdo Principal */
+    /* Conteúdo Principal */
     .content-area {
       flex: 1;
       padding: 1rem 1.75rem;
@@ -803,7 +803,7 @@
     }
 
     /* ==========================================
-       DASHBOARD â€” GESTOR
+       DASHBOARD — GESTOR
        ========================================== */
     .dashboard-kpis {
       display: grid;
@@ -1181,7 +1181,7 @@
     }
 
     /* ==========================================
-       DASHBOARD â€” COLABORADOR
+       DASHBOARD — COLABORADOR
        ========================================== */
     .dashboard-colab-layout {
       display: grid;
@@ -2095,7 +2095,7 @@
     }
 
     /* ==========================================
-       CONFIGURAÃ‡Ã•ES MODULE
+       CONFIGURAÇÕES MODULE
        ========================================== */
     .settings-grid {
       display: grid;
@@ -2274,7 +2274,7 @@
     /* Responsive adjustments */
     @media (max-width: 1279px) {
       body::before {
-        content: 'Este sistema Ã© otimizado para telas desktop (mÃ­nimo de 1280px).';
+        content: 'Este sistema é otimizado para telas desktop (mínimo de 1280px).';
         position: fixed;
         inset: 0;
         background: #0A1628;
@@ -2291,7 +2291,7 @@
     }
 
     /* ============================================================
-       DASHBOARD REDESIGN â€” CLASSES PREMIUM
+       DASHBOARD REDESIGN — CLASSES PREMIUM
     ============================================================ */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(12px); }
@@ -2579,7 +2579,7 @@
           </svg>
           <span>Premier <span class="logo-highlight">Logistics</span></span>
         </div>
-        <div class="login-subtitle">GestÃ£o Integrada Premier</div>
+        <div class="login-subtitle">Gestão Integrada Premier</div>
       </div>
 
       <h2 class="login-title-h2">Acesse a sua conta</h2>
@@ -2591,7 +2591,7 @@
 
       <form id="login-form" onsubmit="event.preventDefault(); handleLogin();">
         <div class="form-group">
-          <label class="form-label" for="login-email">EndereÃ§o de e-mail</label>
+          <label class="form-label" for="login-email">Endereço de e-mail</label>
           <div class="form-input-container">
             <i data-lucide="mail" class="form-icon"></i>
             <input type="email" id="login-email" class="form-input" placeholder="exemplo@premier.com" required>
@@ -2602,7 +2602,7 @@
           <label class="form-label" for="login-password">Senha de acesso</label>
           <div class="form-input-container">
             <i data-lucide="lock" class="form-icon"></i>
-            <input type="password" id="login-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
           </div>
         </div>
 
@@ -2635,7 +2635,7 @@
               <option value="DP">DP</option>
               <option value="Qualidade">Qualidade</option>
               <option value="Tecnologia">Tecnologia</option>
-              <option value="PetrobrÃ¡s">PetrobrÃ¡s</option>
+              <option value="Petrobrás">Petrobrás</option>
             </select>
           </div>
         </div>
@@ -2649,7 +2649,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label" for="reg-funcao">FunÃ§Ã£o / Cargo</label>
+          <label class="form-label" for="reg-funcao">Função / Cargo</label>
           <div class="form-input-container">
             <i data-lucide="briefcase" class="form-icon"></i>
             <input type="text" id="reg-funcao" class="form-input" placeholder="Ex: Analista Financeiro" required>
@@ -2659,26 +2659,26 @@
           <label class="form-label" for="reg-password">Senha</label>
           <div class="form-input-container">
             <i data-lucide="lock" class="form-icon"></i>
-            <input type="password" id="reg-password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+            <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required>
           </div>
         </div>
         <button type="submit" class="btn-login" style="background: var(--success); border-color: var(--success-border); color: #fff;">Criar Conta e Entrar</button>
       </form>
 
       <div id="box-to-register" class="login-register-box" style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">NÃ£o possui uma conta?</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">Não possui uma conta?</p>
         <button type="button" class="btn-action-primary" onclick="toggleRegisterForm(true)" style="width: 100%; justify-content: center; background: transparent; color: var(--primary); border: 1px solid var(--primary);">Criar um Novo Login</button>
       </div>
 
       <div id="box-to-login" class="login-register-box hidden" style="margin-top: 1.5rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">JÃ¡ possui uma conta?</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">Já possui uma conta?</p>
         <button type="button" class="btn-action-primary" onclick="toggleRegisterForm(false)" style="width: 100%; justify-content: center; background: transparent; color: var(--text-muted); border: 1px solid var(--border-color);">Voltar para o Login</button>
       </div>
     </div>
   </section>
 
   <!-- ==========================================
-       LAYOUT PRINCIPAL PÃ“S-LOGIN
+       LAYOUT PRINCIPAL PÓS-LOGIN
        ========================================== -->
   <section id="app-section" class="app-wrapper hidden">
     <!-- Sidebar esquerda fixa -->
@@ -2746,22 +2746,22 @@
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('calendar')">
             <i data-lucide="calendar" class="menu-link-icon"></i>
-            <span>CalendÃ¡rio</span>
+            <span>Calendário</span>
           </button>
         </li>
         
-        <li class="menu-section-title" style="margin-top: 1.5rem;">ConfiguraÃ§Ãµes & Alertas</li>
+        <li class="menu-section-title" style="margin-top: 1.5rem;">Configurações & Alertas</li>
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('notifications')">
             <i data-lucide="bell" class="menu-link-icon"></i>
-            <span>NotificaÃ§Ãµes</span>
+            <span>Notificações</span>
             <span class="menu-badge hidden" id="sidebar-notif-badge">3</span>
           </button>
         </li>
         <li class="menu-item">
           <button class="menu-link" onclick="switchView('settings')">
             <i data-lucide="settings" class="menu-link-icon"></i>
-            <span>ConfiguraÃ§Ãµes</span>
+            <span>Configurações</span>
           </button>
         </li>
       </ul>
@@ -2769,7 +2769,7 @@
       <div class="sidebar-footer">
         <button class="btn-logout" onclick="handleLogout()">
           <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
-          <span>Sair da SessÃ£o</span>
+          <span>Sair da Sessão</span>
         </button>
       </div>
     </aside>
@@ -2780,7 +2780,7 @@
       <header class="top-header">
         <div class="header-title-area">
           <h1 class="header-title-text" id="header-title">Dashboard Geral</h1>
-          <p class="header-subtitle-text" id="header-subtitle">Bem-vindo Ã  plataforma de monitoramento de operaÃ§Ãµes.</p>
+          <p class="header-subtitle-text" id="header-subtitle">Bem-vindo Ã  plataforma de monitoramento de operações.</p>
         </div>
 
         <div class="header-actions-area">
@@ -2790,19 +2790,19 @@
             <input type="text" class="header-search-input" id="global-search" placeholder="Buscar tarefas ou projetos..." oninput="handleGlobalSearch(this.value)">
           </div>
 
-          <!-- BotÃ£o Toggle de Tema -->
+          <!-- Botão Toggle de Tema -->
           <button class="header-theme-btn flex-center" onclick="toggleTheme()" title="Alternar tema">
             <i data-lucide="sun" id="theme-icon-sun" style="width: 18px; height: 18px;"></i>
             <i data-lucide="moon" id="theme-icon-moon" class="hidden" style="width: 18px; height: 18px;"></i>
           </button>
 
-          <!-- Badges de notificaÃ§Ã£o rÃ¡pidos -->
+          <!-- Badges de notificação rápidos -->
           <button class="header-notif-btn flex-center" onclick="switchView('notifications')">
             <i data-lucide="bell" style="width: 18px; height: 18px;"></i>
             <span class="header-notif-badge hidden" id="header-notif-badge">3</span>
           </button>
 
-          <!-- UsuÃ¡rio logado -->
+          <!-- Usuário logado -->
           <div class="header-avatar-widget" onclick="switchView('settings')">
             <div class="header-avatar-circle" id="header-avatar-initials">RB</div>
             <span class="header-avatar-name" id="header-user-name">Ronaldo Brito</span>
@@ -2810,14 +2810,14 @@
         </div>
       </header>
 
-      <!-- SeÃ§Ã£o DinÃ¢mica de ConteÃºdo -->
+      <!-- Seção Dinâmica de Conteúdo -->
       <section class="content-area">
         
         <!-- ==========================================
              VIEW: DASHBOARD (GESTOR)
              ========================================== */ -->
         <div id="view-dashboard" class="view-panel">
-          <!-- KPIs de VisÃ£o Geral -->
+          <!-- KPIs de Visão Geral -->
           <div class="dashboard-kpis" id="dashboard-kpis-container">
             <!-- Cards gerados em JS -->
           </div>
@@ -2840,7 +2840,7 @@
                     <tr>
                       <th style="width: 32%;">Tarefa</th>
                       <th style="width: 15%;">Equipe</th>
-                      <th style="width: 18%;">ResponsÃ¡vel</th>
+                      <th style="width: 18%;">Responsável</th>
                       <th style="width: 12%;">Status</th>
                       <th style="width: 13%;">Prazo</th>
                       <th style="width: 10%;">Prioridade</th>
@@ -2913,14 +2913,14 @@
                 <option value="DP">DP</option>
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
-                <option value="GestÃ£o">GestÃ£o</option>
-                <option value="PetrobrÃ¡s">PetrobrÃ¡s</option>
+                <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
 
               <select class="filter-select" id="filter-priority" onchange="handleTaskFilterChange()">
                 <option value="All">Todas as Prioridades</option>
                 <option value="Alta">Alta</option>
-                <option value="MÃ©dia">MÃ©dia</option>
+                <option value="Média">Média</option>
                 <option value="Baixa">Baixa</option>
               </select>
             </div>
@@ -2957,12 +2957,12 @@
               <div class="cards-container" id="container-in_progress"></div>
             </div>
 
-            <!-- REVISÃƒO -->
+            <!-- REVISÃO -->
             <div class="kanban-column" id="col-review" ondragover="allowDrop(event)" ondragleave="dragLeave(event)" ondrop="handleDrop(event, 'review')">
               <div class="column-header">
                 <span class="column-title">
                   <i data-lucide="eye" style="width: 16px; height: 16px; color: var(--primary);"></i>
-                  RevisÃ£o
+                  Revisão
                 </span>
                 <span class="column-counter" id="counter-review">0</span>
               </div>
@@ -2974,7 +2974,7 @@
               <div class="column-header">
                 <span class="column-title">
                   <i data-lucide="check-circle-2" style="width: 16px; height: 16px; color: var(--success);"></i>
-                  ConcluÃ­do
+                  Concluído
                 </span>
                 <span class="column-counter" id="counter-done">0</span>
               </div>
@@ -3025,7 +3025,7 @@
         <div id="view-projects" class="view-panel hidden">
           <div class="filter-bar">
             <div class="filters-group-left">
-              <h3 style="font-weight: 700;">Iniciativas e Projetos EstratÃ©gicos</h3>
+              <h3 style="font-weight: 700;">Iniciativas e Projetos Estratégicos</h3>
             </div>
             <button class="btn-action-primary" onclick="openNewProjectModal()">
               <i data-lucide="folder-plus" style="width: 16px; height: 16px;"></i>
@@ -3091,7 +3091,7 @@
         </div>
 
         <!-- ==========================================
-             VIEW: NOTIFICAÃ‡Ã•ES
+             VIEW: NOTIFICAÇÕES
              ========================================== */ -->
         <div id="view-notifications" class="view-panel hidden">
           <div class="notif-wrapper">
@@ -3106,7 +3106,7 @@
         </div>
 
         <!-- ==========================================
-             VIEW: CONFIGURAÃ‡Ã•ES
+             VIEW: CONFIGURAÇÕES
              ========================================== */ -->
         <div id="view-settings" class="view-panel hidden">
           <div class="settings-grid">
@@ -3122,7 +3122,7 @@
             </div>
 
             <div class="dashboard-panel" style="display: flex; flex-direction: column; gap: 1.5rem;">
-              <h3 style="font-weight: 700; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">PreferÃªncias da Plataforma</h3>
+              <h3 style="font-weight: 700; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem;">Preferências da Plataforma</h3>
               
               <div class="detail-item">
                 <span class="detail-label">Tema da Interface</span>
@@ -3138,13 +3138,13 @@
 
               <div class="detail-item">
                 <span class="detail-label">Equipe Principal</span>
-                <span class="detail-value" style="font-size: 1rem; margin-top: 0.2rem;" id="settings-user-team">GestÃ£o</span>
+                <span class="detail-value" style="font-size: 1rem; margin-top: 0.2rem;" id="settings-user-team">Gestão</span>
               </div>
 
               <div class="detail-item">
-                <span class="detail-label">ConfiguraÃ§Ãµes Gerais</span>
+                <span class="detail-label">Configurações Gerais</span>
                 <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.25rem;">
-                  Como este Ã© um ambiente demonstrativo rodando inteiramente em cache no navegador, as alteraÃ§Ãµes em tarefas, projetos e roteiros serÃ£o salvas na memÃ³ria local durante a sua navegaÃ§Ã£o ativa.
+                  Como este é um ambiente demonstrativo rodando inteiramente em cache no navegador, as alterações em tarefas, projetos e roteiros serão salvas na memória local durante a sua navegação ativa.
                 </p>
               </div>
             </div>
@@ -3168,7 +3168,7 @@
     </div>
     <div class="drawer-body">
       <div class="detail-item">
-        <span class="drawer-section-title">DescriÃ§Ã£o Geral</span>
+        <span class="drawer-section-title">Descrição Geral</span>
         <p id="drawer-project-desc" style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted);">
           Detalhes completos do escopo e metas do projeto...
         </p>
@@ -3176,15 +3176,15 @@
 
       <div class="drawer-details-grid">
         <div class="detail-item">
-          <span class="detail-label">Equipe ResponsÃ¡vel</span>
-          <span class="detail-value" id="drawer-project-team">LogÃ­stica</span>
+          <span class="detail-label">Equipe Responsável</span>
+          <span class="detail-value" id="drawer-project-team">Logística</span>
         </div>
         <div class="detail-item">
           <span class="detail-label">Status Atual</span>
           <span class="detail-value" id="drawer-project-status">Em Planejamento</span>
         </div>
         <div class="detail-item">
-          <span class="detail-label">Data de InÃ­cio</span>
+          <span class="detail-label">Data de Início</span>
           <span class="detail-value" id="drawer-project-start">10/05/2026</span>
         </div>
         <div class="detail-item">
@@ -3240,7 +3240,7 @@
   </aside>
 
   <!-- ==========================================
-       MODAL DE CRIAÃ‡ÃƒO DE NOVA TAREFA
+       MODAL DE CRIAÇÃO DE NOVA TAREFA
        ========================================== -->
   <div class="modal-overlay" id="task-modal">
     <div class="modal-card">
@@ -3253,18 +3253,18 @@
       <form onsubmit="event.preventDefault(); submitNewTask();">
         <div class="modal-body">
           <div class="modal-form-group">
-            <label class="modal-form-label" for="task-title">TÃ­tulo da Tarefa</label>
-            <input type="text" id="task-title" class="modal-form-input" placeholder="Ex: ConferÃªncia final de CTe" required>
+            <label class="modal-form-label" for="task-title">Título da Tarefa</label>
+            <input type="text" id="task-title" class="modal-form-input" placeholder="Ex: Conferência final de CTe" required>
           </div>
 
           <div class="modal-form-group">
-            <label class="modal-form-label" for="task-desc">DescriÃ§Ã£o / Detalhes</label>
-            <textarea id="task-desc" class="modal-form-textarea" placeholder="Descreva os passos necessÃ¡rios para a conclusÃ£o desta tarefa..."></textarea>
+            <label class="modal-form-label" for="task-desc">Descrição / Detalhes</label>
+            <textarea id="task-desc" class="modal-form-textarea" placeholder="Descreva os passos necessários para a conclusão desta tarefa..."></textarea>
           </div>
 
           <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-team">Equipe ResponsÃ¡vel</label>
+              <label class="modal-form-label" for="task-team">Equipe Responsável</label>
               <select id="task-team" class="modal-form-select" onchange="updateSubSectorsSelect('task'); populateAssigneesForSelectedTeam();" required>
                 <option value="Financeiro">Financeiro</option>
                 <option value="Operacional">Operacional</option>
@@ -3272,8 +3272,8 @@
                 <option value="DP">DP</option>
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
-                <option value="GestÃ£o">GestÃ£o</option>
-                <option value="PetrobrÃ¡s">PetrobrÃ¡s</option>
+                <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
             </div>
 
@@ -3285,7 +3285,7 @@
             </div>
 
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-assignee">ResponsÃ¡vel direto</label>
+              <label class="modal-form-label" for="task-assignee">Responsável direto</label>
               <select id="task-assignee" class="modal-form-select" required>
                 <!-- Populated dynamically based on team -->
               </select>
@@ -3294,7 +3294,7 @@
 
                     <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="task-deadline">Prazo de ConclusÃ£o</label>
+              <label class="modal-form-label" for="task-deadline">Prazo de Conclusão</label>
               <input type="date" id="task-deadline" class="modal-form-input" required>
             </div>
 
@@ -3302,7 +3302,7 @@
               <label class="modal-form-label" for="task-periodicity">Periodicidade</label>
               <select id="task-periodicity" class="modal-form-select" required>
                 <option value="Pontual">Pontual</option>
-                <option value="DiÃ¡rio">DiÃ¡rio</option>
+                <option value="Diário">Diário</option>
                 <option value="Semanal">Semanal</option>
                 <option value="Mensal">Mensal</option>
               </select>
@@ -3313,7 +3313,7 @@
               <select id="task-priority" class="modal-form-select" required>
                 <option value="Alta">Alta</option>
                 <option value="Baixa">Baixa</option>
-                <option value="MÃ©dia">MÃ©dia</option>
+                <option value="Média">Média</option>
               </select>
             </div>
           </div>
@@ -3335,12 +3335,12 @@
   </div>
 
   <!-- ==========================================
-       MODAL DE CRIAÃ‡ÃƒO DE NOVO PROJETO
+       MODAL DE CRIAÇÃO DE NOVO PROJETO
        ========================================== -->
   <div class="modal-overlay" id="project-modal">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 class="modal-title">Novo Projeto EstratÃ©gico</h3>
+        <h3 class="modal-title">Novo Projeto Estratégico</h3>
         <button class="btn-close-modal flex-center" onclick="closeNewProjectModal()">
           <i data-lucide="x" style="width: 16px; height: 16px;"></i>
         </button>
@@ -3349,17 +3349,17 @@
         <div class="modal-body">
           <div class="modal-form-group">
             <label class="modal-form-label" for="project-title">Nome da Iniciativa</label>
-            <input type="text" id="project-title" class="modal-form-input" placeholder="Ex: ExpansÃ£o LogÃ­stica Nordeste" required>
+            <input type="text" id="project-title" class="modal-form-input" placeholder="Ex: Expansão Logística Nordeste" required>
           </div>
 
           <div class="modal-form-group">
-            <label class="modal-form-label" for="project-desc">DescriÃ§Ã£o / Escopo do Projeto</label>
+            <label class="modal-form-label" for="project-desc">Descrição / Escopo do Projeto</label>
             <textarea id="project-desc" class="modal-form-textarea" placeholder="Descreva os objetivos fundamentais deste projeto..."></textarea>
           </div>
 
           <div class="modal-grid-3" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem;">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="project-team">Equipe ResponsÃ¡vel</label>
+              <label class="modal-form-label" for="project-team">Equipe Responsável</label>
               <select id="project-team" class="modal-form-select" onchange="updateSubSectorsSelect('project')" required>
                 <option value="Financeiro">Financeiro</option>
                 <option value="Operacional">Operacional</option>
@@ -3367,8 +3367,8 @@
                 <option value="DP">DP</option>
                 <option value="Qualidade">Qualidade</option>
                 <option value="Tecnologia">Tecnologia</option>
-                <option value="GestÃ£o">GestÃ£o</option>
-                <option value="PetrobrÃ¡s">PetrobrÃ¡s</option>
+                <option value="Gestão">Gestão</option>
+                <option value="Petrobrás">Petrobrás</option>
               </select>
             </div>
 
@@ -3383,15 +3383,15 @@
               <label class="modal-form-label" for="project-status">Status Inicial</label>
               <select id="project-status" class="modal-form-select" required>
                 <option value="Em Planejamento">Em Planejamento</option>
-                <option value="Em ExecuÃ§Ã£o">Em ExecuÃ§Ã£o</option>
-                <option value="ConcluÃ­do">ConcluÃ­do</option>
+                <option value="Em Execução">Em Execução</option>
+                <option value="Concluído">Concluído</option>
               </select>
             </div>
           </div>
 
           <div class="modal-grid-2">
             <div class="modal-form-group">
-              <label class="modal-form-label" for="project-start">Data de InÃ­cio</label>
+              <label class="modal-form-label" for="project-start">Data de Início</label>
               <input type="date" id="project-start" class="modal-form-input" required>
             </div>
 
@@ -3410,11 +3410,11 @@
   </div>
 
   <!-- ==========================================
-       LÃ“GICA JAVASCRIPT & ESTADO GLOBAL
+       LÓGICA JAVASCRIPT & ESTADO GLOBAL
        ========================================== -->
   <script>
     /* ==========================================
-       0. SEGURANÃ‡A E COMPATIBILIDADE (LOCALSTORAGE & LUCIDE)
+       0. SEGURANÇA E COMPATIBILIDADE (LOCALSTORAGE & LUCIDE)
        ========================================== */
     const safeStorage = {
       _data: {},
@@ -3457,10 +3457,10 @@
     }
 
     /* ==========================================
-       1. USUÃRIOS PRÃ‰-DEFINIDOS (SIMULAÃ‡ÃƒO DB)
+       1. USUÃRIOS PRÉ-DEFINIDOS (SIMULAÇÃO DB)
        ========================================== */
         const defaultUsuarios = [
-      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Gerente Geral", perfil: "gestor" },
+      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "Gestão", cargo: "Gerente Geral", perfil: "gestor" },
       { nome: "Geovanna Andrade", email: "geovanna.andrade@premierlog.com.br", senha: "Premier!2026", equipe: "Tecnologia", cargo: "Analista de TI", perfil: "colaborador" }
     ];
 
@@ -4288,7 +4288,7 @@
     ];
 
     const initialRoadmaps = {
-    "PetrobrÃ¡s": [],
+    "Petrobrás": [],
     "Financeiro":  [
                        {
                            "status":  "Concluído",
@@ -4731,21 +4731,21 @@
     const initialNotifications = [];
 
     /* ==========================================
-       3. ESTADO GLOBAL DA APLICAÃ‡ÃƒO (MUTÃVEL)
+       3. ESTADO GLOBAL DA APLICAÇÃO (MUTÃVEL)
        ========================================== */
 
-    // VersÃ£o dos dados â€” altere sempre que quiser forÃ§ar um reset do cache
+    // Versão dos dados — altere sempre que quiser forçar um reset do cache
     const DATA_VERSION = '2026-06-03-v9';
     const storedVersion = safeStorage.getItem('premier_data_version');
     if (storedVersion !== DATA_VERSION) {
-      // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificaÃ§Ãµes, usuÃ¡rio logado)
+      // Limpar todos os dados em cache (tarefas, projetos, roteiros, notificações, usuário logado)
       safeStorage.removeItem('premier_tasks');
       safeStorage.removeItem('premier_projects');
       safeStorage.removeItem('premier_roadmaps'); safeStorage.removeItem('premier_indicators'); safeStorage.removeItem('premier_diagnostics'); safeStorage.removeItem('premier_notifications');
 
       safeStorage.removeItem('premier_user');
       safeStorage.setItem('premier_data_version', DATA_VERSION);
-      console.info('Cache de dados limpo â€” nova versÃ£o:', DATA_VERSION);
+      console.info('Cache de dados limpo — nova versão:', DATA_VERSION);
     }
 
     // Helper to persist state
@@ -4801,7 +4801,7 @@
         priority: 'All',
         status: 'All',
         search: '',
-        membersTeam: 'GestÃ£o'
+        membersTeam: 'Gestão'
       },
       calendarDate: new Date("2026-06-02"),
       currentSelectedProject: null,
@@ -4817,18 +4817,21 @@
       const savedTheme = safeStorage.getItem('premier_theme') || 'light';
       setTheme(savedTheme);
 
-      // Iniciar Ã­cones lucide
+      // Iniciar ícones lucide
       safeCreateIcons();
       
-      // Checar se jÃ¡ temos sessÃ£o salva no localStorage (para melhor UX de refresh)
+      // Checar se já temos sessão salva no localStorage (para melhor UX de refresh)
       try {
         const cachedUser = safeStorage.getItem('premier_user');
         if (cachedUser) {
-          state.currentUser = JSON.parse(cachedUser);
+          const parsedUser = JSON.parse(cachedUser);
+          loadUsuariosFromStorage();
+          const freshUser = usuarios.find(u => u.email.toLowerCase() === parsedUser.email.toLowerCase());
+          state.currentUser = freshUser || parsedUser;
           initApp();
         }
       } catch (err) {
-        console.error("Erro ao carregar sessÃ£o cacheada:", err);
+        console.error("Erro ao carregar sessão cacheada:", err);
       }
     });
 
@@ -4841,9 +4844,9 @@
           });
         });
       }
-      // Validar seguranÃ§a do usuÃ¡rio antes de iniciar app para evitar crash fatal
+      // Validar segurança do usuário antes de iniciar app para evitar crash fatal
       if (!state.currentUser || !state.currentUser.nome || !state.currentUser.perfil || !state.currentUser.equipe) {
-        console.warn("UsuÃ¡rio invÃ¡lido ou nÃ£o autenticado. Redirecionando para login.");
+        console.warn("Usuário inválido ou não autenticado. Redirecionando para login.");
         handleLogout();
         return;
       }
@@ -4852,14 +4855,14 @@
       document.getElementById('login-section').classList.add('hidden');
       document.getElementById('app-section').classList.remove('hidden');
 
-      // Configurar dados do usuÃ¡rio logado nos widgets de perfil
+      // Configurar dados do usuário logado nos widgets de perfil
       updateUserProfileUI();
       
-      // Aplicar filtros e resetar visualizaÃ§Ãµes
+      // Aplicar filtros e resetar visualizações
       state.filters.team = state.currentUser.perfil === 'gestor' ? 'All' : state.currentUser.equipe;
       document.getElementById('filter-team').value = state.filters.team;
       if (state.currentUser.perfil !== 'gestor') {
-        document.getElementById('filter-team').disabled = true; // Colaborador travado na prÃ³pria equipe
+        document.getElementById('filter-team').disabled = true; // Colaborador travado na própria equipe
       } else {
         document.getElementById('filter-team').disabled = false;
       }
@@ -4881,7 +4884,7 @@
         if (teamTasksItem) teamTasksItem.classList.add('hidden');
       }
 
-      // Abrir o Dashboard por padrÃ£o
+      // Abrir o Dashboard por padrão
       switchView('dashboard');
       updateNotificationsBadge();
     }
@@ -4916,7 +4919,7 @@
     }
 
     /* ==========================================
-       5. CONTROLE DE NAVEGAÃ‡ÃƒO DE VIEWS
+       5. CONTROLE DE NAVEGAÇÃO DE VIEWS
        ========================================== */
     function switchView(viewName) {
       // Esconder todas as views
@@ -4940,7 +4943,7 @@
         }
       });
 
-      // Atualizar tÃ­tulo do Header
+      // Atualizar título do Header
       const headerTitle = document.getElementById('header-title');
       const headerSubtitle = document.getElementById('header-subtitle');
       
@@ -4968,36 +4971,36 @@
           break;
         case 'roadmaps':
           headerTitle.textContent = "Fluxo de trabalho";
-          headerSubtitle.textContent = "Checklists e fluxos obrigatÃ³rios por equipe.";
+          headerSubtitle.textContent = "Checklists e fluxos obrigatórios por equipe.";
           renderRoadmaps();
           break;
         case 'projects':
           headerTitle.textContent = "Projetos Corporativos";
-          headerSubtitle.textContent = "VisualizaÃ§Ã£o e controle de iniciativas de mÃ©dio/longo prazo.";
+          headerSubtitle.textContent = "Visualização e controle de iniciativas de médio/longo prazo.";
           renderProjects();
           break;
         case 'members':
           headerTitle.textContent = state.currentUser.perfil === 'gestor' ? "Membros e Equipes" : "Membros do Setor";
-          headerSubtitle.textContent = "VisualizaÃ§Ã£o de colaboradores e seus projetos ativos neste departamento.";
+          headerSubtitle.textContent = "Visualização de colaboradores e seus projetos ativos neste departamento.";
           renderMembers();
           break;
         case 'calendar':
-          headerTitle.textContent = "CalendÃ¡rio Integrado";
+          headerTitle.textContent = "Calendário Integrado";
           headerSubtitle.textContent = "Prazos de entrega de tarefas e marcos operacionais organizados.";
           renderCalendar();
           break;
         case 'notifications':
-          headerTitle.textContent = "Central de NotificaÃ§Ãµes";
-          headerSubtitle.textContent = "Alertas crÃ­ticos, atribuiÃ§Ãµes e ocorrÃªncias diÃ¡rias.";
+          headerTitle.textContent = "Central de Notificações";
+          headerSubtitle.textContent = "Alertas críticos, atribuições e ocorrências diárias.";
           renderNotifications();
           break;
         case 'settings':
           headerTitle.textContent = "Ajustes e Perfil";
-          headerSubtitle.textContent = "Customize suas preferÃªncias visuais e operacionais na plataforma.";
+          headerSubtitle.textContent = "Customize suas preferências visuais e operacionais na plataforma.";
           break;
       }
 
-      // Reiniciar Ã­cones renderizados dinamicamente
+      // Reiniciar ícones renderizados dinamicamente
       safeCreateIcons();
     }
 
@@ -5048,7 +5051,7 @@
           </div>
           <div class="kpi-card kpi-done">
             <div class="kpi-header">
-              <span class="kpi-label">Entregues / ConcluÃ­das</span>
+              <span class="kpi-label">Entregues / Concluídas</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="check-circle-2" class="kpi-icon"></i>
               </div>
@@ -5063,7 +5066,7 @@
           </div>
           <div class="kpi-card kpi-progress">
             <div class="kpi-header">
-              <span class="kpi-label">Em ExecuÃ§Ã£o Ativa</span>
+              <span class="kpi-label">Em Execução Ativa</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="activity" class="kpi-icon"></i>
               </div>
@@ -5087,7 +5090,7 @@
               <span class="kpi-value" style="color:var(--danger);">${delayed}</span>
             </div>
             <div class="kpi-subtext">
-              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--danger);"></i> ${delayed > 0 ? 'AtenÃ§Ã£o imediata!' : 'Status sob controle'}
+              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--danger);"></i> ${delayed > 0 ? 'Atenção imediata!' : 'Status sob controle'}
             </div>
             <div class="kpi-prog-strip"><div class="kpi-prog-fill-strip" style="width:${delayedPct}%;background:var(--danger);"></div></div>
           </div>
@@ -5111,7 +5114,7 @@
           } else if (daysLeft === 0) {
             deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> Hoje</span>`;
           } else if (daysLeft === 1) {
-            deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> AmanhÃ£</span>`;
+            deadlineBadge = `<span style="color:var(--warning); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="clock" style="width:11px; height:11px;"></i> Amanhã</span>`;
           } else {
             deadlineBadge = `<span style="color:var(--primary); font-size:0.68rem; font-weight:700; display:inline-flex; align-items:center; gap:0.2rem;"><i data-lucide="calendar" style="width:11px; height:11px;"></i> em ${daysLeft}d</span>`;
           }
@@ -5122,11 +5125,11 @@
           const priorityColor = p => {
             const lp = p.toLowerCase();
             if (lp.includes('alt')) return 'var(--danger)';
-            if (lp.includes('mÃ©d')) return 'var(--warning)';
+            if (lp.includes('méd')) return 'var(--warning)';
             return 'var(--success)';
           };
 
-          const shortTeam = t.team === 'LogÃ­stica / OperaÃ§Ãµes' ? 'LogÃ­stica/Op.' :
+          const shortTeam = t.team === 'Logística / Operações' ? 'Logística/Op.' :
                             t.team === 'RH / Administrativo' ? 'RH/Adm.' :
                             t.team === 'Comercial / Vendas' ? 'Comercial/Vendas' : t.team;
 
@@ -5138,7 +5141,7 @@
                   <div style="display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap;">
                     <span style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem;">
                       <i data-lucide="folder" style="width:11px; height:11px; opacity:0.6;"></i>
-                      ${project ? project.name : 'OperaÃ§Ã£o de Rotina'}
+                      ${project ? project.name : 'Operação de Rotina'}
                     </span>
                     ${t.subSector ? `<span style="font-size:0.65rem; background:var(--bg-primary); border:1px solid var(--border-color); color:var(--text-muted); padding:0.02rem 0.3rem; border-radius:4px; font-weight:600; display:inline-block; line-height:1.25;">${t.subSector}</span>` : ''}
                   </div>
@@ -5170,7 +5173,7 @@
         // Barras de progresso por equipe
         const progressList = document.getElementById('dashboard-team-progress');
         progressList.innerHTML = '';
-        ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'PetrobrÃ¡s'].forEach(team => {
+        ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'Petrobrás'].forEach(team => {
           const teamTasks = state.tasks.filter(t => t.team === team);
           const completed = teamTasks.filter(t => t.status === 'done').length;
           const pct = teamTasks.length > 0 ? Math.round((completed / teamTasks.length) * 100) : 0;
@@ -5197,7 +5200,7 @@
           alertsContainer.innerHTML = `
             <div style="text-align:center;padding:1.5rem;color:var(--text-muted);font-size:0.82rem;">
               <i data-lucide="check-circle-2" style="width:28px;height:28px;color:var(--success);margin-bottom:0.35rem;"></i>
-              <p>Nenhuma tarefa atrasada. Ã“timo!</p>
+              <p>Nenhuma tarefa atrasada. Ótimo!</p>
             </div>`;
         } else {
           delayedTasks.slice(0, 2).forEach(t => {
@@ -5226,17 +5229,17 @@
         const myHighPri   = myPending.filter(t => t.priority === 'Alta').length;
         const myPendingSorted = [...myPending].sort((a,b) => new Date(a.deadline) - new Date(b.deadline));
         const nextTask    = myPendingSorted[0] || null;
-        const nextDeadline = nextTask ? formatDate(nextTask.deadline) : 'â€”';
+        const nextDeadline = nextTask ? formatDate(nextTask.deadline) : '—';
         const daysToNext  = nextTask ? Math.round((new Date(nextTask.deadline) - new Date(todayStr)) / 86400000) : 99;
 
         // Roteiro
         const teamRoadmap       = state.roadmaps[myTeam] || [];
         const roadmapTotal      = teamRoadmap.length;
-        const roadmapDone       = teamRoadmap.filter(r => r.status === 'ConcluÃ­do').length;
+        const roadmapDone       = teamRoadmap.filter(r => r.status === 'Concluído').length;
         const roadmapActive     = teamRoadmap.filter(r => r.status === 'Em Andamento').length;
         const roadmapPending    = teamRoadmap.filter(r => r.status === 'Pendente').length;
         const roadmapDisplayPct = roadmapTotal > 0 ? Math.round((roadmapDone / roadmapTotal) * 100) : 0;
-        // r=64 â†’ circumference â‰ˆ 402.12; r=54 â†’ 339.3
+        // r=64 → circumference ≈ 402.12; r=54 → 339.3
         const arcCircumference  = 339.3;
         const arcOffset         = Math.max(0, arcCircumference - (roadmapDisplayPct / 100 * arcCircumference));
 
@@ -5261,9 +5264,9 @@
             </div>
           </div>
 
-          <div class="kpi-card kpi-done" title="Tarefas concluÃ­das">
+          <div class="kpi-card kpi-done" title="Tarefas concluídas">
             <div class="kpi-header">
-              <span class="kpi-label">ConcluÃ­das</span>
+              <span class="kpi-label">Concluídas</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="check-check" class="kpi-icon"></i>
               </div>
@@ -5279,9 +5282,9 @@
             </div>
           </div>
 
-          <div class="kpi-card kpi-delayed" title="PrÃ³ximo prazo de entrega">
+          <div class="kpi-card kpi-delayed" title="Próximo prazo de entrega">
             <div class="kpi-header">
-              <span class="kpi-label">PrÃ³ximo Prazo</span>
+              <span class="kpi-label">Próximo Prazo</span>
               <div class="kpi-icon-container flex-center">
                 <i data-lucide="alarm-clock" class="kpi-icon"></i>
               </div>
@@ -5290,7 +5293,7 @@
               <span class="kpi-value" style="font-size:1.45rem;letter-spacing:-0.5px;">${nextDeadline}</span>
             </div>
             <div class="kpi-subtext" style="color:${daysToNext <= 1 ? 'var(--danger)' : 'var(--text-muted)'};">
-              <i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${daysToNext <= 0 ? 'Atrasado' : daysToNext === 1 ? 'AmanhÃ£' : `em ${daysToNext} dias`}
+              <i data-lucide="clock" style="width: 12px; height: 12px;"></i> ${daysToNext <= 0 ? 'Atrasado' : daysToNext === 1 ? 'Amanhã' : `em ${daysToNext} dias`}
             </div>
             <div class="kpi-prog-strip">
               <div class="kpi-prog-fill-strip" style="width:${Math.min(100, Math.max(10, 100 - daysToNext * 10))}%;background:${daysToNext <= 2 ? 'var(--danger)' : 'var(--warning)'};"></div>
@@ -5309,7 +5312,7 @@
               <span class="kpi-value" style="color:var(--primary);">${roadmapDisplayPct}%</span>
             </div>
             <div class="kpi-subtext">
-              <i data-lucide="info" style="width: 12px; height: 12px; color: var(--primary);"></i> ${roadmapDone} feitas Â· ${roadmapActive} ativas
+              <i data-lucide="info" style="width: 12px; height: 12px; color: var(--primary);"></i> ${roadmapDone} feitas · ${roadmapActive} ativas
             </div>
             <div class="kpi-prog-strip"><div class="kpi-prog-fill-strip" style="width:${roadmapDisplayPct}%;background:var(--primary);"></div></div>
           </div>
@@ -5321,7 +5324,7 @@
             <div class="panel-header" style="flex-shrink:0;margin-bottom:0;padding-bottom:0.75rem;border-bottom:1px solid var(--border-color);">
               <h3 class="panel-title" style="font-size:0.95rem;">
                 <i data-lucide="list-todo" class="logo-icon-svg" style="color:var(--primary);width:18px;height:18px;"></i>
-                Fila de Tarefas Ativas â€” ${myTeam}
+                Fila de Tarefas Ativas — ${myTeam}
               </h3>
               <button class="panel-action-btn" onclick="switchView('tasks')" style="font-size:0.75rem;padding:0.35rem 0.8rem;">
                 Abrir Kanban
@@ -5344,7 +5347,7 @@
     /* ------ Fila de Tarefas (Enxuta) ------ */
     function filterColabTasks(filter) {
       const myTeam   = state.currentUser.equipe;
-      // Mostrar apenas pendentes e em andamento para leitura rÃ¡pida
+      // Mostrar apenas pendentes e em andamento para leitura rápida
       const pendingTasks = state.tasks.filter(t => t.team === myTeam && t.status !== 'done');
       const sorted = pendingTasks.sort((a,b) => new Date(a.deadline) - new Date(b.deadline));
       const todayStr = new Date().toISOString().split('T')[0];
@@ -5362,7 +5365,7 @@
         return;
       }
 
-      const priColor = p => p === 'Alta' ? 'var(--danger)' : (p === 'MÃ©dia' ? 'var(--warning)' : 'var(--success)');
+      const priColor = p => p === 'Alta' ? 'var(--danger)' : (p === 'Média' ? 'var(--warning)' : 'var(--success)');
 
       // Header descritivo das colunas
       const headerHtml = `
@@ -5371,7 +5374,7 @@
             <span>Tarefa</span>
           </div>
           <div style="flex:3;display:flex;align-items:center;justify-content:flex-end;gap:2.5rem;">
-            <span style="width:110px;text-align:left;">ResponsÃ¡vel</span>
+            <span style="width:110px;text-align:left;">Responsável</span>
             <span style="width:80px;text-align:center;">Status</span>
             <span style="width:80px;text-align:right;">Prazo</span>
           </div>
@@ -5386,7 +5389,7 @@
         let timeCss  = 'color:var(--text-muted)';
         if (isDelayed)     { timeText = 'Atrasado'; timeCss = 'color:var(--danger);font-weight:700;'; }
         else if (daysLeft === 0){ timeText = 'Hoje';     timeCss = 'color:var(--warning);font-weight:700;'; }
-        else if (daysLeft === 1){ timeText = 'AmanhÃ£';   timeCss = 'color:var(--warning);'; }
+        else if (daysLeft === 1){ timeText = 'Amanhã';   timeCss = 'color:var(--warning);'; }
 
         const statusColor = s => s === 'done' ? 'var(--success)' : (s === 'todo' ? 'var(--primary)' : 'var(--warning)');
 
@@ -5441,9 +5444,9 @@
                               t.assignee === 'JS3 + GG' || 
                               (t.assignee && t.assignee.includes('GG')) || 
                               t.team === 'Gest&atilde;o' || 
-                              t.team === 'Gest&Atilde;&pound;o' || 
                               t.team === 'Gest&atilde;o' || 
-                              t.team === 'GestÃ£o'
+                              t.team === 'Gest&atilde;o' || 
+                              t.team === 'Gestão'
                             ));
         const matchesTeam = isMine || state.filters.team === 'All' || t.team === state.filters.team;
         const matchesPriority = state.filters.priority === 'All' || t.priority === state.filters.priority;
@@ -5462,7 +5465,7 @@
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
@@ -5481,7 +5484,7 @@
                 <span style="font-size:0.75rem; font-weight:700; color:${priorityColor(task.priority)};">${task.priority}</span>
               </div>
               <h4 class="card-title">${task.title}</h4>
-              <p class="card-description">${task.description || 'Sem descriÃ§Ã£o.'}</p>
+              <p class="card-description">${task.description || 'Sem descrição.'}</p>
               
               <div style="display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
                 ${task.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; font-weight: 600; line-height: 1;">${task.subSector}</div>` : ''}
@@ -5496,10 +5499,10 @@
                 <div class="mini-avatar" title="${task.assignee}">${getInitials(task.assignee)}</div>
               </div>
 
-              <!-- Setas rÃ¡pidas para mobilidade/acessibilidade nos computadores -->
+              <!-- Setas rápidas para mobilidade/acessibilidade nos computadores -->
               <div class="card-actions-quick">
                 ${task.status !== 'todo' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'prev')" title="Mover para coluna anterior"><i data-lucide="chevron-left" style="width:12px; height:12px;"></i></button>` : ''}
-                ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para prÃ³xima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
+                ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para próxima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
               </div>
             </div>
           `;
@@ -5590,25 +5593,25 @@
             <option value="todo" ${t.status === 'todo' ? 'selected' : ''}>A Fazer</option>
             <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>Em Andamento</option>
             <option value="review" ${t.status === 'review' ? 'selected' : ''}>Revis&atilde;o</option>
-            <option value="done" ${t.status === 'done' ? 'selected' : ''}>ConcluÃ­do</option>
+            <option value="done" ${t.status === 'done' ? 'selected' : ''}>Concluído</option>
           </select>
         `;
 
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
-        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
-        const shortTeamText = shortTeam.replace(/&iacute;/g, 'í').replace(/&otilde;/g, 'õ').replace(/Ã­/g, 'í').replace(/Ãµ/g, 'õ');
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'Logística / Operações' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+        const shortTeamText = shortTeam.replace(/&iacute;/g, 'í').replace(/&otilde;/g, 'õ').replace(/í/g, 'í').replace(/õ/g, 'õ');
 
         const formatStatusText = s => {
           if (s === 'todo') return 'A Fazer';
           if (s === 'in_progress') return 'Em Andamento';
           if (s === 'review') return 'Revis&atilde;o';
-          return 'ConcluÃ­do';
+          return 'Concluído';
         };
 
         tbody.innerHTML += `
@@ -5616,7 +5619,7 @@
             <td style="padding: 1rem 1.25rem; word-break: break-word; white-space: normal;">
               <div style="display:flex; flex-direction:column; gap:0.2rem;">
                 <span style="font-size:0.85rem; font-weight:700; color:var(--text-main); line-height: 1.3;">${t.title}</span>
-                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:500;">${t.description || 'Sem descriÃ§Ã£o.'}</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:500;">${t.description || 'Sem descrição.'}</span>
                 <div style="display:flex; align-items:center; gap:0.4rem; margin-top: 0.15rem;">
                   <span style="font-size:0.7rem; color:var(--text-muted); display:flex; align-items:center; gap:0.25rem;">
                     <i data-lucide="folder" style="width:11px; height:11px; opacity:0.6;"></i>
@@ -5678,18 +5681,18 @@
             <option value="todo" ${t.status === 'todo' ? 'selected' : ''}>A Fazer</option>
             <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>Em Andamento</option>
             <option value="review" ${t.status === 'review' ? 'selected' : ''}>Revis&atilde;o</option>
-            <option value="done" ${t.status === 'done' ? 'selected' : ''}>ConcluÃ­do</option>
+            <option value="done" ${t.status === 'done' ? 'selected' : ''}>Concluído</option>
           </select>
         `;
 
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
-        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'Logística / Operações' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
 
         container.innerHTML += `
           <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-left: 4px solid var(--color-${teamSlug}); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; transition: var(--transition-normal);">
@@ -5698,7 +5701,7 @@
                 <span style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">${t.title}</span>
                 <span style="font-size: 0.75rem; font-weight: 700; color: ${priorityColor(t.priority)}; text-transform: uppercase;">${t.priority}</span>
               </div>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">${t.description || 'Sem descriÃ§Ã£o.'}</p>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">${t.description || 'Sem descrição.'}</p>
               <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem;">
                 <span style="font-size: 0.7rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.25rem;">
                   <i data-lucide="folder" style="width: 11px; height: 11px; opacity: 0.6;"></i>
@@ -5739,7 +5742,7 @@
       renderKanban();
     }
 
-    // LÃ³gica Drag and Drop HTML5
+    // Lógica Drag and Drop HTML5
     let draggedTaskId = null;
 
     function handleDragStart(event, taskId) {
@@ -5783,17 +5786,17 @@
     function updateTaskStatus(taskId, targetStatus) {
       const task = state.tasks.find(t => t.id === taskId);
       if (task) {
-        // RestriÃ§Ã£o de seguranÃ§a RBAC para Colaborador (apenas tarefas da sua equipe)
+        // Restrição de segurança RBAC para Colaborador (apenas tarefas da sua equipe)
         if (state.currentUser.perfil !== 'gestor' && task.team !== state.currentUser.equipe) {
-          alert("VocÃª sÃ³ tem permissÃ£o para alterar tarefas da sua prÃ³pria equipe.");
+          alert("Você só tem permissão para alterar tarefas da sua própria equipe.");
           return;
         }
 
         task.status = targetStatus;
         
-        // Se foi movido para 'done', gerar notificaÃ§Ã£o simulada de sucesso
+        // Se foi movido para 'done', gerar notificação simulada de sucesso
         if (targetStatus === 'done') {
-          addNotification(`Tarefa concluÃ­da por ${state.currentUser.nome}: "${task.title}"`, 'success');
+          addNotification(`Tarefa concluída por ${state.currentUser.nome}: "${task.title}"`, 'success');
         }
 
         saveStateToStorage();
@@ -5802,7 +5805,7 @@
       }
     }
 
-    // Acessibilidade rÃ¡pida: mover via clique em setas
+    // Acessibilidade rápida: mover via clique em setas
     function moveTaskQuick(taskId, direction) {
       const task = state.tasks.find(t => t.id === taskId);
       if (!task) return;
@@ -5834,14 +5837,14 @@
       // Se for gestor, mostrar roteiros de todas as equipes
       // Se for colaborador, mostrar apenas a sua
       const activeTeams = u.perfil === 'gestor' 
-        ? ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'PetrobrÃ¡s']
+        ? ['Financeiro', 'Operacional', 'R&S', 'DP', 'Qualidade', 'Tecnologia', 'Petrobrás']
         : [u.equipe];
 
       state.selectedRoadmapFluxo = state.selectedRoadmapFluxo || {};
 
       activeTeams.forEach(teamName => {
         const roadmapSteps = state.roadmaps[teamName] || [];
-        const completedTotal = roadmapSteps.filter(s => s.status === 'ConcluÃ­do').length;
+        const completedTotal = roadmapSteps.filter(s => s.status === 'Concluído').length;
         const totalCount = roadmapSteps.length;
         const pctTotal = totalCount > 0 ? Math.round((completedTotal / totalCount) * 100) : 0;
         const slug = getTeamSlug(teamName);
@@ -5880,7 +5883,7 @@
                 <div style="font-size:0.8rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.35rem;">
                   <i data-lucide="plus-circle" style="width:14px; height:14px;"></i> Criar Novo Fluxo de Trabalho
                 </div>
-                <input type="text" id="new-fluxo-name-${teamName}" placeholder="Nome do fluxo de trabalho (Ex: Fechamento ContÃ¡bil)..." style="padding:0.5rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-primary); color:var(--text-main); outline:none;">
+                <input type="text" id="new-fluxo-name-${teamName}" placeholder="Nome do fluxo de trabalho (Ex: Fechamento Contábil)..." style="padding:0.5rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-primary); color:var(--text-main); outline:none;">
                 <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
                   <button class="panel-action-btn" onclick="cancelCreateFluxoForm()" style="font-size:0.7rem; padding:0.25rem 0.5rem; background:var(--border-color); color:var(--text-main);">Cancelar</button>
                   <button class="btn-action-primary" onclick="submitCreateFluxoForm('${teamName}')" style="font-size:0.7rem; padding:0.25rem 0.5rem;">Criar Fluxo</button>
@@ -5891,11 +5894,11 @@
             <!-- Render Grouped Workflows (Fluxos) -->
             ${uniqueFluxos.length === 0 ? `
               <div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size:0.85rem;">
-                Nenhum fluxo de trabalho cadastrado. Clique em "Criar Novo Fluxo" para comeÃ§ar.
+                Nenhum fluxo de trabalho cadastrado. Clique em "Criar Novo Fluxo" para começar.
               </div>
             ` : uniqueFluxos.map(fluxoName => {
               const fluxoSteps = roadmapSteps.filter(s => s.fluxo === fluxoName);
-              const completedFluxo = fluxoSteps.filter(s => s.status === 'ConcluÃ­do').length;
+              const completedFluxo = fluxoSteps.filter(s => s.status === 'Concluído').length;
               const pctFluxo = fluxoSteps.length > 0 ? Math.round((completedFluxo / fluxoSteps.length) * 100) : 0;
 
               return `
@@ -5909,7 +5912,7 @@
                     </div>
                     
                     <div style="display:flex; align-items:center; gap:0.75rem;">
-                      <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); background:var(--bg-primary); padding:0.15rem 0.5rem; border-radius:10px; border:1px solid var(--border-color);">${pctFluxo}% concluÃ­do</span>
+                      <span style="font-size:0.75rem; font-weight:700; color:var(--text-muted); background:var(--bg-primary); padding:0.15rem 0.5rem; border-radius:10px; border:1px solid var(--border-color);">${pctFluxo}% concluído</span>
                       ${isMyTeam ? `
                         <button class="panel-action-btn" onclick="showAddStepForm('${teamName}', '${fluxoName}')" style="font-size: 0.7rem; padding: 0.25rem 0.5rem; display:flex; align-items:center; gap:0.25rem;">
                           <i data-lucide="plus" style="width:12px; height:12px;"></i> Add Etapa
@@ -5929,10 +5932,10 @@
                       <div style="font-size:0.75rem; font-weight:700; color:var(--primary); display:flex; align-items:center; gap:0.25rem;">
                         <i data-lucide="plus" style="width:12px; height:12px;"></i> Nova Etapa em "${fluxoName}"
                       </div>
-                      <input type="text" id="new-step-title-${teamName}-${fluxoName}" placeholder="Nome da etapa (Ex: LanÃ§ar notas)..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-secondary); color:var(--text-main); outline:none;">
+                      <input type="text" id="new-step-title-${teamName}-${fluxoName}" placeholder="Nome da etapa (Ex: Lançar notas)..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); width:100%; background:var(--bg-secondary); color:var(--text-main); outline:none;">
                       <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
                         <input type="text" id="new-step-deadline-${teamName}-${fluxoName}" placeholder="Prazo (Ex: Dia 5 ao dia 8)" style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;">
-                        <input type="text" id="new-step-assignee-${teamName}-${fluxoName}" placeholder="ResponsÃ¡vel..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" value="${u.nome}">
+                        <input type="text" id="new-step-assignee-${teamName}-${fluxoName}" placeholder="Responsável..." style="padding:0.45rem; font-size:0.8rem; border-radius:var(--radius-sm); border:1px solid var(--border-color); flex:1; min-width:140px; background:var(--bg-secondary); color:var(--text-main); outline:none;" value="${u.nome}">
                       </div>
                       <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
                         <button class="panel-action-btn" onclick="cancelAddStepForm()" style="font-size:0.7rem; padding:0.25rem 0.5rem; background:var(--border-color); color:var(--text-main);">Cancelar</button>
@@ -6160,7 +6163,7 @@
       renderRoadmaps();
       
       if (removedStep) {
-        addNotification(`Etapa "${removedStep.title}" foi excluÃ­da do fluxo ${teamName}.`, 'warning');
+        addNotification(`Etapa "${removedStep.title}" foi excluída do fluxo ${teamName}.`, 'warning');
       }
     }
 
@@ -6170,9 +6173,9 @@
       if (step) {
         step.status = newStatus;
         
-        // Se a etapa foi concluÃ­da, adicionar notificaÃ§Ã£o
-        if (newStatus === 'ConcluÃ­do') {
-          addNotification(`Etapa ${stepNum} do roteiro de ${teamName} foi ConcluÃ­da: "${step.title}"`, 'success');
+        // Se a etapa foi concluída, adicionar notificação
+        if (newStatus === 'Concluído') {
+          addNotification(`Etapa ${stepNum} do roteiro de ${teamName} foi Concluída: "${step.title}"`, 'success');
         }
 
         saveStateToStorage();
@@ -6204,7 +6207,7 @@
             <span style="font-size:0.85rem; font-weight:600; color:var(--text-muted);">Filtrar por Setor:</span>
             <select id="members-team-select" class="filter-select" onchange="state.filters.membersTeam = this.value; renderMembers();" style="font-size:0.8rem; padding:0.4rem 0.8rem; border-radius:var(--radius-md); background:var(--bg-primary); border:1px solid var(--border-color); color:var(--text-main);">
               <option value="All" ${selectedTeam === 'All' ? 'selected' : ''}>Todos os Setores</option>
-              <option value="GestÃ£o" ${selectedTeam === 'GestÃ£o' ? 'selected' : ''}>Diretoria / GestÃ£o</option>
+              <option value="Gestão" ${selectedTeam === 'Gestão' ? 'selected' : ''}>Diretoria / Gestão</option>
               <option value="Financeiro" ${selectedTeam === 'Financeiro' ? 'selected' : ''}>Financeiro</option>
               <option value="Operacional" ${selectedTeam === 'Operacional' ? 'selected' : ''}>Operacional</option>
               <option value="R&S" ${selectedTeam === 'R&S' ? 'selected' : ''}>R&S</option>
@@ -6317,12 +6320,12 @@
                 <span style="width:7px; height:7px; border-radius:50%; background:var(--color-${slug}); display:inline-block; flex-shrink:0;"></span>
                 <span style="font-size:0.75rem; font-weight:700; color:var(--text-main); text-transform:uppercase; letter-spacing:0.3px;">${proj.team}</span>
               </div>
-              <span style="font-size:0.75rem; font-weight:700; color:${proj.status === 'ConcluÃ­do' ? 'var(--success)' : proj.status === 'Atrasado' ? 'var(--danger)' : 'var(--warning)'};">${proj.status}</span>
+              <span style="font-size:0.75rem; font-weight:700; color:${proj.status === 'Concluído' ? 'var(--success)' : proj.status === 'Atrasado' ? 'var(--danger)' : 'var(--warning)'};">${proj.status}</span>
             </div>
             
             <h4 class="project-card-title">${proj.name}</h4>
             ${proj.subSector ? `<div style="font-size: 0.68rem; color: var(--text-muted); background: var(--bg-primary); border: 1px solid var(--border-color); padding: 0.1rem 0.4rem; border-radius: 4px; display: inline-block; width: max-content; font-weight: 600; margin-bottom: 0.5rem;">${proj.subSector}</div>` : ''}
-            <p class="project-card-desc">${proj.description || 'Sem descriÃ§Ã£o.'}</p>
+            <p class="project-card-desc">${proj.description || 'Sem descrição.'}</p>
             
             <div class="project-progress-container">
               <div class="project-progress-text">
@@ -6470,27 +6473,27 @@
       const year = d.getFullYear();
       const month = d.getMonth();
 
-      // Nomes dos meses em portuguÃªs
-      const monthNames = ["Janeiro", "Fevereiro", "MarÃ§o", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+      // Nomes dos meses em português
+      const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
       monthYearLabel.textContent = `${monthNames[month]} de ${year}`;
 
-      // Gerar os cabeÃ§alhos de dia de semana
-      const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "SÃ¡b"];
+      // Gerar os cabeçalhos de dia de semana
+      const weekdays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
       weekdays.forEach(day => {
         grid.innerHTML += `<div class="calendar-weekday-header">${day}</div>`;
       });
 
-      // Primeiro dia do mÃªs correspondente
+      // Primeiro dia do mês correspondente
       const firstDay = new Date(year, month, 1);
       const startingDayOfWeek = firstDay.getDay();
 
-      // Total de dias no mÃªs
+      // Total de dias no mês
       const daysInMonth = new Date(year, month + 1, 0).getDate();
       
-      // Total de dias no mÃªs anterior (para cÃ©lulas vazias)
+      // Total de dias no mês anterior (para células vazias)
       const prevMonthDays = new Date(year, month, 0).getDate();
 
-      // Renderizar dias do mÃªs anterior
+      // Renderizar dias do mês anterior
       for (let i = startingDayOfWeek - 1; i >= 0; i--) {
         const dayVal = prevMonthDays - i;
         grid.innerHTML += `
@@ -6500,7 +6503,7 @@
         `;
       }
 
-      // Renderizar dias do mÃªs atual
+      // Renderizar dias do mês atual
       const today = new Date();
       const isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
 
@@ -6525,7 +6528,7 @@
         grid.innerHTML += cellHtml;
       }
 
-      // Preencher o final da grade se necessÃ¡rio (mÃªs seguinte)
+      // Preencher o final da grade se necessário (mês seguinte)
       const totalCellsUsed = startingDayOfWeek + daysInMonth;
       const remainingCells = 42 - totalCellsUsed; // Grade 6 semanas fixa
       for (let i = 1; i <= remainingCells; i++) {
@@ -6536,7 +6539,7 @@
         `;
       }
 
-      // Ocultar painel de detalhe inferior por padrÃ£o atÃ© clique
+      // Ocultar painel de detalhe inferior por padrão até clique
       document.getElementById('calendar-day-details').classList.add('hidden');
     }
 
@@ -6546,7 +6549,7 @@
     }
 
     function resetCalendarMonth() {
-      state.calendarDate = new Date("2026-05-30"); // Voltar ao padrÃ£o da simulaÃ§Ã£o
+      state.calendarDate = new Date("2026-05-30"); // Voltar ao padrão da simulação
       renderCalendar();
     }
 
@@ -6558,7 +6561,7 @@
       const detailsList = document.getElementById('calendar-details-tasks-list');
       const detailsTitle = document.getElementById('calendar-details-date');
 
-      detailsTitle.textContent = `Prazos de Entrega â€” ${formatDate(dateStr)}`;
+      detailsTitle.textContent = `Prazos de Entrega — ${formatDate(dateStr)}`;
       detailsList.innerHTML = '';
 
       if (dayTasks.length === 0) {
@@ -6569,7 +6572,7 @@
             <div class="drawer-task-item" style="margin-bottom:0.5rem; background-color: var(--bg-secondary); cursor: pointer;" onclick="openTaskDetailModal('${task.id}')">
               <div class="drawer-task-info">
                 <span class="drawer-task-title">${task.title}</span>
-                <span class="drawer-task-meta">Equipe: <strong>${task.team}</strong> | ResponsÃ¡vel: <strong>${task.assignee}</strong></span>
+                <span class="drawer-task-meta">Equipe: <strong>${task.team}</strong> | Responsável: <strong>${task.assignee}</strong></span>
               </div>
               <span class="badge status-badge status-badge-${task.status}">${formatStatus(task.status)}</span>
             </div>
@@ -6595,7 +6598,7 @@
       const lp = task.priority.toLowerCase();
       let prioClass = 'var(--success)';
       if (lp.includes('alt')) prioClass = 'var(--danger)';
-      else if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) prioClass = 'var(--warning)';
+      else if (lp.includes('méd') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('méd') || lp.includes('méd')) prioClass = 'var(--warning)';
       priorityBadge.style.background = prioClass;
       priorityBadge.style.color = '#fff';
       priorityBadge.textContent = task.priority;
@@ -6607,7 +6610,7 @@
       document.getElementById('detail-task-subsector').textContent = task.subSector || 'Geral';
       document.getElementById('detail-task-assignee').textContent = task.assignee;
       document.getElementById('detail-task-deadline').textContent = formatDate(task.deadline);
-      document.getElementById('detail-task-desc').textContent = task.description || task.desc || 'Sem descriÃ§Ã£o cadastrada.';
+      document.getElementById('detail-task-desc').textContent = task.description || task.desc || 'Sem descrição cadastrada.';
 
       const project = state.projects.find(p => p.id === task.project);
       document.getElementById('detail-task-project').textContent = project ? project.name : 'Opera&ccedil;&atilde;o de Rotina';
@@ -6621,7 +6624,7 @@
     }
 
     /* ==========================================
-       11. RENDERING: NOTIFICAÃ‡Ã•ES & ALERTAS
+       11. RENDERING: NOTIFICAÇÕES & ALERTAS
        ========================================== */
     function renderNotifications() {
       const container = document.getElementById('notifications-list-container');
@@ -6631,13 +6634,13 @@
         container.innerHTML = `
           <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
             <i data-lucide="bell-off" style="width: 48px; height: 48px; margin-bottom: 1rem; opacity: 0.5;"></i>
-            <p>Sua caixa de notificaÃ§Ãµes estÃ¡ totalmente vazia.</p>
+            <p>Sua caixa de notificações está totalmente vazia.</p>
           </div>
         `;
         return;
       }
 
-      // Ordenar por lidas vs nÃ£o lidas, e data
+      // Ordenar por lidas vs não lidas, e data
       const sorted = [...state.notifications].sort((a,b) => b.read - a.read);
 
       sorted.forEach(notif => {
@@ -6728,14 +6731,14 @@
        11. MAPAS E CARTEIRAS DE SUB-SETORES
        ========================================== */
     const subSectorsMap = {
-      'Financeiro': ['BenefÃ­cios', 'Faturamento', 'Contas a Pagar/Receber'],
-      'Operacional': ['Planejamento de Rotas', 'Monitoramento', 'GestÃ£o de Frota'],
-      'R&S': ['Recrutamento', 'SeleÃ§Ã£o', 'Onboarding'],
-      'DP': ['Ponto', 'Atestado', 'RescisÃ£o', 'Folha'],
+      'Financeiro': ['Benefícios', 'Faturamento', 'Contas a Pagar/Receber'],
+      'Operacional': ['Planejamento de Rotas', 'Monitoramento', 'Gestão de Frota'],
+      'R&S': ['Recrutamento', 'Seleção', 'Onboarding'],
+      'DP': ['Ponto', 'Atestado', 'Rescisão', 'Folha'],
       'Qualidade': ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
       'Tecnologia': ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados'],
-      'GestÃ£o': ['Geral'],
-      'PetrobrÃ¡s': ['Geral', 'OperaÃ§Ã£o', 'Contratos', 'MediÃ§Ã£o']
+      'Gestão': ['Geral'],
+      'Petrobrás': ['Geral', 'Operação', 'Contratos', 'Medição']
     };
 
     function updateSubSectorsSelect(modalType) {
@@ -6754,7 +6757,7 @@
     }
 
     /* ==========================================
-       12. MODAIS: CRIAÃ‡ÃƒO DE NOVA TAREFA
+       12. MODAIS: CRIAÇÃO DE NOVA TAREFA
        ========================================== */
     function openNewTaskModal() {
       // Limpar campos
@@ -6762,22 +6765,22 @@
       document.getElementById('task-desc').value = '';
       document.getElementById('task-deadline').value = '';
       document.getElementById('task-periodicity').value = 'Pontual';
-      document.getElementById('task-priority').value = 'MÃ©dia';
+      document.getElementById('task-priority').value = 'Média';
       
-      // Controlar permissÃ£o de seleÃ§Ã£o de equipe
+      // Controlar permissão de seleção de equipe
       const teamSelect = document.getElementById('task-team');
       if (state.currentUser.perfil === 'gestor') {
         teamSelect.value = 'Financeiro';
         teamSelect.disabled = false;
       } else {
         teamSelect.value = state.currentUser.equipe;
-        teamSelect.disabled = true; // Colaborador nÃ£o troca sua prÃ³pria equipe
+        teamSelect.disabled = true; // Colaborador não troca sua própria equipe
       }
 
       // Popular sub-setores
       updateSubSectorsSelect('task');
 
-      // Popular responsÃ¡veis
+      // Popular responsáveis
       populateAssigneesForSelectedTeam();
 
       // Popular lista de projetos no select
@@ -6804,10 +6807,10 @@
       const assigneeSelect = document.getElementById('task-assignee');
       assigneeSelect.innerHTML = '';
 
-      // Filtrar usuÃ¡rios que pertencem Ã  equipe selecionada ou que sÃ£o gestores
+      // Filtrar usuários que pertencem Ã  equipe selecionada ou que são gestores
       const teamMembers = usuarios.filter(u => u.equipe === team || u.perfil === 'gestor');
       
-      // Se nÃ£o houver membros explÃ­citos, colocar gestor ou geral
+      // Se não houver membros explícitos, colocar gestor ou geral
       if (teamMembers.length === 0) {
         assigneeSelect.innerHTML += `<option value="Equipe Geral">Equipe Geral</option>`;
       } else {
@@ -6844,12 +6847,12 @@
 
       state.tasks.push(newTask);
       
-      // Criar notificaÃ§Ã£o correspondente
+      // Criar notificação correspondente
       addNotification(`Nova tarefa cadastrada para a equipe ${team}: "${title}"`, 'info');
 
       closeNewTaskModal();
       
-      // Se o usuÃ¡rio estiver visualizando tarefas ou dashboard, recarregar a tela atual
+      // Se o usuário estiver visualizando tarefas ou dashboard, recarregar a tela atual
       const currentActiveMenuLink = document.querySelector('.sidebar-menu .menu-link.active');
       const clickAttr = currentActiveMenuLink ? currentActiveMenuLink.getAttribute('onclick') : '';
       
@@ -6858,7 +6861,7 @@
     }
 
     /* ==========================================
-       13. MODAIS: CRIAÃ‡ÃƒO DE NOVO PROJETO
+       13. MODAIS: CRIAÇÃO DE NOVO PROJETO
        ========================================== */
     function openNewProjectModal() {
       document.getElementById('project-title').value = '';
@@ -6907,7 +6910,7 @@
       };
 
       state.projects.push(newProj);
-      addNotification(`Novo projeto estratÃ©gico cadastrado: "${name}" (${team})`, 'info');
+      addNotification(`Novo projeto estratégico cadastrado: "${name}" (${team})`, 'info');
 
       saveStateToStorage();
       closeNewProjectModal();
@@ -6918,7 +6921,7 @@
       const proj = state.currentSelectedProject;
       if (!proj) return;
 
-      if (confirm(`Tem certeza que deseja excluir o projeto "${proj.name}"? As tarefas vinculadas a ele continuarÃ£o existindo, mas sem associaÃ§Ã£o a este projeto.`)) {
+      if (confirm(`Tem certeza que deseja excluir o projeto "${proj.name}"? As tarefas vinculadas a ele continuarão existindo, mas sem associação a este projeto.`)) {
         // Remove project from state
         state.projects = state.projects.filter(p => p.id !== proj.id);
 
@@ -6930,7 +6933,7 @@
         });
 
         // Add notification
-        addNotification(`O projeto "${proj.name}" foi excluÃ­do com sucesso.`, 'warning');
+        addNotification(`O projeto "${proj.name}" foi excluído com sucesso.`, 'warning');
 
         // Save and refresh
         saveStateToStorage();
@@ -6940,7 +6943,7 @@
     }
 
     /* ==========================================
-       14. SISTEMA DE LOGIN & AUTENTICAÃ‡ÃƒO
+       14. SISTEMA DE LOGIN & AUTENTICAÇÃO
        ========================================== */
     function toggleRegisterForm(isRegistering) {
       const loginForm = document.getElementById('login-form');
@@ -6967,15 +6970,15 @@
       }
     }
 
-    // Mapa de subsetores para o formulÃ¡rio de registro
+    // Mapa de subsetores para o formulário de registro
     const registerSubSectorsMap = {
-      'Financeiro':  ['BenefÃ­cios', 'Faturamento', 'Contas a Pagar/Receber'],
-      'Operacional': ['OperaÃ§Ãµes', 'LogÃ­stica', 'Frota'],
-      'R&S':         ['Recrutamento', 'SeleÃ§Ã£o', 'IntegraÃ§Ã£o'],
-      'DP':          ['Ponto', 'Atestado', 'RescisÃ£o', 'Folha'],
+      'Financeiro':  ['Benefícios', 'Faturamento', 'Contas a Pagar/Receber'],
+      'Operacional': ['Operações', 'Logística', 'Frota'],
+      'R&S':         ['Recrutamento', 'Seleção', 'Integração'],
+      'DP':          ['Ponto', 'Atestado', 'Rescisão', 'Folha'],
       'Qualidade':   ['Auditoria', 'Processos', 'Indicadores', 'Conformidade'],
       'Tecnologia':  ['Infraestrutura', 'Desenvolvimento', 'Suporte', 'Dados'],
-      'PetrobrÃ¡s':   ['Geral', 'OperaÃ§Ã£o', 'Contratos', 'MediÃ§Ã£o']
+      'Petrobrás':   ['Geral', 'Operação', 'Contratos', 'Medição']
     };
 
     function updateRegisterSubSectors() {
@@ -7003,13 +7006,13 @@
         const senha   = document.getElementById('reg-password').value.trim();
 
         if (!nome || !email || !senha || !setor || !funcao) {
-          alert("Preencha todos os campos obrigatÃ³rios.");
+          alert("Preencha todos os campos obrigatórios.");
           return;
         }
 
-        // Verificar se e-mail jÃ¡ existe
+        // Verificar se e-mail já existe
         if (usuarios.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-          alert("Este e-mail jÃ¡ estÃ¡ cadastrado no sistema.");
+          alert("Este e-mail já está cadastrado no sistema.");
           return;
         }
 
@@ -7025,7 +7028,7 @@
 
         usuarios.push(newUser);
 
-        // Salvar a lista de usuÃ¡rios atualizada no safeStorage
+        // Salvar a lista de usuários atualizada no safeStorage
         try {
           safeStorage.setItem('premier_usuarios', JSON.stringify(usuarios));
         } catch (e) {
@@ -7052,14 +7055,14 @@
         const errorMsg = document.getElementById('login-error-msg');
         const errorText = document.getElementById('login-error-text');
 
-        // Procurar usuÃ¡rio
+        // Procurar usuário
         const found = usuarios.find(u => u.email.toLowerCase() === email.toLowerCase() && u.senha === pass);
 
         if (found) {
           errorMsg.classList.add('hidden');
           state.currentUser = found;
           
-          // Cachear sessÃ£o no localstorage
+          // Cachear sessão no localstorage
           safeStorage.setItem('premier_user', JSON.stringify(found));
           
           initApp();
@@ -7083,7 +7086,7 @@
         document.getElementById('login-password').value = '';
         document.getElementById('login-error-msg').classList.add('hidden');
 
-        // Garantir que volta sempre para o formulÃ¡rio de login (nÃ£o de cadastro)
+        // Garantir que volta sempre para o formulário de login (não de cadastro)
         toggleRegisterForm(false);
 
         // Esconder app e mostrar login
@@ -7109,7 +7112,7 @@
     function handleGlobalSearch(value) {
       state.filters.search = value;
       
-      // Decidir qual view atualizar com base no que estÃ¡ aberto
+      // Decidir qual view atualizar com base no que está aberto
       const currentActiveMenuLink = document.querySelector('.sidebar-menu .menu-link.active');
       const clickAttr = currentActiveMenuLink ? currentActiveMenuLink.getAttribute('onclick') : '';
 
@@ -7158,16 +7161,16 @@
       switch (status) {
         case 'todo': return 'A Fazer';
         case 'in_progress': return 'Em Andamento';
-        case 'review': return 'RevisÃ£o';
-        case 'done': return 'ConcluÃ­do';
+        case 'review': return 'Revisão';
+        case 'done': return 'Concluído';
         default: return status;
       }
     }
 
     function getTeamSlug(teamName) {
-      if (teamName.includes('Petrobras') || teamName.includes('PetrobrÃ¡s')) return 'petrobras';
+      if (teamName.includes('Petrobras') || teamName.includes('Petrobrás')) return 'petrobras';
       if (teamName.includes('Financeiro') || teamName.includes('Faturamento')) return 'fat';
-      if (teamName.includes('Operacional') || teamName.includes('LogÃ­stica')) return 'log';
+      if (teamName.includes('Operacional') || teamName.includes('Logística')) return 'log';
       if (teamName.includes('R&S') || teamName.includes('Comercial')) return 'com';
       if (teamName.includes('DP') || teamName.includes('RH')) return 'rh';
       if (teamName.includes('Qualidade')) return 'qualidade';
@@ -7213,13 +7216,13 @@
             <span id="detail-task-assignee" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
           </div>
           <div style="margin-top: 0.5rem;">
-            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Prazo de ConclusÃ£o</span>
+            <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; display: block;">Prazo de Conclusão</span>
             <span id="detail-task-deadline" style="font-size: 0.85rem; font-weight: 600; color: var(--text-main);"></span>
           </div>
         </div>
 
         <div>
-          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">DescriÃ§Ã£o / Detalhes</span>
+          <span style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Descrição / Detalhes</span>
           <p id="detail-task-desc" style="font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); margin-top: 0.25rem; margin-bottom: 0; background: var(--bg-secondary); padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); white-space: pre-wrap;"></p>
         </div>
 

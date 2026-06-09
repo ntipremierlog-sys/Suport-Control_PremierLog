@@ -3460,7 +3460,7 @@
        1. USUÁRIOS PRÉ-DEFINIDOS (SIMULAÇÃO DB)
        ========================================== */
         const defaultUsuarios = [
-      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "GestÃ£o", cargo: "Gerente Geral", perfil: "gestor" },
+      { nome: "Ronaldo Brito", email: "ggu@premierlog.com.br", senha: "Premier!2026", equipe: "Gestão", cargo: "Gerente Geral", perfil: "gestor" },
       { nome: "Geovanna Andrade", email: "geovanna.andrade@premierlog.com.br", senha: "Premier!2026", equipe: "Tecnologia", cargo: "Analista de TI", perfil: "colaborador" }
     ];
 
@@ -4824,7 +4824,10 @@
       try {
         const cachedUser = safeStorage.getItem('premier_user');
         if (cachedUser) {
-          state.currentUser = JSON.parse(cachedUser);
+          const parsedUser = JSON.parse(cachedUser);
+          loadUsuariosFromStorage();
+          const freshUser = usuarios.find(u => u.email.toLowerCase() === parsedUser.email.toLowerCase());
+          state.currentUser = freshUser || parsedUser;
           initApp();
         }
       } catch (err) {
@@ -5441,7 +5444,7 @@
                               t.assignee === 'JS3 + GG' || 
                               (t.assignee && t.assignee.includes('GG')) || 
                               t.team === 'Gest&atilde;o' || 
-                              t.team === 'Gest&Atilde;&pound;o' || 
+                              t.team === 'Gest&atilde;o' || 
                               t.team === 'Gest&atilde;o' || 
                               t.team === 'Gestão'
                             ));
@@ -5462,7 +5465,7 @@
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
@@ -5496,10 +5499,10 @@
                 <div class="mini-avatar" title="${task.assignee}">${getInitials(task.assignee)}</div>
               </div>
 
-              <!-- Setas rÃ¡pidas para mobilidade/acessibilidade nos computadores -->
+              <!-- Setas rápidas para mobilidade/acessibilidade nos computadores -->
               <div class="card-actions-quick">
                 ${task.status !== 'todo' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'prev')" title="Mover para coluna anterior"><i data-lucide="chevron-left" style="width:12px; height:12px;"></i></button>` : ''}
-                ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para prÃ³xima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
+                ${task.status !== 'done' ? `<button class="btn-quick-move" onclick="moveTaskQuick('${task.id}', 'next')" title="Mover para próxima coluna"><i data-lucide="chevron-right" style="width:12px; height:12px;"></i></button>` : ''}
               </div>
             </div>
           `;
@@ -5597,12 +5600,12 @@
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
-        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
-        const shortTeamText = shortTeam.replace(/&iacute;/g, 'í').replace(/&otilde;/g, 'õ').replace(/Ã­/g, 'í').replace(/Ãµ/g, 'õ');
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'Logística / Operações' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+        const shortTeamText = shortTeam.replace(/&iacute;/g, 'í').replace(/&otilde;/g, 'õ').replace(/í/g, 'í').replace(/õ/g, 'õ');
 
         const formatStatusText = s => {
           if (s === 'todo') return 'A Fazer';
@@ -5685,11 +5688,11 @@
         const priorityColor = p => {
           const lp = p.toLowerCase();
           if (lp.includes('alt')) return 'var(--danger)';
-          if (lp.includes('mÃ©d') || lp.includes('méd')) return 'var(--warning)';
+          if (lp.includes('méd') || lp.includes('méd')) return 'var(--warning)';
           return 'var(--success)';
         };
 
-        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'LogÃ­stica / OperaÃ§Ãµes' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
+        const shortTeam = t.team === 'Log&iacute;stica / Opera&ccedil;&otilde;es' || t.team === 'Logística / Operações' || t.team === 'Logística / Operações' ? 'Log&iacute;stica/Op.' : t.team;
 
         container.innerHTML += `
           <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-left: 4px solid var(--color-${teamSlug}); border-radius: var(--radius-md); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; transition: var(--transition-normal);">
@@ -6595,7 +6598,7 @@
       const lp = task.priority.toLowerCase();
       let prioClass = 'var(--success)';
       if (lp.includes('alt')) prioClass = 'var(--danger)';
-      else if (lp.includes('mÃ©d') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('mÃ©d') || lp.includes('méd')) prioClass = 'var(--warning)';
+      else if (lp.includes('méd') || lp.includes('m&eacute;d') || lp.includes('m&Atilde;&copy;d') || lp.includes('méd') || lp.includes('méd')) prioClass = 'var(--warning)';
       priorityBadge.style.background = prioClass;
       priorityBadge.style.color = '#fff';
       priorityBadge.textContent = task.priority;
